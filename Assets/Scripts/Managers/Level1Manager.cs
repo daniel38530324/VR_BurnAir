@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public enum Level1State
 {
-    Explain, //»¡©ú¶¥¬q
-    Choose,  //¿ï¾Ü¾¹§÷¶¥¬q
-    Fan,     //İµ®°¤l¶¥¬q
-    Cover,   //»\¦í¤õµK¶¥¬q
-    Test     //´úÅç¶¥¬q
+    Explain, //èªªæ˜éšæ®µ
+    Choose,  //é¸æ“‡å™¨æéšæ®µ
+    Fan,     //æ§æ‰‡å­éšæ®µ
+    Cover,   //è“‹ä½ç«ç„°éšæ®µ
+    Test     //æ¸¬é©—éšæ®µ
 }
 
 public class Level1Manager : MonoBehaviour
@@ -23,8 +23,16 @@ public class Level1Manager : MonoBehaviour
     [Header("Object")]
     [SerializeField] GameObject place;
     [SerializeField] GameObject candle_control, candle_test;
+    [SerializeField] GameObject cover;
 
     Level1State level1State;
+    
+    [Header("Test")]
+    public QuestionData questionData;
+    public GameObject questionPanel;
+    public Text[] tests;
+    public GameObject[] ansPanel;
+    int currentQusetIndex;
 
     private void Awake()
     {
@@ -46,19 +54,22 @@ public class Level1Manager : MonoBehaviour
                 break;
             case Level1State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
+                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
                 place.SetActive(true);
                 break;
             case Level1State.Fan:
-                mission_Text.text = "¥Î®°¤lİµ¤õµK";
+                mission_Text.text = "ç”¨æ‰‡å­æ§ç«ç„°";
                 candle_control.SetActive(true);
                 candle_test.SetActive(true);
                 break;
             case Level1State.Cover:
-                mission_Text.text = "±N¤õµK»\¦í";
+                cover.SetActive(true);
+                mission_Text.text = "å°‡ç«ç„°è“‹ä½";
                 break;
             case Level1State.Test:
                 mission_Text.transform.parent.gameObject.SetActive(false);
+                questionPanel.SetActive(true);
+                Quesion(0);
                 break;
         }
     }
@@ -68,4 +79,44 @@ public class Level1Manager : MonoBehaviour
         UpdateLevel1State(Level1State.Choose);
     }
 
+    void Quesion(int index)
+    {
+        tests[0].text = questionData.questions[currentQusetIndex];
+        tests[1].text = questionData.answer1[currentQusetIndex];
+        tests[2].text = questionData.answer2[currentQusetIndex];
+    }
+
+    public void AnsBtn(bool isRight)
+    {
+        if(questionData.correctAnswerIsRight[currentQusetIndex]){
+            if(isRight){
+                StartCoroutine(NextQusetion(true));
+            }else{
+                StartCoroutine(NextQusetion(false));
+            }
+        }else{
+            if(!isRight){
+                StartCoroutine(NextQusetion(true));
+            }else{
+                StartCoroutine(NextQusetion(false));
+            }
+        }
+    }
+
+    IEnumerator NextQusetion(bool correctAns)
+    {
+        tests[0].text = questionData.explain[currentQusetIndex];
+        currentQusetIndex++;
+        ansPanel[0].SetActive(correctAns);
+        ansPanel[1].SetActive(!correctAns);
+        yield return new WaitForSeconds(2f);
+        if(questionData.questions.Length == currentQusetIndex){
+            //Next level
+            Debug.Log($"NextLevel");
+        }else{
+            Quesion(currentQusetIndex);
+            ansPanel[0].SetActive(false);
+            ansPanel[1].SetActive(false);
+        }
+    }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Place
+  - Wind
+  - Cover
   layers:
   - Default
   - TransparentFX

@@ -44,7 +44,7 @@ public class react : MonoBehaviour
             FMNetworkManager.instance.SendToServer(sendString);
             isSend = true;
             string[] IPstring = localIP.Split('.');
-            StudentIP = "¾Ç¥ÍIP: " + IPstring[3];
+            StudentIP = "å­¸ç”ŸIP: " + IPstring[3];
             
         }
     }
