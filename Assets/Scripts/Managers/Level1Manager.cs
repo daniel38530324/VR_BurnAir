@@ -23,6 +23,7 @@ public class Level1Manager : MonoBehaviour
     [Header("Object")]
     [SerializeField] GameObject place;
     [SerializeField] GameObject candle_control, candle_test;
+    [SerializeField] GameObject fan;
     [SerializeField] GameObject cover;
 
     Level1State level1State;
@@ -63,10 +64,14 @@ public class Level1Manager : MonoBehaviour
                 candle_test.SetActive(true);
                 break;
             case Level1State.Cover:
+                fan.SetActive(false);
                 cover.SetActive(true);
                 mission_Text.text = "將火焰蓋住";
                 break;
             case Level1State.Test:
+                cover.SetActive(false);
+                candle_control.SetActive(false);
+                candle_test.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
