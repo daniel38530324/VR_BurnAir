@@ -20,11 +20,16 @@ public class Level1Manager : MonoBehaviour
     [Header("Mission")]
     [SerializeField] Text mission_Text;
 
+    [Header("Knowledge points")]
+    [SerializeField] GameObject hint;
+    [SerializeField] GameObject choose_UI, fan_UI, cover_UI;
+
     [Header("Object")]
     [SerializeField] GameObject place;
-    [SerializeField] GameObject candle_control, candle_test;
+    [SerializeField] GameObject candle_control, candle_test, table;
     [SerializeField] GameObject fan;
     [SerializeField] GameObject cover;
+    [SerializeField] Transform spawnPoint;
 
     Level1State level1State;
     
@@ -56,17 +61,34 @@ public class Level1Manager : MonoBehaviour
             case Level1State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 mission_Text.text = "將正確的器材放在桌上";
-                place.SetActive(true);
+                table.GetComponent<Flashing>().StartGlinting();
+                for (int i = 0; i < 6; i++)
+                {
+                    table.transform.GetChild(i).GetComponent<Flashing>().StartGlinting();
+                }
+                hint.SetActive(true);
                 break;
             case Level1State.Fan:
+                fan.transform.position = spawnPoint.position;
+                cover.SetActive(false);
                 mission_Text.text = "用扇子搧火焰";
                 candle_control.SetActive(true);
                 candle_test.SetActive(true);
+                table.GetComponent<Flashing>().StopGlinting();
+                for (int i = 0; i < 6; i++)
+                {
+                    table.transform.GetChild(i).GetComponent<Flashing>().StopGlinting();
+                }
+                choose_UI.SetActive(true);
+                Destroy(choose_UI, 7);
                 break;
             case Level1State.Cover:
                 fan.SetActive(false);
                 cover.SetActive(true);
+                cover.transform.position = spawnPoint.position;
                 mission_Text.text = "將火焰蓋住";
+                fan_UI.SetActive(true);
+                Destroy(fan_UI, 7);
                 break;
             case Level1State.Test:
                 cover.SetActive(false);
@@ -75,13 +97,15 @@ public class Level1Manager : MonoBehaviour
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                cover_UI.SetActive(true);
+                Destroy(cover_UI, 7);
                 break;
         }
     }
 
-    public void CloseExplain()
+    public void UpdateLevel1State_Int(int newState)
     {
-        UpdateLevel1State(Level1State.Choose);
+        UpdateLevel1State((Level1State)newState);
     }
 
     void Quesion(int index)

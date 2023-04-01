@@ -61,13 +61,5 @@ public class Fan : MonoBehaviour
                 break;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Place"))
-        {
-            Destroy(other.gameObject);
-            level1Manager.UpdateLevel1State(Level1State.Fan);
-        }
-    }
+    
 }

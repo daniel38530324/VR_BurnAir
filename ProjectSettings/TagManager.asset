@@ -7,6 +7,9 @@ TagManager:
   - Place
   - Wind
   - Cover
+  - FireEX
+  - DryPowder
+  - Bubble
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Grab
   - 
   - 
   - 
