@@ -10,6 +10,7 @@ TagManager:
   - FireEX
   - DryPowder
   - Bubble
+  - Water
   layers:
   - Default
   - TransparentFX

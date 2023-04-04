@@ -9,6 +9,7 @@ public class Candle : MonoBehaviour
     public GameObject fire;
     public ParticleSystem particleSystem;
     bool isTrigger;
+    bool isTrigger2;
 
     private void Update()
     {
@@ -42,9 +43,24 @@ public class Candle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Cover")){
-            fire.SetActive(false);
+        if(other.CompareTag("Cover") && !isTrigger2){
+            StartCoroutine(Extinguish());
         }
+    }
+
+    IEnumerator Extinguish()
+    {
+        isTrigger2 = true;
+        var main = particleSystem.main;
+        main.startSize = 0.4f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.3f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.2f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.1f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0f;
     }
 
     private void OnTriggerExit(Collider other)
