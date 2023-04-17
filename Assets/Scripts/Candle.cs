@@ -15,6 +15,7 @@ public class Candle : MonoBehaviour
     {
         if(haveWind && !isTrigger){
             StartCoroutine(Burn());
+            StartCoroutine(NextState(Level1State.Cover));
         }
     }
 
@@ -37,8 +38,6 @@ public class Candle : MonoBehaviour
         main.startSize = 0.3f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.4f;
-        yield return new WaitForSeconds(3f);
-        level1Manager.UpdateLevel1State(Level1State.Cover);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,19 +45,31 @@ public class Candle : MonoBehaviour
         if(other.CompareTag("Cover") && !isTrigger2){
             StartCoroutine(Extinguish());
         }
+
+        if(other.CompareTag("Water"))
+        {
+            StartCoroutine(Extinguish());
+            StartCoroutine(NextState(Level1State.Flour));
+        }
+
+        if (other.CompareTag("Flour"))
+        {
+            StartCoroutine(Burn());
+            StartCoroutine(NextState(Level1State.Test));
+        }
     }
 
     IEnumerator Extinguish()
     {
         isTrigger2 = true;
         var main = particleSystem.main;
-        main.startSize = 0.4f;
-        yield return new WaitForSeconds(0.2f);
-        main.startSize = 0.3f;
-        yield return new WaitForSeconds(0.2f);
-        main.startSize = 0.2f;
-        yield return new WaitForSeconds(0.2f);
         main.startSize = 0.1f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.07f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.04f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.01f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0f;
     }
@@ -66,13 +77,26 @@ public class Candle : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Cover")){
-            StartCoroutine(Test());
+            StartCoroutine(Bucket());
         }
     }
 
-    IEnumerator Test()
+    IEnumerator Bucket()
     {
         yield return new WaitForSeconds(4f);
-        level1Manager.UpdateLevel1State(Level1State.Test);
+        level1Manager.UpdateLevel1State(Level1State.Bucket);
+        isTrigger2 = false;
+    }
+
+    IEnumerator NextState(Level1State nextState)
+    {
+        yield return new WaitForSeconds(4f);
+        level1Manager.UpdateLevel1State(nextState);
+    }
+
+    public void ReturnFire()
+    {
+        var main = particleSystem.main;
+        main.startSize = 0.1f;
     }
 }

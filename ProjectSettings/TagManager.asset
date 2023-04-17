@@ -11,6 +11,9 @@ TagManager:
   - DryPowder
   - Bubble
   - Water
+  - Flour
+  - WaterBucket
+  - Outside
   layers:
   - Default
   - TransparentFX

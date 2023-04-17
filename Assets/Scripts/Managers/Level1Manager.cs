@@ -9,6 +9,8 @@ public enum Level1State
     Choose,  //選擇器材階段
     Fan,     //搧扇子階段
     Cover,   //蓋住火焰階段
+    Bucket,  //水桶階段
+    Flour,   //麵粉階段
     Test     //測驗階段
 }
 
@@ -22,14 +24,14 @@ public class Level1Manager : MonoBehaviour
 
     [Header("Knowledge points")]
     [SerializeField] GameObject hint;
-    [SerializeField] GameObject choose_UI, fan_UI, cover_UI;
+    [SerializeField] GameObject choose_UI, fan_UI, cover_UI, bucket_UI, flour_UI;
 
     [Header("Object")]
     [SerializeField] GameObject place;
     [SerializeField] GameObject candle_control, candle_test, table;
-    [SerializeField] GameObject fan;
-    [SerializeField] GameObject cover;
+    [SerializeField] GameObject fan, cover, bucket, flour;
     [SerializeField] Transform spawnPoint;
+    [SerializeField] Candle candle;
 
     Level1State level1State;
     
@@ -61,44 +63,90 @@ public class Level1Manager : MonoBehaviour
             case Level1State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 mission_Text.text = "將正確的器材放在桌上";
-                table.GetComponent<Flashing>().StartGlinting();
+                table.SetActive(true);
+                //table.GetComponent<Flashing>().StartGlinting();
+                /*
                 for (int i = 0; i < 6; i++)
                 {
                     table.transform.GetChild(i).GetComponent<Flashing>().StartGlinting();
                 }
+                */
                 hint.SetActive(true);
                 break;
             case Level1State.Fan:
+                fan.SetActive(true);
                 fan.transform.position = spawnPoint.position;
+                fan.transform.rotation = Quaternion.Euler(0, 90, 0);
                 cover.SetActive(false);
+                bucket.SetActive(false);
+                flour.SetActive(false);
                 mission_Text.text = "用扇子搧火焰";
                 candle_control.SetActive(true);
                 candle_test.SetActive(true);
+                table.SetActive(false);
                 table.GetComponent<Flashing>().StopGlinting();
+                /*
                 for (int i = 0; i < 6; i++)
                 {
                     table.transform.GetChild(i).GetComponent<Flashing>().StopGlinting();
                 }
-                choose_UI.SetActive(true);
-                Destroy(choose_UI, 7);
+                */
+                if(choose_UI)
+                {
+                    choose_UI.SetActive(true);
+                    Destroy(choose_UI, 7);
+                }
                 break;
             case Level1State.Cover:
+                candle.ReturnFire();
                 fan.SetActive(false);
                 cover.SetActive(true);
                 cover.transform.position = spawnPoint.position;
+                cover.transform.rotation = Quaternion.Euler(0,0,-180);
                 mission_Text.text = "將火焰蓋住";
-                fan_UI.SetActive(true);
-                Destroy(fan_UI, 7);
+                if(fan_UI)
+                {
+                    fan_UI.SetActive(true);
+                    Destroy(fan_UI, 7);
+                }
+                break;
+            case Level1State.Bucket:
+                candle.ReturnFire();
+                cover.SetActive(false);
+                bucket.transform.position = spawnPoint.position;
+                bucket.transform.rotation = Quaternion.identity;
+                bucket.SetActive(true);
+                bucket.GetComponent<WaterBucket_New>().enabled = true;
+                mission_Text.text = "將火焰澆熄";
+                if(cover_UI)
+                {
+                    cover_UI.SetActive(true);
+                    Destroy(cover_UI, 7);
+                }
+                break;
+            case Level1State.Flour:
+                candle.ReturnFire();
+                bucket.SetActive(false);           
+                flour.transform.position = spawnPoint.position;
+                flour.transform.rotation = Quaternion.identity;
+                flour.SetActive(true);
+                flour.GetComponent<WaterBucket_New>().enabled = true;
+                mission_Text.text = "將麵粉加入火中";
+                if(bucket_UI)
+                {
+                    bucket_UI.SetActive(true);
+                    Destroy(bucket_UI, 7);
+                }
                 break;
             case Level1State.Test:
-                cover.SetActive(false);
+                flour.SetActive(false);
                 candle_control.SetActive(false);
                 candle_test.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
-                cover_UI.SetActive(true);
-                Destroy(cover_UI, 7);
+                flour_UI.SetActive(true);
+                Destroy(flour_UI, 7);
                 break;
         }
     }

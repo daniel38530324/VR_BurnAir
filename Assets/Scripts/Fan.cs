@@ -11,6 +11,11 @@ public class Fan : MonoBehaviour
     public GameObject windCollider;
     public ParticleSystem wind;
 
+    private void OnEnable()
+    {
+        state = 0;
+    }
+
     private void Update()
     {
         if(timeCurrentCD <= 0){
