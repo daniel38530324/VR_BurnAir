@@ -18,7 +18,7 @@ public class WaterBucket_New : MonoBehaviour
     {
         if(!trigger)
         {
-            Debug.Log(transform.eulerAngles.x);
+            //Debug.Log(transform.eulerAngles.x);
             if (Quaternion.Angle(transform.rotation, Quaternion.identity) >= 120)
             {
                 waterEffect.SetActive(true);

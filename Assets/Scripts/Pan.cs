@@ -4,25 +4,11 @@ using UnityEngine;
 
 public class Pan : MonoBehaviour
 {
+    public Level2Manager level2Manager;
     public bool isTrigger;
     public ParticleSystem particleSystem;
     public GameObject[] fireEffects;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    /// <summary>
-    /// OnCollisionEnter is called when this collider/rigidbody has begun
-    /// touching another rigidbody/collider.
-    /// </summary>
-    /// <param name="other">The Collision data associated with this collision.</param>
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Cover") && !isTrigger){
@@ -32,6 +18,8 @@ public class Pan : MonoBehaviour
 
     IEnumerator BeenCover()
     {
+        level2Manager.fireCount++;
+        level2Manager.UpdateFireCount();
         isTrigger = true;
         for (int i = 0; i < fireEffects.Length; i++)
         {

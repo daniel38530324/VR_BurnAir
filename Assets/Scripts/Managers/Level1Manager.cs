@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Level1State
 {
@@ -102,7 +103,6 @@ public class Level1Manager : MonoBehaviour
                 fan.SetActive(false);
                 cover.SetActive(true);
                 cover.transform.position = spawnPoint.position;
-                cover.transform.rotation = Quaternion.Euler(0,0,-180);
                 mission_Text.text = "將火焰蓋住";
                 if(fan_UI)
                 {
@@ -188,8 +188,7 @@ public class Level1Manager : MonoBehaviour
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(2f);
         if(questionData.questions.Length == currentQusetIndex){
-            //Next level
-            Debug.Log($"NextLevel");
+            SceneManager.LoadScene("Level2");
         }else{
             Quesion(currentQusetIndex);
             ansPanel[0].SetActive(false);
