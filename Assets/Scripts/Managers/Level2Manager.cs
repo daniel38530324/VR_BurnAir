@@ -24,6 +24,7 @@ public class Level2Manager : MonoBehaviour
     [Header("Mission")]
     [SerializeField] Text mission_Text;
     [SerializeField] Text timer_Text;
+    public GameObject Combustible_UI, AlcoholLamp_UI, WaterBucket_UI, FireEx_DryPowder_UI, FireEx_Metal_UI;
 
     [Header("Object")]
     [SerializeField] GameObject fires;
@@ -101,6 +102,7 @@ public class Level2Manager : MonoBehaviour
                 timerState = true;
                 break;
             case Level2State.Fire:
+                GetKnowledgePoints(Combustible_UI, false);
                 timer = 120;
                 fireCount = 0;
                 UpdateFireCount();
@@ -140,6 +142,28 @@ public class Level2Manager : MonoBehaviour
         {
             UpdateLevel2State(Level2State.Success);
         }
+    }
+
+    public void GetKnowledgePoints(GameObject knowledgePoint, bool wait)
+    {
+        StartCoroutine(KnowledgePoints(knowledgePoint, wait));
+    }
+
+    IEnumerator KnowledgePoints(GameObject knowledgePoint, bool wait)
+    {
+        if(wait)
+        {
+            yield return new WaitForSeconds(5);
+        }
+        knowledgePoint.SetActive(true);
+        timerState = false;
+        yield return new WaitForSeconds(5);
+        knowledgePoint.SetActive(false);
+        if(level2State != Level2State.Success && level2State != Level2State.CombustiblesFail && level2State != Level2State.FireFail)
+        {
+            timerState = true;
+        }
+        
     }
 
     public void ResetBtn()

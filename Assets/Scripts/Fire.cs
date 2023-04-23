@@ -37,11 +37,13 @@ public class Fire : MonoBehaviour
             if(fireName == "Electric" && other.name == "DryPowder_Particle_E"){
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
+                level2Manager.GetKnowledgePoints(level2Manager.FireEx_DryPowder_UI, true);
                 durationTime = 5;
                 turnOff = true;
             }else if(fireName == "Chemical" && other.name == "DryPowder_Particle_C"){
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
+                level2Manager.GetKnowledgePoints(level2Manager.FireEx_Metal_UI, true);
                 durationTime = 5;
                 turnOff = true;
             }
@@ -50,6 +52,7 @@ public class Fire : MonoBehaviour
         {
             level2Manager.fireCount++;
             level2Manager.UpdateFireCount();
+            level2Manager.GetKnowledgePoints(level2Manager.WaterBucket_UI, true);
             durationTime = 1;
             turnOff = true;
         }

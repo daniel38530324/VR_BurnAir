@@ -20,6 +20,7 @@ public class Pan : MonoBehaviour
     {
         level2Manager.fireCount++;
         level2Manager.UpdateFireCount();
+        level2Manager.GetKnowledgePoints(level2Manager.AlcoholLamp_UI, true);
         isTrigger = true;
         for (int i = 0; i < fireEffects.Length; i++)
         {
