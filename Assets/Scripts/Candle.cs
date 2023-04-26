@@ -8,6 +8,7 @@ public class Candle : MonoBehaviour
     public bool haveWind;
     public GameObject fire;
     public ParticleSystem particleSystem;
+    public GameObject particleSystem2;
     bool isTrigger;
     bool isTrigger2;
 
@@ -64,6 +65,7 @@ public class Candle : MonoBehaviour
         isTrigger2 = true;
         var main = particleSystem.main;
         main.startSize = 0.1f;
+        particleSystem2.SetActive(false);
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.07f;
         yield return new WaitForSeconds(0.2f);
@@ -98,5 +100,6 @@ public class Candle : MonoBehaviour
     {
         var main = particleSystem.main;
         main.startSize = 0.1f;
+        particleSystem2.SetActive(true);
     }
 }

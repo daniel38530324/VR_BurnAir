@@ -31,6 +31,7 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject combustibles, extinguishingTools;
 
     [Header("Panel")]
+    [SerializeField] GameObject part2Panel;
     [SerializeField] GameObject successPanel;
     [SerializeField] GameObject defeatPanel;
     [SerializeField] GameObject questionPanel;
@@ -79,6 +80,7 @@ public class Level2Manager : MonoBehaviour
             if (timer <= 0){
                 timerState = false;
                 mission_Text.transform.parent.gameObject.SetActive(false);
+                part2Panel.SetActive(false);
                 defeatPanel.SetActive(true);
             }
         }
@@ -111,10 +113,13 @@ public class Level2Manager : MonoBehaviour
             case Level2State.Success:
                 timerState = false;
                 mission_Text.transform.parent.gameObject.SetActive(false);
+                part2Panel.SetActive(false);
                 successPanel.SetActive(true);
-                extinguishingTools.SetActive(false);
                 break;
             case Level2State.Test:
+                extinguishingTools.SetActive(false);
+                successPanel.SetActive(false);
+                defeatPanel.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
                 break;

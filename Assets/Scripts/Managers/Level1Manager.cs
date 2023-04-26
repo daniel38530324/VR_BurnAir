@@ -28,7 +28,6 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] GameObject choose_UI, fan_UI, cover_UI, bucket_UI, flour_UI;
 
     [Header("Object")]
-    [SerializeField] GameObject place;
     [SerializeField] GameObject candle_control, candle_test, table;
     [SerializeField] GameObject fan, cover, bucket, flour;
     [SerializeField] Transform spawnPoint;
@@ -38,6 +37,7 @@ public class Level1Manager : MonoBehaviour
     
     [Header("Test")]
     public QuestionData questionData;
+    public GameObject part2Panel;
     public GameObject questionPanel;
     public Text[] tests;
     public GameObject[] ansPanel;
@@ -103,6 +103,7 @@ public class Level1Manager : MonoBehaviour
                 fan.SetActive(false);
                 cover.SetActive(true);
                 cover.transform.position = spawnPoint.position;
+                cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 mission_Text.text = "將火焰蓋住";
                 if(fan_UI)
                 {
@@ -143,6 +144,7 @@ public class Level1Manager : MonoBehaviour
                 candle_control.SetActive(false);
                 candle_test.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
+                part2Panel.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
                 flour_UI.SetActive(true);

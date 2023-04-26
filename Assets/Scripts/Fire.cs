@@ -9,6 +9,7 @@ public class Fire : MonoBehaviour
     private float durationTime = 5, timer = 0;
     private bool turnOff, waterOff;
     public string fireName;
+    bool beenused;
 
     private void Start()
     {
@@ -32,15 +33,17 @@ public class Fire : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bubble"))
+        if (other.CompareTag("Bubble") && !beenused)
         {
             if(fireName == "Electric" && other.name == "DryPowder_Particle_E"){
+                beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
                 level2Manager.GetKnowledgePoints(level2Manager.FireEx_DryPowder_UI, true);
                 durationTime = 5;
                 turnOff = true;
             }else if(fireName == "Chemical" && other.name == "DryPowder_Particle_C"){
+                beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
                 level2Manager.GetKnowledgePoints(level2Manager.FireEx_Metal_UI, true);
@@ -48,8 +51,9 @@ public class Fire : MonoBehaviour
                 turnOff = true;
             }
         }
-        else if(other.CompareTag("Water"))
+        else if(other.CompareTag("Water") && !beenused)
         {
+            beenused = true;
             level2Manager.fireCount++;
             level2Manager.UpdateFireCount();
             level2Manager.GetKnowledgePoints(level2Manager.WaterBucket_UI, true);
