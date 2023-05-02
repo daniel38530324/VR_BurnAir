@@ -6,16 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Level3State
 {
-    Explain,       //»¡©ú¶¥¬q
-    Choose,        //¿ï¾Ü¾¹§÷¶¥¬q
-    MnO2,          //©ñ¤J¤G®ñ¤Æ¿ø¶¥¬q
-    Water,         //¥[¤J¤ô¶¥¬q
-    H2O2,          //¥[¤JÂù®ñ¤ô¶¥¬q
-    Tube,          //ºŞ¤l¶¥¬q
-    Cover,         //©ñ¤JªM¤l¶¥¬q
-    PickUp,        //®³°_¶¥¬q
-    IncenseSticks, //½u­»´ú¸Õ¶¥¬q
-    Test           //´úÅç¶¥¬q
+    Explain,       //èªªæ˜éšæ®µ
+    Choose,        //é¸æ“‡å™¨æéšæ®µ
+    MnO2,          //æ”¾å…¥äºŒæ°§åŒ–éŒ³éšæ®µ
+    Water,         //åŠ å…¥æ°´éšæ®µ
+    H2O2,          //åŠ å…¥é›™æ°§æ°´éšæ®µ
+    Tube,          //ç®¡å­éšæ®µ
+    Cover,         //æ”¾å…¥æ¯å­éšæ®µ
+    PickUp,        //æ‹¿èµ·éšæ®µ
+    IncenseSticks, //ç·šé¦™æ¸¬è©¦éšæ®µ
+    Test           //æ¸¬é©—éšæ®µ
 }
 public class Level3Manager : MonoBehaviour
 {
@@ -27,10 +27,19 @@ public class Level3Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject waterTank;
-    [SerializeField] GameObject suctionBottle, table, waterBucket, mnO2, h2O2, dropper;
+    [SerializeField] GameObject suctionBottle, table, waterBucket,cover, mnO2, h2O2, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks;
+
     [SerializeField] Transform spawnPoint;
 
     Level3State level3State;
+
+    [Header("Test")]
+    [SerializeField] GameObject part2;
+    [SerializeField] GameObject questionPanel;
+    public QuestionData questionData;
+    public Text[] tests;
+    public GameObject[] ansPanel;
+    int currentQusetIndex;
 
     private void Awake()
     {
@@ -40,12 +49,6 @@ public class Level3Manager : MonoBehaviour
         }
 
         UpdateLevel3State(Level3State.Explain);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void UpdateLevel3State(Level3State newState)
@@ -59,14 +62,15 @@ public class Level3Manager : MonoBehaviour
                 break;
             case Level3State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
+                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
                 table.SetActive(true);
                 break;
             case Level3State.MnO2:
-                mission_Text.text = "¥[¤J¤G®ñ¤Æ¿ø";
+                mission_Text.text = "åŠ å…¥äºŒæ°§åŒ–éŒ³";
                 table.SetActive(false);
                 waterBucket.SetActive(false);
                 h2O2.SetActive(false);
+                cover.SetActive(false);
                 mnO2.transform.position = spawnPoint.position;
                 mnO2.transform.rotation = Quaternion.Euler(0, 0, 0);
                 mnO2.SetActive(true);
@@ -75,7 +79,7 @@ public class Level3Manager : MonoBehaviour
                 suctionBottle.SetActive(true);
                 break;
             case Level3State.Water:
-                mission_Text.text = "¥[¤J¤ô";
+                mission_Text.text = "åŠ å…¥æ°´";
                 mnO2.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -83,7 +87,7 @@ public class Level3Manager : MonoBehaviour
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 break;
             case Level3State.H2O2:
-                mission_Text.text = "¥[¤JÂù®ñ¤ô";
+                mission_Text.text = "åŠ å…¥é›™æ°§æ°´";
                 waterBucket.SetActive(false);
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, -180, 0);
@@ -92,21 +96,32 @@ public class Level3Manager : MonoBehaviour
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 break;
             case Level3State.Tube:
-                mission_Text.text = "©ñ¤JºŞ¤l";
+                mission_Text.text = "æ”¾å…¥ç®¡å­";
                 h2O2.SetActive(false);
                 dropper.SetActive(false);
+                pipe.SetActive(true);
                 break;
             case Level3State.Cover:
-                mission_Text.text = "©ñ¤JªM¤l";
+                mission_Text.text = "æ”¾å…¥æ¯å­";
+                bottle.SetActive(true);
                 break;
             case Level3State.PickUp:
-                mission_Text.text = "®³°_ªM¤l";
+                mission_Text.text = "æ‹¿èµ·æ¯å­";
                 break;
             case Level3State.IncenseSticks:
-                mission_Text.text = "¥Î½u­»´ú¸Õ";
+                incenseSticks.SetActive(true);
+                bottleForIncenseSticks.SetActive(true);
+                mission_Text.text = "æ‹¿ä¸‹æˆ´ç»ç‰‡ä¸¦ç”¨ç·šé¦™æ¸¬è©¦";
                 break;
             case Level3State.Test:
+                incenseSticks.SetActive(false);
+                bottleForIncenseSticks.SetActive(false);
+                waterTank.SetActive(false);
+                suctionBottle.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
+                part2.SetActive(false);
+                questionPanel.SetActive(true);
+                Quesion(0);
                 break;
         }
     }
@@ -114,5 +129,45 @@ public class Level3Manager : MonoBehaviour
     public void UpdateLevel3State_Int(int newState)
     {
         UpdateLevel3State((Level3State)newState);
+    }
+
+    void Quesion(int index)
+    {
+        tests[0].text = questionData.questions[currentQusetIndex];
+        tests[1].text = questionData.answer1[currentQusetIndex];
+        tests[2].text = questionData.answer2[currentQusetIndex];
+    }
+
+    public void AnsBtn(bool isRight)
+    {
+        if(questionData.correctAnswerIsRight[currentQusetIndex]){
+            if(isRight){
+                StartCoroutine(NextQusetion(true));
+            }else{
+                StartCoroutine(NextQusetion(false));
+            }
+        }else{
+            if(!isRight){
+                StartCoroutine(NextQusetion(true));
+            }else{
+                StartCoroutine(NextQusetion(false));
+            }
+        }
+    }
+
+    IEnumerator NextQusetion(bool correctAns)
+    {
+        tests[0].text = questionData.explain[currentQusetIndex];
+        currentQusetIndex++;
+        ansPanel[0].SetActive(correctAns);
+        ansPanel[1].SetActive(!correctAns);
+        yield return new WaitForSeconds(2f);
+        if(questionData.questions.Length == currentQusetIndex){
+            //SceneManager.LoadScene("Level3");
+        }else{
+            Quesion(currentQusetIndex);
+            ansPanel[0].SetActive(false);
+            ansPanel[1].SetActive(false);
+        }
     }
 }

@@ -16,6 +16,7 @@ TagManager:
   - Outside
   - MnO2
   - H2O2
+  - Pipe
   layers:
   - Default
   - TransparentFX
