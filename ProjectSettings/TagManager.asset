@@ -17,6 +17,8 @@ TagManager:
   - MnO2
   - H2O2
   - Pipe
+  - CaCO3
+  - HCl
   layers:
   - Default
   - TransparentFX
@@ -27,8 +29,8 @@ TagManager:
   - Player
   - Grab
   - Wall
-  - 
-  - 
+  - CaCO3
+  - Desk
   - 
   - 
   - 

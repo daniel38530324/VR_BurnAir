@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bottle : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Bottle : MonoBehaviour
     public MeshRenderer meshRenderer;
     public GameObject bottleInWater;
     public BoxCollider boxCollider;
+
+    [SerializeField] UnityEvent UpdateLevelState_PickUp, UpdateLevelState_IncenseSticks;
 
     bool isTrigger;
     
@@ -38,7 +41,8 @@ public class Bottle : MonoBehaviour
         boxCollider.enabled = false;
         bottleInWater.SetActive(true);
         yield return new WaitForSeconds(4f);
-        level3Manager.UpdateLevel3State(Level3State.PickUp);
+        UpdateLevelState_PickUp.Invoke();
+        //level3Manager.UpdateLevel3State(Level3State.PickUp);
     }
 
     IEnumerator Finish2()
@@ -46,7 +50,8 @@ public class Bottle : MonoBehaviour
         isTrigger = true;
         bubble.SetActive(false);
         yield return new WaitForSeconds(2f);
-        level3Manager.UpdateLevel3State(Level3State.IncenseSticks);
+        UpdateLevelState_IncenseSticks.Invoke();
+        //level3Manager.UpdateLevel3State(Level3State.IncenseSticks);
         Destroy(gameObject);
     }
 }

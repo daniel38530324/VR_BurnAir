@@ -28,8 +28,8 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] GameObject choose_UI, fan_UI, cover_UI, bucket_UI, flour_UI;
 
     [Header("Object")]
-    [SerializeField] GameObject candle_control, candle_test, table;
-    [SerializeField] GameObject fan, cover, bucket, flour;
+    [SerializeField] GameObject table;
+    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle candle;
 

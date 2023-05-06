@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public enum Level3State
+public enum Level4State
 {
-    Explain,       //èªªæ˜éšæ®µ
-    Choose,        //é¸æ“‡å™¨æéšæ®µ
-    MnO2,          //æ”¾å…¥äºŒæ°§åŒ–éŒ³éšæ®µ
-    Water,         //åŠ å…¥æ°´éšæ®µ
-    H2O2,          //åŠ å…¥é›™æ°§æ°´éšæ®µ
-    Tube,          //ç®¡å­éšæ®µ
-    Cover,         //æ”¾å…¥æ¯å­éšæ®µ
-    PickUp,        //æ‹¿èµ·éšæ®µ
-    IncenseSticks, //ç·šé¦™æ¸¬è©¦éšæ®µ
-    Test           //æ¸¬é©—éšæ®µ
+    Explain,       //»¡©ú¶¥¬q
+    Choose,        //¿ï¾Ü¾¹§÷¶¥¬q
+    CaCO3,         //©ñ¤J¤j²z¥Û¶¥¬q
+    Water,         //¥[¤J¤ô¶¥¬q
+    HCl,           //¥[¤JÆQ»Ä¶¥¬q
+    Tube,          //ºŞ¤l¶¥¬q
+    Cover,         //©ñ¤JªM¤l¶¥¬q
+    PickUp,        //®³°_¶¥¬q
+    IncenseSticks, //½u­»´ú¸Õ¶¥¬q
+    Test           //´úÅç¶¥¬q
 }
-public class Level3Manager : MonoBehaviour
+
+public class Level4Manager : MonoBehaviour
 {
     [Header("GameManager")]
     [SerializeField] GameObject gameManager;
@@ -27,15 +28,16 @@ public class Level3Manager : MonoBehaviour
 
     [Header("Knowledge points")]
     [SerializeField] GameObject choose_UI;
-    [SerializeField] GameObject h2O2_UI, cover_UI, pickUp_UI, incenseSticks_UI;
+    [SerializeField] GameObject hcl_UI, cover_UI, pickUp_UI, incenseSticks_UI;
 
     [Header("Object")]
     [SerializeField] GameObject waterTank;
-    [SerializeField] GameObject suctionBottle, table, waterBucket,cover, mnO2, h2O2, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks;
+    [SerializeField] GameObject suctionBottle, table, waterBucket, cover, caco3, hcl, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks;
+    [SerializeField] GameObject[] caco3s;
 
     [SerializeField] Transform spawnPoint;
 
-    Level3State level3State;
+    Level4State level4State;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -52,78 +54,81 @@ public class Level3Manager : MonoBehaviour
             Instantiate(gameManager);
         }
 
-        UpdateLevel3State(Level3State.Explain);
+        UpdateLevel4State(Level4State.Explain);
     }
 
-    public void UpdateLevel3State(Level3State newState)
+    public void UpdateLevel4State(Level4State newState)
     {
-        level3State = newState;
+        level4State = newState;
 
         switch (newState)
         {
-            case Level3State.Explain:
-                
+            case Level4State.Explain:
+
                 break;
-            case Level3State.Choose:
+            case Level4State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
+                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
                 table.SetActive(true);
                 break;
-            case Level3State.MnO2:
+            case Level4State.CaCO3:
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
-                mission_Text.text = "åŠ å…¥äºŒæ°§åŒ–éŒ³";
+                mission_Text.text = "¥[¤J¤j²z¥Û";
                 table.SetActive(false);
                 waterBucket.SetActive(false);
-                h2O2.SetActive(false);
+                hcl.SetActive(false);
                 cover.SetActive(false);
-                mnO2.transform.position = spawnPoint.position;
-                mnO2.transform.rotation = Quaternion.Euler(0, 0, 0);
-                mnO2.SetActive(true);
-                mnO2.GetComponent<WaterBucket_New>().enabled = true;
+                caco3.transform.position = spawnPoint.position;
+                caco3.transform.rotation = Quaternion.Euler(0, 0, 0);
+                caco3.SetActive(true);
+                for(int i = 0; i <= 9; i++)
+                {
+                    
+                }
                 waterTank.SetActive(true);
                 suctionBottle.SetActive(true);
                 break;
-            case Level3State.Water:
-                mission_Text.text = "åŠ å…¥æ°´";
-                mnO2.SetActive(false);
+            case Level4State.Water:
+                mission_Text.text = "¥[¤J¤ô";
+                caco3.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 break;
-            case Level3State.H2O2:
-                mission_Text.text = "åŠ å…¥é›™æ°§æ°´";
+            case Level4State.HCl:
+                mission_Text.text = "¥[¤JÆQ»Ä";
                 waterBucket.SetActive(false);
-                h2O2.transform.position = spawnPoint.position;
-                h2O2.transform.rotation = Quaternion.Euler(0, -180, 0);
-                h2O2.SetActive(true);
-                h2O2.GetComponent<XRGrabInteractable>().enabled = false;
+                hcl.transform.position = spawnPoint.position;
+                hcl.transform.rotation = Quaternion.Euler(0, -180, 0);
+                hcl.SetActive(true);
+                hcl.GetComponent<XRGrabInteractable>().enabled = false;
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 break;
-            case Level3State.Tube:
-                h2O2_UI.SetActive(true);
-                Destroy(h2O2_UI, 5);
-                mission_Text.text = "æ”¾å…¥ç®¡å­";
-                h2O2.SetActive(false);
+            case Level4State.Tube:
+                hcl_UI.SetActive(true);
+                Destroy(hcl_UI, 5);
+                mission_Text.text = "©ñ¤JºŞ¤l";
+                hcl.SetActive(false);
                 dropper.SetActive(false);
                 pipe.SetActive(true);
                 break;
-            case Level3State.Cover:
-                mission_Text.text = "æ”¾å…¥æ¯å­";
+            case Level4State.Cover:
+                mission_Text.text = "©ñ¤JªM¤l";
                 bottle.SetActive(true);
                 break;
-            case Level3State.PickUp:
+            case Level4State.PickUp:
                 cover_UI.SetActive(true);
                 Destroy(cover_UI, 5);
-                mission_Text.text = "æ‹¿èµ·æ¯å­";
+                mission_Text.text = "®³°_ªM¤l";
                 break;
-            case Level3State.IncenseSticks:
+            case Level4State.IncenseSticks:
                 incenseSticks.SetActive(true);
                 bottleForIncenseSticks.SetActive(true);
-                mission_Text.text = "æ‹¿ä¸‹æˆ´ç»ç‰‡ä¸¦ç”¨ç·šé¦™æ¸¬è©¦";
+                mission_Text.text = "®³¤UÀ¹¬Á¤ù¨Ã¥Î½u­»´ú¸Õ";
                 break;
-            case Level3State.Test:
+            case Level4State.Test:
                 incenseSticks_UI.SetActive(true);
                 Destroy(incenseSticks_UI, 5);
                 incenseSticks.SetActive(false);
@@ -138,9 +143,9 @@ public class Level3Manager : MonoBehaviour
         }
     }
 
-    public void UpdateLevel3State_Int(int newState)
+    public void UpdateLevel4State_Int(int newState)
     {
-        UpdateLevel3State((Level3State)newState);
+        UpdateLevel4State((Level4State)newState);
     }
 
     void Quesion(int index)
@@ -152,16 +157,25 @@ public class Level3Manager : MonoBehaviour
 
     public void AnsBtn(bool isRight)
     {
-        if(questionData.correctAnswerIsRight[currentQusetIndex]){
-            if(isRight){
+        if (questionData.correctAnswerIsRight[currentQusetIndex])
+        {
+            if (isRight)
+            {
                 StartCoroutine(NextQusetion(true));
-            }else{
+            }
+            else
+            {
                 StartCoroutine(NextQusetion(false));
             }
-        }else{
-            if(!isRight){
+        }
+        else
+        {
+            if (!isRight)
+            {
                 StartCoroutine(NextQusetion(true));
-            }else{
+            }
+            else
+            {
                 StartCoroutine(NextQusetion(false));
             }
         }
@@ -174,12 +188,35 @@ public class Level3Manager : MonoBehaviour
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(2f);
-        if(questionData.questions.Length == currentQusetIndex){
+        if (questionData.questions.Length == currentQusetIndex)
+        {
             //SceneManager.LoadScene("Level3");
-        }else{
+        }
+        else
+        {
             Quesion(currentQusetIndex);
             ansPanel[0].SetActive(false);
             ansPanel[1].SetActive(false);
+        }
+    }
+
+    public void GetCaCO3()
+    {
+        if(level4State == Level4State.CaCO3)
+        {
+            StartCoroutine(CaCO3());
+            
+        }
+    }
+
+    IEnumerator CaCO3()
+    {
+        yield return new WaitForSeconds(2);
+        for (int i = 0; i <= 9; i++)
+        {
+            //caco3s[i].transform.parent = null;
+            caco3s[i].GetComponent<Rigidbody>().isKinematic = false;
+            caco3s[i].gameObject.layer = 9;
         }
     }
 }

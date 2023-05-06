@@ -1,22 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SuctionBottle : MonoBehaviour
 {
     [SerializeField] Level3Manager level3Manager;
-    [SerializeField] GameObject mnO2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] Level4Manager level4Manager;
+    [SerializeField] GameObject mnO2, caco3;
+    [SerializeField] UnityEvent UpdateLevelState;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +24,14 @@ public class SuctionBottle : MonoBehaviour
         {
             StartCoroutine(H2O2());
         }
+        else if (other.CompareTag("CaCO3"))
+        {
+            StartCoroutine(CaCO3());
+        }
+        else if (other.CompareTag("HCl"))
+        {
+            StartCoroutine(HCl());
+        }
     }
 
     IEnumerator MnO2()
@@ -44,12 +44,26 @@ public class SuctionBottle : MonoBehaviour
     IEnumerator Water()
     {
         yield return new WaitForSeconds(2);
-        level3Manager.UpdateLevel3State(Level3State.H2O2);
+        UpdateLevelState.Invoke();
+        //level3Manager.UpdateLevel3State(Level3State.H2O2);
     }
 
     IEnumerator H2O2()
     {
         yield return new WaitForSeconds(2);
         level3Manager.UpdateLevel3State(Level3State.Tube);
+    }
+
+    IEnumerator CaCO3()
+    {
+        yield return new WaitForSeconds(2);
+        caco3.SetActive(true);
+        level4Manager.UpdateLevel4State(Level4State.Water);
+    }
+
+    IEnumerator HCl()
+    {
+        yield return new WaitForSeconds(2);
+        level4Manager.UpdateLevel4State(Level4State.Tube);
     }
 }

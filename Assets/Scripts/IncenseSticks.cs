@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IncenseSticks : MonoBehaviour
 {
     public Level3Manager level3Manager;
     bool trigger;
-    public GameObject fire;
+    public GameObject fire, smoke;
+    [SerializeField] bool isLevel4;
+
+    [SerializeField] UnityEvent UpdateLevelState_Test;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,9 +22,17 @@ public class IncenseSticks : MonoBehaviour
 
     IEnumerator Finish()
     {
-        //fire anim
-        fire.SetActive(true);
+        if(!isLevel4)
+        {
+            //fire anim
+            fire.SetActive(true);
+        }
+        else
+        {
+            smoke.SetActive(false);
+        }
         yield return new WaitForSeconds(4f);
-        level3Manager.UpdateLevel3State(Level3State.Test);
+        UpdateLevelState_Test.Invoke();
+        //level3Manager.UpdateLevel3State(Level3State.Test);
     }
 }
