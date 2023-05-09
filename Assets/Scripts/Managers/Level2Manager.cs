@@ -218,7 +218,7 @@ public class Level2Manager : MonoBehaviour
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(2f);
         if(questionData.questions.Length == currentQusetIndex){
-            //SceneManager.LoadScene("Level3");
+            SceneManager.LoadScene("Level3");
         }else{
             Quesion(currentQusetIndex);
             ansPanel[0].SetActive(false);

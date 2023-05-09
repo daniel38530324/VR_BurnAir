@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public enum Level4State
 {
-    Explain,       //»¡©ú¶¥¬q
-    Choose,        //¿ï¾Ü¾¹§÷¶¥¬q
-    CaCO3,         //©ñ¤J¤j²z¥Û¶¥¬q
-    Water,         //¥[¤J¤ô¶¥¬q
-    HCl,           //¥[¤JÆQ»Ä¶¥¬q
-    Tube,          //ºŞ¤l¶¥¬q
-    Cover,         //©ñ¤JªM¤l¶¥¬q
-    PickUp,        //®³°_¶¥¬q
-    IncenseSticks, //½u­»´ú¸Õ¶¥¬q
-    Test           //´úÅç¶¥¬q
+    Explain,       //èªªæ˜éšæ®µ
+    Choose,        //é¸æ“‡å™¨æéšæ®µ
+    CaCO3,         //æ”¾å…¥å¤§ç†çŸ³éšæ®µ
+    Water,         //åŠ å…¥æ°´éšæ®µ
+    HCl,           //åŠ å…¥é¹½é…¸éšæ®µ
+    Tube,          //ç®¡å­éšæ®µ
+    Cover,         //æ”¾å…¥æ¯å­éšæ®µ
+    PickUp,        //æ‹¿èµ·éšæ®µ
+    IncenseSticks, //ç·šé¦™æ¸¬è©¦éšæ®µ
+    Test           //æ¸¬é©—éšæ®µ
 }
 
 public class Level4Manager : MonoBehaviour
@@ -68,13 +69,13 @@ public class Level4Manager : MonoBehaviour
                 break;
             case Level4State.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
+                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
                 table.SetActive(true);
                 break;
             case Level4State.CaCO3:
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
-                mission_Text.text = "¥[¤J¤j²z¥Û";
+                mission_Text.text = "åŠ å…¥å¤§ç†çŸ³";
                 table.SetActive(false);
                 waterBucket.SetActive(false);
                 hcl.SetActive(false);
@@ -90,7 +91,7 @@ public class Level4Manager : MonoBehaviour
                 suctionBottle.SetActive(true);
                 break;
             case Level4State.Water:
-                mission_Text.text = "¥[¤J¤ô";
+                mission_Text.text = "åŠ å…¥æ°´";
                 caco3.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -98,7 +99,7 @@ public class Level4Manager : MonoBehaviour
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 break;
             case Level4State.HCl:
-                mission_Text.text = "¥[¤JÆQ»Ä";
+                mission_Text.text = "åŠ å…¥é¹½é…¸";
                 waterBucket.SetActive(false);
                 hcl.transform.position = spawnPoint.position;
                 hcl.transform.rotation = Quaternion.Euler(0, -180, 0);
@@ -109,24 +110,24 @@ public class Level4Manager : MonoBehaviour
             case Level4State.Tube:
                 hcl_UI.SetActive(true);
                 Destroy(hcl_UI, 5);
-                mission_Text.text = "©ñ¤JºŞ¤l";
+                mission_Text.text = "æ”¾å…¥ç®¡å­";
                 hcl.SetActive(false);
                 dropper.SetActive(false);
                 pipe.SetActive(true);
                 break;
             case Level4State.Cover:
-                mission_Text.text = "©ñ¤JªM¤l";
+                mission_Text.text = "æ”¾å…¥æ¯å­";
                 bottle.SetActive(true);
                 break;
             case Level4State.PickUp:
                 cover_UI.SetActive(true);
                 Destroy(cover_UI, 5);
-                mission_Text.text = "®³°_ªM¤l";
+                mission_Text.text = "æ‹¿èµ·æ¯å­";
                 break;
             case Level4State.IncenseSticks:
                 incenseSticks.SetActive(true);
                 bottleForIncenseSticks.SetActive(true);
-                mission_Text.text = "®³¤UÀ¹¬Á¤ù¨Ã¥Î½u­»´ú¸Õ";
+                mission_Text.text = "æ‹¿ä¸‹æˆ´ç»ç‰‡ä¸¦ç”¨ç·šé¦™æ¸¬è©¦";
                 break;
             case Level4State.Test:
                 incenseSticks_UI.SetActive(true);
@@ -190,7 +191,7 @@ public class Level4Manager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (questionData.questions.Length == currentQusetIndex)
         {
-            //SceneManager.LoadScene("Level3");
+            //SceneManager.LoadScene("Level5");
         }
         else
         {
