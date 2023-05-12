@@ -20,6 +20,9 @@ public class Level1Manager : MonoBehaviour
     [Header("GameManager")]
     [SerializeField] GameObject gameManager;
 
+    [Header("LearningProcess")]
+    [SerializeField] LearningProcess learningProcess;
+
     [Header("Mission")]
     [SerializeField] Text mission_Text;
 
@@ -43,6 +46,8 @@ public class Level1Manager : MonoBehaviour
     public GameObject[] ansPanel;
     int currentQusetIndex;
 
+    float levelTimer = 0;
+
     private void Awake()
     {
         if (GameManager.instance == null)
@@ -51,6 +56,11 @@ public class Level1Manager : MonoBehaviour
         }
 
         UpdateLevel1State(Level1State.Explain);
+    }
+
+    private void Update()
+    {
+        levelTimer += Time.deltaTime;
     }
 
     public void UpdateLevel1State(Level1State newState)
@@ -97,6 +107,7 @@ public class Level1Manager : MonoBehaviour
                     choose_UI.SetActive(true);
                     Destroy(choose_UI, 7);
                 }
+                SendData("拿器材");
                 break;
             case Level1State.Cover:
                 candle.ReturnFire();
@@ -110,6 +121,7 @@ public class Level1Manager : MonoBehaviour
                     fan_UI.SetActive(true);
                     Destroy(fan_UI, 7);
                 }
+                SendData("扇子搧火");
                 break;
             case Level1State.Bucket:
                 candle.ReturnFire();
@@ -124,6 +136,7 @@ public class Level1Manager : MonoBehaviour
                     cover_UI.SetActive(true);
                     Destroy(cover_UI, 7);
                 }
+                SendData("蓋子滅火");
                 break;
             case Level1State.Flour:
                 candle.ReturnFire();
@@ -138,6 +151,7 @@ public class Level1Manager : MonoBehaviour
                     bucket_UI.SetActive(true);
                     Destroy(bucket_UI, 7);
                 }
+                SendData("用水滅火");
                 break;
             case Level1State.Test:
                 flour.SetActive(false);
@@ -149,6 +163,7 @@ public class Level1Manager : MonoBehaviour
                 Quesion(0);
                 flour_UI.SetActive(true);
                 Destroy(flour_UI, 7);
+                SendData("麵粉加入火");
                 break;
         }
     }
@@ -184,6 +199,12 @@ public class Level1Manager : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
+        LearningProcess.data[0] = "單元一";
+        LearningProcess.data[1] = questionData.questions[currentQusetIndex];
+        LearningProcess.data[2] = correctAns ? "答對" : "答錯";
+        LearningProcess.data[3] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
+
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
@@ -196,5 +217,13 @@ public class Level1Manager : MonoBehaviour
             ansPanel[0].SetActive(false);
             ansPanel[1].SetActive(false);
         }
+    }
+
+    private void SendData(string things)
+    {
+        LearningProcess.data[0] = "單元一";
+        LearningProcess.data[1] = things;
+        LearningProcess.data[2] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
     }
 }

@@ -11,9 +11,9 @@ public enum Level3State
     Choose,        //選擇器材階段
     MnO2,          //放入二氧化錳階段
     Water,         //加入水階段
-    H2O2,          //加入雙氧水階段
     Tube,          //管子階段
     Cover,         //放入杯子階段
+    H2O2,          //加入雙氧水階段
     PickUp,        //拿起階段
     IncenseSticks, //線香測試階段
     Test           //測驗階段
@@ -22,6 +22,9 @@ public class Level3Manager : MonoBehaviour
 {
     [Header("GameManager")]
     [SerializeField] GameObject gameManager;
+
+    [Header("LearningProcess")]
+    [SerializeField] LearningProcess learningProcess;
 
     [Header("Mission")]
     [SerializeField] Text mission_Text;
@@ -46,6 +49,8 @@ public class Level3Manager : MonoBehaviour
     public GameObject[] ansPanel;
     int currentQusetIndex;
 
+    float levelTimer = 0;
+
     private void Awake()
     {
         if (GameManager.instance == null)
@@ -54,6 +59,11 @@ public class Level3Manager : MonoBehaviour
         }
 
         UpdateLevel3State(Level3State.Explain);
+    }
+
+    private void Update()
+    {
+        levelTimer += Time.deltaTime;
     }
 
     public void UpdateLevel3State(Level3State newState)
@@ -84,6 +94,7 @@ public class Level3Manager : MonoBehaviour
                 mnO2.GetComponent<WaterBucket_New>().enabled = true;
                 waterTank.SetActive(true);
                 suctionBottle.SetActive(true);
+                SendData("拿器材");
                 break;
             case Level3State.Water:
                 mission_Text.text = "加入水";
@@ -92,37 +103,43 @@ public class Level3Manager : MonoBehaviour
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
+                SendData("加入二氧化錳");
+                break;
+            case Level3State.Tube:
+                mission_Text.text = "放入管子";
+                waterBucket.SetActive(false);
+                pipe.SetActive(true);
+                SendData("加入水");
+                break;
+            case Level3State.Cover:
+                mission_Text.text = "放入杯子";
+                bottle.SetActive(true);
+                SendData("放入管子");
                 break;
             case Level3State.H2O2:
+                cover_UI.SetActive(true);
+                Destroy(cover_UI, 5);
                 mission_Text.text = "加入雙氧水";
-                waterBucket.SetActive(false);
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, -180, 0);
                 h2O2.SetActive(true);
                 h2O2.GetComponent<XRGrabInteractable>().enabled = false;
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
-                break;
-            case Level3State.Tube:
-                h2O2_UI.SetActive(true);
-                Destroy(h2O2_UI, 5);
-                mission_Text.text = "放入管子";
-                h2O2.SetActive(false);
-                dropper.SetActive(false);
-                pipe.SetActive(true);
-                break;
-            case Level3State.Cover:
-                mission_Text.text = "放入杯子";
-                bottle.SetActive(true);
+                SendData("放入杯子");
                 break;
             case Level3State.PickUp:
-                cover_UI.SetActive(true);
-                Destroy(cover_UI, 5);
+                h2O2_UI.SetActive(true);
+                Destroy(h2O2_UI, 5);
                 mission_Text.text = "拿起杯子";
+                h2O2.SetActive(false);
+                dropper.SetActive(false);
+                SendData("加入雙氧水");
                 break;
             case Level3State.IncenseSticks:
                 incenseSticks.SetActive(true);
                 bottleForIncenseSticks.SetActive(true);
                 mission_Text.text = "拿下戴玻片並用線香測試";
+                SendData("拿起杯子");
                 break;
             case Level3State.Test:
                 incenseSticks_UI.SetActive(true);
@@ -135,6 +152,7 @@ public class Level3Manager : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                SendData("拿下戴玻片並用線香測試");
                 break;
         }
     }
@@ -170,6 +188,12 @@ public class Level3Manager : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
+        LearningProcess.data[0] = "單元三";
+        LearningProcess.data[1] = questionData.questions[currentQusetIndex];
+        LearningProcess.data[2] = correctAns ? "答對" : "答錯";
+        LearningProcess.data[3] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
+
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
@@ -182,5 +206,13 @@ public class Level3Manager : MonoBehaviour
             ansPanel[0].SetActive(false);
             ansPanel[1].SetActive(false);
         }
+    }
+
+    private void SendData(string things)
+    {
+        LearningProcess.data[0] = "單元三";
+        LearningProcess.data[1] = things;
+        LearningProcess.data[2] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
     }
 }

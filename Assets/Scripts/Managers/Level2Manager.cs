@@ -21,6 +21,9 @@ public class Level2Manager : MonoBehaviour
     [Header("GameManager")]
     [SerializeField] GameObject gameManager;
 
+    [Header("LearningProcess")]
+    [SerializeField] LearningProcess learningProcess;
+
     [Header("Mission")]
     [SerializeField] Text mission_Text;
     [SerializeField] Text timer_Text;
@@ -46,6 +49,7 @@ public class Level2Manager : MonoBehaviour
     Level2State level2State;
     float timer = 90;
     bool timerState;
+    float levelTimer = 0;
 
     private void Awake()
     {
@@ -84,6 +88,8 @@ public class Level2Manager : MonoBehaviour
                 defeatPanel.SetActive(true);
             }
         }
+
+        levelTimer += Time.deltaTime;
     }
 
     public void UpdateLevel2State(Level2State newState)
@@ -109,12 +115,14 @@ public class Level2Manager : MonoBehaviour
                 fireCount = 0;
                 UpdateFireCount();
                 extinguishingTools.SetActive(true);
+                SendData("移除易燃物");
                 break;
             case Level2State.Success:
                 timerState = false;
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 part2Panel.SetActive(false);
                 successPanel.SetActive(true);
+                SendData("滅掉火源");
                 break;
             case Level2State.Test:
                 extinguishingTools.SetActive(false);
@@ -212,6 +220,12 @@ public class Level2Manager : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
+        LearningProcess.data[0] = "單元二";
+        LearningProcess.data[1] = questionData.questions[currentQusetIndex];
+        LearningProcess.data[2] = correctAns ? "答對" : "答錯";
+        LearningProcess.data[3] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
+
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
@@ -224,5 +238,13 @@ public class Level2Manager : MonoBehaviour
             ansPanel[0].SetActive(false);
             ansPanel[1].SetActive(false);
         }
+    }
+
+    private void SendData(string things)
+    {
+        LearningProcess.data[0] = "單元二";
+        LearningProcess.data[1] = things;
+        LearningProcess.data[2] = levelTimer.ToString("0");
+        learningProcess.DEV_AppendToReport();
     }
 }

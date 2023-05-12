@@ -15,7 +15,7 @@ public class Bottle : MonoBehaviour
     public GameObject bottleInWater;
     public BoxCollider boxCollider;
 
-    [SerializeField] UnityEvent UpdateLevelState_PickUp, UpdateLevelState_IncenseSticks;
+    [SerializeField] UnityEvent UpdateLevelState_H2O2, UpdateLevelState_IncenseSticks;
 
     bool isTrigger;
     
@@ -41,7 +41,7 @@ public class Bottle : MonoBehaviour
         boxCollider.enabled = false;
         bottleInWater.SetActive(true);
         yield return new WaitForSeconds(4f);
-        UpdateLevelState_PickUp.Invoke();
+        UpdateLevelState_H2O2.Invoke();
         //level3Manager.UpdateLevel3State(Level3State.PickUp);
     }
 
