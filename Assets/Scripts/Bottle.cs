@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class Bottle : MonoBehaviour
 {
     public bool inWater;
-    public Level3Manager level3Manager;
     [Header("如果放在水裡才要放")]
     public GameObject bubble;
 
@@ -40,7 +39,7 @@ public class Bottle : MonoBehaviour
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
         bottleInWater.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.5f);
         UpdateLevelState_H2O2.Invoke();
         //level3Manager.UpdateLevel3State(Level3State.PickUp);
     }

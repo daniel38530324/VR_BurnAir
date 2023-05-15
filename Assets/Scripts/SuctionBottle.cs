@@ -51,7 +51,7 @@ public class SuctionBottle : MonoBehaviour
     IEnumerator H2O2()
     {
         yield return new WaitForSeconds(2);
-        level3Manager.UpdateLevel3State(Level3State.PickUp);
+        level3Manager.UpdateLevel3State(Level3State.GlassCover);
     }
 
     IEnumerator CaCO3()
@@ -64,6 +64,6 @@ public class SuctionBottle : MonoBehaviour
     IEnumerator HCl()
     {
         yield return new WaitForSeconds(2);
-        level4Manager.UpdateLevel4State(Level4State.PickUp);
+        level4Manager.UpdateLevel4State(Level4State.GlassCover);
     }
 }

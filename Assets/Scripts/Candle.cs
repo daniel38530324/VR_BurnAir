@@ -18,6 +18,10 @@ public class Candle : MonoBehaviour
             StartCoroutine(Burn());
             StartCoroutine(NextState(Level1State.Cover));
         }
+
+        if(Input.GetKeyDown(KeyCode.T)){
+            StartCoroutine(Burn2());
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -41,6 +45,24 @@ public class Candle : MonoBehaviour
         main.startSize = 0.4f;
     }
 
+    IEnumerator Burn2()
+    {
+        haveWind = false;
+        isTrigger = true;
+        var main = particleSystem.main;
+        main.startSize = 1f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 2f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 4f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 2f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 1f;
+        yield return new WaitForSeconds(0.2f);
+        main.startSize = 0.1f;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Cover") && !isTrigger2){
@@ -55,7 +77,7 @@ public class Candle : MonoBehaviour
 
         if (other.CompareTag("Flour"))
         {
-            StartCoroutine(Burn());
+            StartCoroutine(Burn2());
             StartCoroutine(NextState(Level1State.Test));
         }
     }

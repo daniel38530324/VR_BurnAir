@@ -14,6 +14,7 @@ public enum Level4State
     Tube,          //管子階段
     Cover,         //放入杯子階段
     HCl,           //加入鹽酸階段
+    GlassCover,    //放入玻璃片
     PickUp,        //拿起階段
     IncenseSticks, //線香測試階段
     Test           //測驗階段
@@ -32,11 +33,11 @@ public class Level4Manager : MonoBehaviour
 
     [Header("Knowledge points")]
     [SerializeField] GameObject choose_UI;
-    [SerializeField] GameObject hcl_UI, cover_UI, pickUp_UI, incenseSticks_UI;
+    [SerializeField] GameObject hcl_UI, cover_UI, glassCover_UI, pickUp_UI, incenseSticks_UI;
 
     [Header("Object")]
     [SerializeField] GameObject waterTank;
-    [SerializeField] GameObject suctionBottle, table, waterBucket, cover, caco3, hcl, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks;
+    [SerializeField] GameObject suctionBottle, table, waterBucket, cover, caco3, hcl, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks, glassCover, glassCoverInWater, bubbleEffect;
     [SerializeField] GameObject[] caco3s;
 
     [SerializeField] Transform spawnPoint;
@@ -132,15 +133,27 @@ public class Level4Manager : MonoBehaviour
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 SendData("放入杯子");
                 break;
-            case Level4State.PickUp:
+            case Level4State.GlassCover:
                 hcl_UI.SetActive(true);
                 Destroy(hcl_UI, 5);
-                mission_Text.text = "拿起杯子";
+                glassCover.SetActive(true);
+                mission_Text.text = "放入玻璃蓋";
                 hcl.SetActive(false);
                 dropper.SetActive(false);
                 SendData("加入鹽酸");
                 break;
+            case Level4State.PickUp:
+                glassCover_UI.SetActive(true);
+                Destroy(glassCover_UI, 5);
+                glassCover.SetActive(false);
+                bubbleEffect.SetActive(false);
+                glassCoverInWater.SetActive(true);
+                mission_Text.text = "拿起杯子";
+                SendData("放入玻璃蓋");
+                break;
             case Level4State.IncenseSticks:
+                pickUp_UI.SetActive(true);
+                Destroy(pickUp_UI, 5);
                 incenseSticks.SetActive(true);
                 bottleForIncenseSticks.SetActive(true);
                 mission_Text.text = "拿下戴玻片並用線香測試";
