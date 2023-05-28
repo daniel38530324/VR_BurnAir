@@ -219,11 +219,17 @@ public class Level1Manager : MonoBehaviour
         }
     }
 
-    private void SendData(string things)
+    public void SendData(string things, bool success = true)
     {
         LearningProcess.data[0] = "單元一";
         LearningProcess.data[1] = things;
-        LearningProcess.data[2] = levelTimer.ToString("0");
+        LearningProcess.data[2] = success ? "成功" : "失敗";
+        LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+    }
+
+    public void SendChooseFailData()
+    {
+        SendData("拿器材", false);
     }
 }

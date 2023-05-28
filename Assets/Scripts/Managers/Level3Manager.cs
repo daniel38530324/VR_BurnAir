@@ -124,8 +124,9 @@ public class Level3Manager : MonoBehaviour
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, -180, 0);
                 h2O2.SetActive(true);
-                h2O2.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper.GetComponent<XRGrabInteractable>().enabled = true;
+                h2O2.GetComponent<WaterBucket_New>().enabled = true;
+                //h2O2.GetComponent<XRGrabInteractable>().enabled = false;
+                //dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 SendData("放入杯子");
                 break;
             case Level3State.GlassCover:
@@ -134,7 +135,7 @@ public class Level3Manager : MonoBehaviour
                 glassCover.SetActive(true);
                 mission_Text.text = "放入玻璃蓋";
                 h2O2.SetActive(false);
-                dropper.SetActive(false);
+                //dropper.SetActive(false);
                 SendData("加入雙氧水");
                 break;
             case Level3State.PickUp:
@@ -221,11 +222,17 @@ public class Level3Manager : MonoBehaviour
         }
     }
 
-    private void SendData(string things)
+    public void SendData(string things, bool success = true)
     {
         LearningProcess.data[0] = "單元三";
         LearningProcess.data[1] = things;
-        LearningProcess.data[2] = levelTimer.ToString("0");
+        LearningProcess.data[2] = success ? "成功" : "失敗";
+        LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+    }
+
+    public void SendChooseFailData()
+    {
+        SendData("拿器材", false);
     }
 }

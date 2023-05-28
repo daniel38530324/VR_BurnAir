@@ -5,20 +5,15 @@ using UnityEngine.Events;
 
 public class Table : MonoBehaviour
 {
-    [SerializeField] List<GameObject> equipment;
-    [SerializeField] UnityEvent UpdateLevelState;
+    [SerializeField] GameObject wrong_UI;
+    [SerializeField] List<GameObject> equipment, wrong;
+    [SerializeField] UnityEvent UpdateLevelState, SendChooseFailData;
 
     int getCount = 0, equipmentCount;
     // Start is called before the first frame update
     void Start()
     {
         equipmentCount = equipment.Count;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -45,5 +40,21 @@ public class Table : MonoBehaviour
             equipment.Remove(equipment[removeIndex]);
         }
         
+        foreach(GameObject item in wrong)
+        {
+            if(collision.gameObject == item)
+            {
+                StartCoroutine(Wrong());
+                item.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator Wrong()
+    {
+        SendChooseFailData.Invoke();
+        wrong_UI.SetActive(true);
+        yield return new WaitForSeconds(5);
+        wrong_UI.SetActive(false);
     }
 }
