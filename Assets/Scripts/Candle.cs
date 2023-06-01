@@ -10,7 +10,7 @@ public class Candle : MonoBehaviour
     public ParticleSystem particleSystem;
     public GameObject particleSystem2;
     bool isTrigger;
-    bool isTrigger2;
+    public bool isTrigger2;
 
     private void Update()
     {

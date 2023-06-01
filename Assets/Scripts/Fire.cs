@@ -10,7 +10,7 @@ public class Fire : MonoBehaviour
     private float durationTime = 5, timer = 0;
     private bool turnOff, waterOff;
     public string fireName;
-    bool beenused;
+    public bool beenused;
 
     private void Start()
     {

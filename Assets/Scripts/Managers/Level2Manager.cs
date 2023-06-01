@@ -32,6 +32,7 @@ public class Level2Manager : MonoBehaviour
     [Header("Object")]
     [SerializeField] GameObject fires;
     [SerializeField] GameObject combustibles, extinguishingTools;
+    [SerializeField] GameObject bucket, bucketSpawnPoint;
 
     [Header("Panel")]
     [SerializeField] GameObject part2Panel;
@@ -46,7 +47,7 @@ public class Level2Manager : MonoBehaviour
     int currentQusetIndex;
     
     public int combustiblesCount = 0, fireCount = 0;
-    Level2State level2State;
+    public Level2State level2State;
     float timer = 90;
     bool timerState;
     float levelTimer = 0;
@@ -130,6 +131,19 @@ public class Level2Manager : MonoBehaviour
                 defeatPanel.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                break;
+        }
+    }
+
+    public void ReturnLevelState(Level2State newState)
+    {
+        switch(newState)
+        {
+            case Level2State.Fire:
+                bucket.SetActive(false);
+                bucket.transform.position = bucketSpawnPoint.transform.position;
+                bucket.transform.rotation = Quaternion.identity;
+                bucket.SetActive(true);
                 break;
         }
     }

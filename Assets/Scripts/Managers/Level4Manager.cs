@@ -37,12 +37,12 @@ public class Level4Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject waterTank;
-    [SerializeField] GameObject suctionBottle, table, waterBucket, cover, caco3, hcl, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks, glassCover, glassCoverInWater, bubbleEffect;
+    [SerializeField] GameObject suctionBottle, table, waterBucket, cover, caco3, caco3withWater, hcl, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks, glassCover, glassCoverInWater, bubbleEffect;
     [SerializeField] GameObject[] caco3s;
 
     [SerializeField] Transform spawnPoint;
 
-    Level4State level4State;
+    public Level4State level4State;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -107,6 +107,7 @@ public class Level4Manager : MonoBehaviour
                 caco3.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
+                caco3withWater.SetActive(true);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 SendData("加入大理石");
@@ -167,11 +168,37 @@ public class Level4Manager : MonoBehaviour
                 bottleForIncenseSticks.SetActive(false);
                 waterTank.SetActive(false);
                 suctionBottle.SetActive(false);
+                glassCoverInWater.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
                 SendData("拿下戴玻片並用線香測試");
+                break;
+        }
+    }
+    
+    public void ReturnLevelState(Level4State newState)
+    {
+        switch(newState)
+        {
+            case Level4State.CaCO3:
+                    caco3.SetActive(false);
+                    caco3.transform.position = spawnPoint.position;
+                    caco3.transform.rotation = Quaternion.identity;
+                    caco3.SetActive(true);
+                break;
+            case Level4State.Water:
+                    waterBucket.SetActive(false);
+                    waterBucket.transform.position = spawnPoint.position;
+                    waterBucket.transform.rotation = Quaternion.identity;
+                    waterBucket.SetActive(true);
+                break;
+            case Level4State.HCl:
+                    hcl.SetActive(false);
+                    hcl.transform.position = spawnPoint.position;
+                    hcl.transform.rotation = Quaternion.identity;
+                    hcl.SetActive(true);
                 break;
         }
     }

@@ -9,6 +9,9 @@ public class Candle_Control : MonoBehaviour
 
     [Header("Fan")]
     [SerializeField] GameObject Fan;
+    
+    [Header("Cover")]
+    [SerializeField] GameObject cover;
 
     [Header("Bucket")]
     [SerializeField] WaterBucket_New waterBucket;
@@ -17,14 +20,17 @@ public class Candle_Control : MonoBehaviour
     [Header("Flour")]
     [SerializeField] WaterBucket_New flourBag;
     [SerializeField] GameObject flour, flourEffect;
+    public bool isTrigger;
 
+    [Header("ForLevel1")]
+    public WaterBucket_New waterBucket_New;
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Wind"))
         {
             Fan.SetActive(false);
-            StartCoroutine(RetuenState(Level1State.Fan));
+            StartCoroutine(ReturnState(Level1State.Fan));
         }
     }
 
@@ -32,7 +38,8 @@ public class Candle_Control : MonoBehaviour
     {
         if (other.CompareTag("Cover"))
         {
-            StartCoroutine(RetuenState(Level1State.Cover));
+            cover.SetActive(false);
+            StartCoroutine(ReturnState(Level1State.Cover));
         }
 
         if (other.CompareTag("Water"))
@@ -41,7 +48,7 @@ public class Candle_Control : MonoBehaviour
             waterBucket.enabled = false;
             water.SetActive(true);
             waterEffect.SetActive(false);
-            StartCoroutine(RetuenState(Level1State.Bucket));
+            StartCoroutine(ReturnState(Level1State.Bucket));
         }
 
         if (other.CompareTag("Flour"))
@@ -50,15 +57,24 @@ public class Candle_Control : MonoBehaviour
             flourBag.enabled = false;
             flour.SetActive(true);
             flourEffect.SetActive(false);
-            StartCoroutine(RetuenState(Level1State.Flour));
+            StartCoroutine(ReturnState(Level1State.Flour));
         }
     }
 
-    IEnumerator RetuenState(Level1State returnState)
+    IEnumerator ReturnState(Level1State returnState)
     {
-        warn_UI.SetActive(true);
-        yield return new WaitForSeconds(5);
-        level1Manager.UpdateLevel1State(returnState);
-        warn_UI.SetActive(false);
+        if(!waterBucket_New.isReturn){
+            isTrigger = true;
+            warn_UI.SetActive(true);
+            yield return new WaitForSeconds(3);
+            level1Manager.ReturnLevelState(returnState);
+            warn_UI.SetActive(false);
+
+            if(returnState == Level1State.Bucket){
+                waterBucket.enabled = true;
+            }else if(returnState == Level1State.Flour){
+                flourBag.enabled = true;
+            }
+        }
     }
 }

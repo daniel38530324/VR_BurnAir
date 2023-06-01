@@ -36,7 +36,7 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle candle;
 
-    Level1State level1State;
+    public Level1State level1State;
     
     [Header("Test")]
     public QuestionData questionData;
@@ -164,6 +164,37 @@ public class Level1Manager : MonoBehaviour
                 flour_UI.SetActive(true);
                 Destroy(flour_UI, 7);
                 SendData("麵粉加入火");
+                break;
+        }
+    }
+
+    public void ReturnLevelState(Level1State newState)
+    {
+        switch (newState)
+        {
+            case Level1State.Fan:
+                fan.SetActive(false);
+                fan.transform.position = spawnPoint.position;
+                fan.transform.rotation = Quaternion.Euler(0, 90, 0);
+                fan.SetActive(true);
+                break;
+            case Level1State.Cover:
+                cover.SetActive(false);
+                cover.transform.position = spawnPoint.position;
+                cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                cover.SetActive(true);
+                break;
+            case Level1State.Bucket:
+                bucket.SetActive(false);
+                bucket.transform.position = spawnPoint.position;
+                bucket.transform.rotation = Quaternion.identity;
+                bucket.SetActive(true);
+                break;
+            case Level1State.Flour:
+                flour.SetActive(false);
+                flour.transform.position = spawnPoint.position;
+                flour.transform.rotation = Quaternion.identity;
+                flour.SetActive(true);
                 break;
         }
     }

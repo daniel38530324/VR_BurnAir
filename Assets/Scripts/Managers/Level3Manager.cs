@@ -36,11 +36,11 @@ public class Level3Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject waterTank;
-    [SerializeField] GameObject suctionBottle, table, waterBucket,cover, mnO2, h2O2, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks, glassCover, glassCoverInWater, bubbleEffect;
+    [SerializeField] GameObject suctionBottle, table, waterBucket,cover, mnO2, mnO2withWater, h2O2, dropper, pipe, bottle, incenseSticks, bottleForIncenseSticks, glassCover, glassCoverInWater, bubbleEffect;
 
     [SerializeField] Transform spawnPoint;
 
-    Level3State level3State;
+    public Level3State level3State;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -102,6 +102,7 @@ public class Level3Manager : MonoBehaviour
                 mnO2.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
+                mnO2withWater.SetActive(true);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 SendData("加入二氧化錳");
@@ -162,11 +163,37 @@ public class Level3Manager : MonoBehaviour
                 bottleForIncenseSticks.SetActive(false);
                 waterTank.SetActive(false);
                 suctionBottle.SetActive(false);
+                glassCoverInWater.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
                 SendData("拿下戴玻片並用線香測試");
+                break;
+        }
+    }
+    
+    public void ReturnLevelState(Level3State newState)
+    {
+        switch(newState)
+        {
+            case Level3State.MnO2:
+                mnO2.SetActive(false);
+                mnO2.transform.position = spawnPoint.position;
+                mnO2.transform.rotation = Quaternion.Euler(0, 0, 0);
+                mnO2.SetActive(true);
+                break;
+            case Level3State.Water:
+                waterBucket.SetActive(false);
+                waterBucket.transform.position = spawnPoint.position;
+                waterBucket.transform.rotation = Quaternion.Euler(0, 0, 0);
+                waterBucket.SetActive(true);
+                break;
+            case Level3State.H2O2:
+                h2O2.SetActive(false);
+                h2O2.transform.position = spawnPoint.position;
+                h2O2.transform.rotation = Quaternion.Euler(0, 0, 0);
+                h2O2.SetActive(true);
                 break;
         }
     }

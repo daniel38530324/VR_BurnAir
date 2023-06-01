@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 
 public enum Level5State
 {
-    Explain,            //»¡©ú¶¥¬q
-    Choose,             //¿ï¾Ü¾¹§÷¶¥¬q
-    Place,              //ªÅ®ğ-©ñ¸m¿û´Ö¶¥¬q
-    Bag1,               //¤ô-©ñ¶i³U¤l¶¥¬q
-    Water,              //¤ô-¥[¤J¤ô¶¥¬q
-    Bag2,               //¾L-©ñ¶i³U¤l¶¥¬q
-    vinegar,            //¾L-¥[¤J¾L¶¥¬q
-    Test,               //´úÅç¶¥¬q
+    Explain,            //èªªæ˜éšæ®µ
+    Choose,             //é¸æ“‡å™¨æéšæ®µ
+    Place,              //ç©ºæ°£-æ”¾ç½®é‹¼æ£‰éšæ®µ
+    Bag1,               //æ°´-æ”¾é€²è¢‹å­éšæ®µ
+    Water,              //æ°´-åŠ å…¥æ°´éšæ®µ
+    Bag2,               //é†‹-æ”¾é€²è¢‹å­éšæ®µ
+    vinegar,            //é†‹-åŠ å…¥é†‹éšæ®µ
+    Test,               //æ¸¬é©—éšæ®µ
 }
 
 
