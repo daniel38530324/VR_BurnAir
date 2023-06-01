@@ -107,13 +107,13 @@ public class Level4Manager : MonoBehaviour
                 caco3.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
-                caco3withWater.SetActive(true);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 SendData("加入大理石");
                 break;
             case Level4State.Tube:
                 mission_Text.text = "放入管子";
+                caco3withWater.SetActive(true);
                 waterBucket.SetActive(false);
                 pipe.SetActive(true);
                 SendData("加入水");

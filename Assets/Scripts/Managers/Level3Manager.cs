@@ -102,13 +102,13 @@ public class Level3Manager : MonoBehaviour
                 mnO2.SetActive(false);
                 waterBucket.transform.position = spawnPoint.position;
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
-                mnO2withWater.SetActive(true);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
                 SendData("加入二氧化錳");
                 break;
             case Level3State.Tube:
                 mission_Text.text = "放入管子";
+                mnO2withWater.SetActive(true);
                 waterBucket.SetActive(false);
                 pipe.SetActive(true);
                 SendData("加入水");

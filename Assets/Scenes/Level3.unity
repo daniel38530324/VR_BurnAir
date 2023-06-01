@@ -42270,6 +42270,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   isMno2: 1
   suctionBottle: {fileID: 565084454}
+  isCaCO3: 0
 --- !u!1 &1476285723
 GameObject:
   m_ObjectHideFlags: 0
@@ -64066,6 +64067,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   isMno2: 0
   suctionBottle: {fileID: 565084454}
+  isCaCO3: 0
 --- !u!114 &1729325606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65582,6 +65584,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   isMno2: 0
   suctionBottle: {fileID: 0}
+  isCaCO3: 0
 --- !u!114 &1919126900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66518,6 +66521,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   isMno2: 0
   suctionBottle: {fileID: 565084454}
+  isCaCO3: 0
 --- !u!114 &2028431511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70025,7 +70029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &919132148742670687
 GameObject:
   m_ObjectHideFlags: 0
