@@ -262,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4147455
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 80047816}
   - component: {fileID: 80047815}
   - component: {fileID: 80047814}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17144,7 +17144,7 @@ GameObject:
   - component: {fileID: 765762598}
   - component: {fileID: 765762597}
   - component: {fileID: 765762596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GlassCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57741,7 +57741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1841608550}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

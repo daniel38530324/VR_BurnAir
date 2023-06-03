@@ -47,6 +47,7 @@ public class Level1Manager : MonoBehaviour
     int currentQusetIndex;
 
     float levelTimer = 0;
+    bool[] learningState = { true, true, true, true, true };
 
     private void Awake()
     {
@@ -91,7 +92,7 @@ public class Level1Manager : MonoBehaviour
                 cover.SetActive(false);
                 bucket.SetActive(false);
                 flour.SetActive(false);
-                mission_Text.text = "用扇子搧火焰";
+                mission_Text.text = "用扇子慢慢搧火焰";
                 candle_control.SetActive(true);
                 candle_test.SetActive(true);
                 table.SetActive(false);
@@ -107,7 +108,11 @@ public class Level1Manager : MonoBehaviour
                     choose_UI.SetActive(true);
                     Destroy(choose_UI, 7);
                 }
-                SendData("拿器材");
+                if(learningState[0])
+                {
+                    learningState[0] = false;
+                    SendData("拿器材");
+                }
                 break;
             case Level1State.Cover:
                 candle.ReturnFire();
@@ -121,7 +126,11 @@ public class Level1Manager : MonoBehaviour
                     fan_UI.SetActive(true);
                     Destroy(fan_UI, 7);
                 }
-                SendData("扇子搧火");
+                if(learningState[1])
+                {
+                    learningState[1] = false;
+                    SendData("扇子搧火");
+                }
                 break;
             case Level1State.Bucket:
                 candle.ReturnFire();
@@ -136,7 +145,11 @@ public class Level1Manager : MonoBehaviour
                     cover_UI.SetActive(true);
                     Destroy(cover_UI, 7);
                 }
-                SendData("蓋子滅火");
+                if(learningState[2])
+                {
+                    learningState[2] = false;
+                    SendData("蓋子滅火");
+                }
                 break;
             case Level1State.Flour:
                 candle.ReturnFire();
@@ -151,7 +164,11 @@ public class Level1Manager : MonoBehaviour
                     bucket_UI.SetActive(true);
                     Destroy(bucket_UI, 7);
                 }
-                SendData("用水滅火");
+                if(learningState[3])
+                {
+                    learningState[3] = false;
+                    SendData("用水滅火");
+                }
                 break;
             case Level1State.Test:
                 flour.SetActive(false);
@@ -163,7 +180,11 @@ public class Level1Manager : MonoBehaviour
                 Quesion(0);
                 flour_UI.SetActive(true);
                 Destroy(flour_UI, 7);
-                SendData("麵粉加入火");
+                if(learningState[4])
+                {
+                    learningState[4] = false;
+                    SendData("麵粉加入火");
+                }
                 break;
         }
     }
@@ -242,7 +263,7 @@ public class Level1Manager : MonoBehaviour
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(2f);
         if(questionData.questions.Length == currentQusetIndex){
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("MainPage");
         }else{
             Quesion(currentQusetIndex);
             ansPanel[0].SetActive(false);

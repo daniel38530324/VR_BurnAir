@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 150604857}
   - component: {fileID: 150604856}
   - component: {fileID: 150604855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GlassCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8097,7 +8097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 345073510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttachPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15753,7 +15753,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -52852,7 +52852,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

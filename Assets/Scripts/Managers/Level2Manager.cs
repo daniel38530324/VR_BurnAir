@@ -51,6 +51,7 @@ public class Level2Manager : MonoBehaviour
     float timer = 90;
     bool timerState;
     float levelTimer = 0;
+    bool[] learningState = {true, true};
 
     private void Awake()
     {
@@ -116,14 +117,23 @@ public class Level2Manager : MonoBehaviour
                 fireCount = 0;
                 UpdateFireCount();
                 extinguishingTools.SetActive(true);
-                SendData("移除易燃物");
+                if(learningState[0])
+                {
+                    learningState[0] = false;
+                    SendData("移除易燃物");
+                }
+                
                 break;
             case Level2State.Success:
                 timerState = false;
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 part2Panel.SetActive(false);
                 successPanel.SetActive(true);
-                SendData("滅掉火源");
+                if(learningState[1])
+                {
+                    learningState[1] = false;
+                    SendData("滅掉火源");
+                }
                 break;
             case Level2State.Test:
                 extinguishingTools.SetActive(false);
@@ -246,7 +256,7 @@ public class Level2Manager : MonoBehaviour
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(2f);
         if(questionData.questions.Length == currentQusetIndex){
-            SceneManager.LoadScene("Level3");
+            SceneManager.LoadScene("MainPage");
         }else{
             Quesion(currentQusetIndex);
             ansPanel[0].SetActive(false);

@@ -53,6 +53,7 @@ public class Level4Manager : MonoBehaviour
     int currentQusetIndex;
 
     float levelTimer = 0;
+    bool[] learningState = { true, true, true, true, true, true, true, true, true };
 
     private void Awake()
     {
@@ -94,13 +95,13 @@ public class Level4Manager : MonoBehaviour
                 caco3.transform.position = spawnPoint.position;
                 caco3.transform.rotation = Quaternion.Euler(0, 0, 0);
                 caco3.SetActive(true);
-                for(int i = 0; i <= 9; i++)
-                {
-                    
-                }
                 waterTank.SetActive(true);
                 suctionBottle.SetActive(true);
-                SendData("拿器材");
+                if(learningState[0])
+                {
+                    learningState[0] = false;
+                    SendData("拿器材");
+                }
                 break;
             case Level4State.Water:
                 mission_Text.text = "加入水";
@@ -109,19 +110,31 @@ public class Level4Manager : MonoBehaviour
                 waterBucket.transform.rotation = Quaternion.Euler(0, -90, 0);
                 waterBucket.SetActive(true);
                 waterBucket.GetComponent<WaterBucket_New>().enabled = true;
-                SendData("加入大理石");
+                if (learningState[1])
+                {
+                    learningState[1] = false;
+                    SendData("加入大理石");
+                }
                 break;
             case Level4State.Tube:
                 mission_Text.text = "放入管子";
                 caco3withWater.SetActive(true);
                 waterBucket.SetActive(false);
                 pipe.SetActive(true);
-                SendData("加入水");
+                if (learningState[2])
+                {
+                    learningState[2] = false;
+                    SendData("加入水");
+                }
                 break;
             case Level4State.Cover:
                 mission_Text.text = "放入杯子";
                 bottle.SetActive(true);
-                SendData("放入管子");
+                if(learningState[3])
+                {
+                    learningState[3] = false;
+                    SendData("放入管子");
+                }
                 break;
             case Level4State.HCl:
                 cover_UI.SetActive(true);
@@ -133,7 +146,11 @@ public class Level4Manager : MonoBehaviour
                 hcl.GetComponent<WaterBucket_New>().enabled = true;
                 //hcl.GetComponent<XRGrabInteractable>().enabled = false;
                 //dropper.GetComponent<XRGrabInteractable>().enabled = true;
-                SendData("放入杯子");
+                if (learningState[4])
+                {
+                    learningState[4] = false;
+                    SendData("放入杯子");
+                }
                 break;
             case Level4State.GlassCover:
                 hcl_UI.SetActive(true);
@@ -142,7 +159,11 @@ public class Level4Manager : MonoBehaviour
                 mission_Text.text = "放入玻璃蓋";
                 hcl.SetActive(false);
                 //dropper.SetActive(false);
-                SendData("加入鹽酸");
+                if (learningState[5])
+                {
+                    learningState[5] = false;
+                    SendData("加入鹽酸");
+                }
                 break;
             case Level4State.PickUp:
                 glassCover_UI.SetActive(true);
@@ -151,7 +172,11 @@ public class Level4Manager : MonoBehaviour
                 bubbleEffect.SetActive(false);
                 glassCoverInWater.SetActive(true);
                 mission_Text.text = "拿起杯子";
-                SendData("放入玻璃蓋");
+                if (learningState[6])
+                {
+                    learningState[6] = false;
+                    SendData("放入玻璃蓋");
+                }
                 break;
             case Level4State.IncenseSticks:
                 pickUp_UI.SetActive(true);
@@ -159,7 +184,11 @@ public class Level4Manager : MonoBehaviour
                 incenseSticks.SetActive(true);
                 bottleForIncenseSticks.SetActive(true);
                 mission_Text.text = "拿下戴玻片並用線香測試";
-                SendData("拿起杯子");
+                if (learningState[7])
+                {
+                    learningState[7] = false;
+                    SendData("拿起杯子");
+                }
                 break;
             case Level4State.Test:
                 incenseSticks_UI.SetActive(true);
@@ -168,12 +197,17 @@ public class Level4Manager : MonoBehaviour
                 bottleForIncenseSticks.SetActive(false);
                 waterTank.SetActive(false);
                 suctionBottle.SetActive(false);
-                glassCoverInWater.SetActive(false);
+                //glassCoverInWater.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
-                SendData("拿下戴玻片並用線香測試");
+                mission_Text.text = "拿下戴玻片並用線香測試";
+                if (learningState[8])
+                {
+                    learningState[8] = false;
+                    SendData("拿下戴玻片並用線香測試");
+                }       
                 break;
         }
     }
@@ -256,7 +290,7 @@ public class Level4Manager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (questionData.questions.Length == currentQusetIndex)
         {
-            //SceneManager.LoadScene("Level5");
+            SceneManager.LoadScene("MainPage");
         }
         else
         {
