@@ -19,6 +19,7 @@ TagManager:
   - Pipe
   - CaCO3
   - HCl
+  - SteelWool
   layers:
   - Default
   - TransparentFX
