@@ -7,23 +7,25 @@ public class Clip : MonoBehaviour
     [SerializeField] Transform followPoint;
     GameObject steelWool;
     bool trigger;
-    // Start is called before the first frame update
+    BoxCollider collider;
+
+
     void Start()
     {
-        
+        collider = GetComponent<BoxCollider>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(trigger)
         {
-            steelWool.transform.position = followPoint.transform.position;
+            if(steelWool != null){
+                steelWool.transform.position = followPoint.transform.position;
+            }
         }
         else
         {
-            if(steelWool)
-            {
+            if(steelWool != null){
                 steelWool.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
@@ -43,11 +45,11 @@ public class Clip : MonoBehaviour
     {
         if (success)
         {
-            GetComponent<BoxCollider>().enabled = true;
+            collider.enabled = true;
         }
         else
         {
-            GetComponent<BoxCollider>().enabled = false;
+            collider.enabled = false;
             trigger = false;
         }
     }

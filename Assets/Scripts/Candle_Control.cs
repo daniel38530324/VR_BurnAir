@@ -36,13 +36,13 @@ public class Candle_Control : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Cover"))
+        if (other.CompareTag("Cover") && !isTrigger)
         {
             cover.SetActive(false);
             StartCoroutine(ReturnState(Level1State.Cover));
         }
 
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Water") && !isTrigger)
         {
             waterBucket.gameObject.SetActive(false);
             waterBucket.enabled = false;
@@ -51,7 +51,7 @@ public class Candle_Control : MonoBehaviour
             StartCoroutine(ReturnState(Level1State.Bucket));
         }
 
-        if (other.CompareTag("Flour"))
+        if (other.CompareTag("Flour") && !isTrigger)
         {
             flourBag.gameObject.SetActive(false);
             flourBag.enabled = false;
@@ -69,6 +69,7 @@ public class Candle_Control : MonoBehaviour
             yield return new WaitForSeconds(3);
             level1Manager.ReturnLevelState(returnState);
             warn_UI.SetActive(false);
+            isTrigger = false;
 
             if(returnState == Level1State.Bucket){
                 waterBucket.enabled = true;

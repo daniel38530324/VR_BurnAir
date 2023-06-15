@@ -5,19 +5,14 @@ using UnityEngine;
 public class PetriDish : MonoBehaviour
 {
     [SerializeField] Level5Manager level5Manager;
-    GameObject steelWool;
+    [SerializeField] GameObject steelWool;
+    [SerializeField] GameObject warn_UI;
     float timer, duration = 4;
     bool isTrigger;
-    // Start is called before the first frame update
-    void Start()
-    {
-        steelWool = transform.GetChild(1).gameObject;
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        if(isTrigger)
+        if(isTrigger && steelWool != null)
         {   
             if (timer < duration)
             {
@@ -32,21 +27,41 @@ public class PetriDish : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("SteelWool"))
+        if (other.CompareTag("SteelWool") && !isTrigger && other.name == "Steel Wool")
         {
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
             steelWool.SetActive(true);
             isTrigger = true;
-            StartCoroutine(UpdateLevelState());
+            StartCoroutine(UpdateLevelState(Level5State.Water));
+        }
+
+        if (other.CompareTag("H2O2") && !isTrigger)
+        {
+            StartCoroutine(UpdateLevelState(Level5State.Bag1));
+        }
+
+        if (other.CompareTag("Vinegar") && !isTrigger)
+        {
+            StartCoroutine(ReturnState(Level5State.Vinegar));
         }
     }
 
-    IEnumerator UpdateLevelState()
+    IEnumerator ReturnState(Level5State returnState)
     {
-        yield return new WaitForSeconds(5);
-        level5Manager.UpdateLevel5State(Level5State.Water);
+        isTrigger = true;
+        warn_UI.SetActive(true);
+        yield return new WaitForSeconds(3);
+        level5Manager.ReturnLevelState(returnState);
+        warn_UI.SetActive(false);
+        isTrigger = false;
+    }
+
+    IEnumerator UpdateLevelState(Level5State state)
+    {
+        yield return new WaitForSeconds(2);
+        level5Manager.UpdateLevel5State(state);
         isTrigger = false;
     }
 }

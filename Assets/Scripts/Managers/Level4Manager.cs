@@ -202,7 +202,6 @@ public class Level4Manager : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
-                mission_Text.text = "拿下戴玻片並用線香測試";
                 if (learningState[8])
                 {
                     learningState[8] = false;
