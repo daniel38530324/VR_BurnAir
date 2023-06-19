@@ -14,7 +14,7 @@ public class Bag : MonoBehaviour
     {
         if (other.CompareTag("SteelWool") && !isTrigger)
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             steelWool.SetActive(true);
             isTrigger = true;
             if(isBag2){
@@ -24,18 +24,19 @@ public class Bag : MonoBehaviour
             }
         }
 
+        /*
         if (other.CompareTag("Vinegar") && !isTrigger)
         {
             if(!isBag2){
                 StartCoroutine(ReturnState(Level5State.Vinegar));
             }
         }
-
+        */
     }
 
     IEnumerator UpdateLevelState(Level5State state)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         level5Manager.UpdateLevel5State(state);
         isTrigger = false;
     }

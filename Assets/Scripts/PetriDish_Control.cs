@@ -18,8 +18,10 @@ public class PetriDish_Control : MonoBehaviour
 
         if (other.CompareTag("Vinegar") && !isTrigger)
         {
-            StartCoroutine(UpdateLevelState(Level5State.Bag2));
+            StartCoroutine(ReturnState(Level5State.Vinegar));
         }
+
+
     }
 
     IEnumerator ReturnState(Level5State returnState)

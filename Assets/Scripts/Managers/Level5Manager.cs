@@ -37,7 +37,7 @@ public class Level5Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject table;
-    [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, steelWool, steelWool1, steelWool2, steelWool_test, steelWool_control, bag1, bag2;
+    [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, petriDish2, steelWool, steelWool_test, steelWool_control, bag1, bag2;
     [SerializeField] Transform spawnPoint, spawnPoint2;
     
     [Header("Test")]
@@ -49,6 +49,7 @@ public class Level5Manager : MonoBehaviour
     int currentQusetIndex;
 
     float levelTimer = 0;
+    bool[] learningState = { true, true, true, true, true, true };
 
     private void Awake()
     {
@@ -98,8 +99,15 @@ public class Level5Manager : MonoBehaviour
                     choose_UI.SetActive(true);
                     Destroy(choose_UI, 7);
                 }
+                if (learningState[0])
+                {
+                    learningState[0] = false;
+                    SendData("拿器材");
+                }
                 break;
             case Level5State.Water:
+                steelWool_control.transform.GetChild(0).gameObject.SetActive(false);
+                steelWool_control.transform.GetChild(1).gameObject.SetActive(true);
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
                 water.transform.position = spawnPoint.position;
@@ -112,25 +120,41 @@ public class Level5Manager : MonoBehaviour
                     place_UI.SetActive(true);
                     Destroy(place_UI, 7);
                 }
+                if (learningState[1])
+                {
+                    learningState[1] = false;
+                    SendData("將鋼棉放在培養皿中");
+                }
                 break;
             case Level5State.Bag1:
+                steelWool_test.transform.GetChild(0).gameObject.SetActive(false);
                 water.SetActive(false);
                 dropper.SetActive(false);
                 bag1.SetActive(true);
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
                 clip.transform.rotation = Quaternion.Euler(0, 90, 0);
-                steelWool1.transform.SetParent(null);
-                steelWool1.tag = "SteelWool";
-                steelWool1.GetComponent<Rigidbody>().isKinematic = false;
+                petriDish2.SetActive(true);
+                steelWool.SetActive(true);
+                steelWool.transform.position = spawnPoint2.position;
                 mission_Text.text = "將鋼棉放進袋子中";
+                /*
                 if (water_UI)
                 {
                     water_UI.SetActive(true);
                     Destroy(water_UI, 7);
                 }
+                */
+                if (learningState[2])
+                {
+                    learningState[2] = false;
+                    SendData("將水加入鋼棉");
+                }
                 break;
             case Level5State.Vinegar:
+                petriDish2.SetActive(false);
+                steelWool_test.transform.GetChild(0).gameObject.SetActive(true);
+                bag1.SetActive(false);
                 clip.SetActive(false);
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.identity;
@@ -143,22 +167,35 @@ public class Level5Manager : MonoBehaviour
                     bag1_UI.SetActive(true);
                     Destroy(bag1_UI, 7);
                 }
+                if (learningState[3])
+                {
+                    learningState[3] = false;
+                    SendData("將鋼棉放進袋子中");
+                }
                 break;
             case Level5State.Bag2:
+                steelWool_test.transform.GetChild(0).gameObject.SetActive(false);
                 vinegar.SetActive(false);
                 dropper2.SetActive(false);
                 bag2.SetActive(true);
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
                 clip.transform.rotation = Quaternion.Euler(0, 90, 0);
-                steelWool2.transform.SetParent(null);
-                steelWool2.tag = "SteelWool";
-                steelWool2.GetComponent<Rigidbody>().isKinematic = false;
+                petriDish2.SetActive(true);
+                steelWool.SetActive(true);
+                steelWool.transform.position = spawnPoint2.position;
                 mission_Text.text = "將鋼棉放進袋子中";
+                /*
                 if (vinegar_UI)
                 {
                     vinegar_UI.SetActive(true);
                     Destroy(vinegar_UI, 7);
+                }
+                */
+                if (learningState[4])
+                {
+                    learningState[4] = false;
+                    SendData("將醋加入鋼棉");
                 }
                 break;
             case Level5State.Test:
@@ -167,6 +204,7 @@ public class Level5Manager : MonoBehaviour
                     bag2_UI.SetActive(true);
                     Destroy(bag2_UI, 7);
                 }
+                petriDish2.SetActive(false);
                 clip.SetActive(false);
                 steelWool_control.SetActive(false);
                 steelWool_test.SetActive(false);
@@ -176,6 +214,11 @@ public class Level5Manager : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                if (learningState[5])
+                {
+                    learningState[5] = false;
+                    SendData("將鋼棉放進袋子中");
+                }
                 break;
         }
     }
@@ -239,7 +282,7 @@ public class Level5Manager : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
-        LearningProcess.data[0] = "單元四";
+        LearningProcess.data[0] = "單元五";
         LearningProcess.data[1] = questionData.questions[currentQusetIndex];
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
