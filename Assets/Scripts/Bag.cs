@@ -10,6 +10,7 @@ public class Bag : MonoBehaviour
     [SerializeField] GameObject warn_UI;
     public bool isBag2;
     [SerializeField] GameObject zipper;
+    public Animator animator;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +20,7 @@ public class Bag : MonoBehaviour
             steelWool.SetActive(true);
             zipper.SetActive(false);
             isTrigger = true;
+            animator.SetBool("Trigger", true);
             if(isBag2){
                 StartCoroutine(UpdateLevelState(Level5State.Test));
             }else{
