@@ -9,6 +9,7 @@ public class Bag : MonoBehaviour
     bool isTrigger;
     [SerializeField] GameObject warn_UI;
     public bool isBag2;
+    [SerializeField] GameObject zipper;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,7 @@ public class Bag : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             steelWool.SetActive(true);
+            zipper.SetActive(false);
             isTrigger = true;
             if(isBag2){
                 StartCoroutine(UpdateLevelState(Level5State.Test));
