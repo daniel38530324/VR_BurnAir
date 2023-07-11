@@ -21,6 +21,11 @@ TagManager:
   - HCl
   - SteelWool
   - Vinegar
+  - Mushroom
+  - GlassCover
+  - PlasticBag
+  - Soda
+  - LimeWater
   layers:
   - Default
   - TransparentFX
