@@ -10,11 +10,11 @@ public class LearningProcess : MonoBehaviour
     public static string[] data = { "", "", "", "" };
 
     [SerializeField] InputField userText;
-    [SerializeField] GameObject login, project;
+    [SerializeField] GameObject title, login, project;
 
-    public void DEV_AppendToReport() //­n³Q©I¥sªº Method
+    public void DEV_AppendToReport() //è¦è¢«å‘¼å«çš„ Method
     {
-        CSVManager.AppendToReport( //©ñ¤J­n¼g¤JªºÀÉ®×
+        CSVManager.AppendToReport( //æ”¾å…¥è¦å¯«å…¥çš„æª”æ¡ˆ
             user,
             data
         );
@@ -37,11 +37,13 @@ public class LearningProcess : MonoBehaviour
     {
         if (user != "")
         {
+            title.SetActive(false);
             login.SetActive(false);
             project.SetActive(true);
         }
         else
         {
+            title.SetActive(false);
             login.SetActive(true);
             project.SetActive(false);
         }

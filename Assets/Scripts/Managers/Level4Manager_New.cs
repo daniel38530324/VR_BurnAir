@@ -7,16 +7,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Level4State_New
 {
-    Explain,       //»¡©ú¶¥¬q
-    Choose,        //¿ï¾Ü¾¹§÷¶¥¬q
-    Soda,          //©ñ¤J¤pÄ¬¹F¯»¶¥¬q
-    Vinegar,       //¥[¤J¾L¶¥¬q
-    PlasticBag,    //®M¦í¶ì½¦³U¶¥¬q
-    GlassCover,    //©ñ¤W¬Á¼ş¤ù
-    LimeWater,     //¥[¤J¼á²M¥Û¦Ç¤ô¶¥¬q
-    Shake,         //·n®Ì¶ì½¦³U¶¥¬q  
-    IncenseSticks, //½u­»´ú¸Õ¶¥¬q
-    Test           //´úÅç¶¥¬q
+    Explain,       //èªªæ˜éšæ®µ
+    Choose,        //é¸æ“‡å™¨æéšæ®µ
+    Soda,          //æ”¾å…¥å°è˜‡é”ç²‰éšæ®µ
+    Vinegar,       //åŠ å…¥é†‹éšæ®µ
+    PlasticBag,    //å¥—ä½å¡‘è† è¢‹éšæ®µ
+    GlassCover,    //æ”¾ä¸Šç»ç’ƒç‰‡
+    LimeWater,     //åŠ å…¥æ¾„æ¸…çŸ³ç°æ°´éšæ®µ
+    Shake,         //æ–æ™ƒå¡‘è† è¢‹éšæ®µ  
+    IncenseSticks, //ç·šé¦™æ¸¬è©¦éšæ®µ
+    Test           //æ¸¬é©—éšæ®µ
 }
 
 public class Level4Manager_New : MonoBehaviour
@@ -78,13 +78,13 @@ public class Level4Manager_New : MonoBehaviour
                 break;
             case Level4State_New.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
+                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
                 table.SetActive(true);
                 break;
             case Level4State_New.Soda:
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
-                mission_Text.text = "¥[¤J¤pÄ¬¹F¯»";
+                mission_Text.text = "åŠ å…¥å°è˜‡é”ç²‰";
                 table.SetActive(false);
                 vinegar.SetActive(false);
                 cover.SetActive(false);
@@ -97,13 +97,13 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[0])
                 {
                     learningState[0] = false;
-                    SendData("®³¾¹§÷");
+                    SendData("æ‹¿å™¨æ");
                 }
                 break;
             case Level4State_New.Vinegar:
                 //soda_UI.SetActive(true);
                 //Destroy(soda_UI, 5);
-                mission_Text.text = "¥[¤J¾L";
+                mission_Text.text = "åŠ å…¥é†‹";
                 soda.SetActive(false);
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -113,26 +113,26 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[1])
                 {
                     learningState[1] = false;
-                    SendData("¥[¤J¤pÄ¬¹F¯»");
+                    SendData("åŠ å…¥å°è˜‡é”ç²‰");
                 }
                 break;
             case Level4State_New.PlasticBag:
                 vinegar_UI.SetActive(true);
                 Destroy(vinegar_UI, 5);
-                mission_Text.text = "®M¦í¶ì½¦³U";
+                mission_Text.text = "å¥—ä½å¡‘è† è¢‹";
                 vinegar.SetActive(false);
                 dropper.SetActive(false);
                 plasticBag.SetActive(true);
                 if (learningState[2])
                 {
                     learningState[2] = false;
-                    SendData("¥[¤J¾L");
+                    SendData("åŠ å…¥é†‹");
                 }
                 break;
             case Level4State_New.GlassCover:
                 plasticBag_UI.SetActive(true);
                 Destroy(plasticBag_UI, 5);
-                mission_Text.text = "©ñ¤W¬Á¼ş»\";
+                mission_Text.text = "æ”¾ä¸Šç»ç’ƒè“‹";
                 plasticBag.SetActive(false);
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);
@@ -140,13 +140,13 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[3])
                 {
                     learningState[3] = false;
-                    SendData("®M¦í¶ì½¦³U");
+                    SendData("å¥—ä½å¡‘è† è¢‹");
                 }
                 break;
             case Level4State_New.LimeWater:
                 glassCover_UI.SetActive(true);
                 Destroy(glassCover_UI, 5);
-                mission_Text.text = "±N¼á²M¥Û¦Ç¤ô¥[¨ì¶ì½¦³U";
+                mission_Text.text = "å°‡æ¾„æ¸…çŸ³ç°æ°´åŠ åˆ°å¡‘è† è¢‹";
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
@@ -155,30 +155,30 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[4])
                 {
                     learningState[4] = false;
-                    SendData("©ñ¤W¬Á¼ş»\");
+                    SendData("æ”¾ä¸Šç»ç’ƒè“‹");
                 }
                 break;
             case Level4State_New.Shake:
-                mission_Text.text = "·n®Ì¶ì½¦³U";
+                mission_Text.text = "æ–æ™ƒå¡‘è† è¢‹";
                 limeWater.SetActive(false);
                 dropper2.SetActive(false);
                 if (learningState[5])
                 {
                     learningState[5] = false;
-                    SendData("¥[¤J¼á²M¥Û¦Ç¤ô");
+                    SendData("åŠ å…¥æ¾„æ¸…çŸ³ç°æ°´");
                 }
                 break;
             case Level4State_New.IncenseSticks:
                 shake_UI.SetActive(true);
                 Destroy(shake_UI, 5);
-                mission_Text.text = "¨Ï¥Î½u­»´ú¸Õ";
+                mission_Text.text = "ä½¿ç”¨ç·šé¦™æ¸¬è©¦";
                 plasticBag_CO2.SetActive(false);
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[6])
                 {
                     learningState[6] = false;
-                    SendData("·n®Ì¶ì½¦³U");
+                    SendData("æ–æ™ƒå¡‘è† è¢‹");
                 }
                 break;
             case Level4State_New.Test:
@@ -194,7 +194,7 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[7])
                 {
                     learningState[7] = false;
-                    SendData("¨Ï¥Î½u­»´ú¸Õ");
+                    SendData("ä½¿ç”¨ç·šé¦™æ¸¬è©¦");
                 }
                 break;
         }
@@ -240,9 +240,9 @@ public class Level4Manager_New : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
-        LearningProcess.data[0] = "³æ¤¸¥|";
+        LearningProcess.data[0] = "å–®å…ƒå››";
         LearningProcess.data[1] = questionData.questions[currentQusetIndex];
-        LearningProcess.data[2] = correctAns ? "µª¹ï" : "µª¿ù";
+        LearningProcess.data[2] = correctAns ? "ç­”å°" : "ç­”éŒ¯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
 
@@ -265,16 +265,16 @@ public class Level4Manager_New : MonoBehaviour
 
     public void SendData(string things, bool success = true)
     {
-        LearningProcess.data[0] = "³æ¤¸¥|";
+        LearningProcess.data[0] = "å–®å…ƒå››";
         LearningProcess.data[1] = things;
-        LearningProcess.data[2] = success ? "¦¨¥\" : "¥¢±Ñ";
+        LearningProcess.data[2] = success ? "æˆåŠŸ" : "å¤±æ•—";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
     }
 
     public void SendChooseFailData()
     {
-        SendData("®³¾¹§÷", false);
+        SendData("æ‹¿å™¨æ", false);
     }
 
     public void GetMushroom()

@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public enum Level3State_New
 {
-    Explain,       //»¡©ú¶¥¬q
-    Choose,        //¿ï¾Ü¾¹§÷¶¥¬q
-    Mushroom,      //©ñ¤Jª÷°wÛ£¶¥¬q
-    H2O2,          //¥[¤JÂù®ñ¤ô¶¥¬q
-    GlassCover,    //©ñ¤W¬Á¼ş¤ù
-    IncenseSticks, //½u­»´ú¸Õ¶¥¬q
-    Test           //´úÅç¶¥¬q
+    Explain,       //èªªæ˜éšæ®µ
+    Choose,        //é¸æ“‡å™¨æéšæ®µ
+    Mushroom,      //æ”¾å…¥é‡‘é‡è‡éšæ®µ
+    H2O2,          //åŠ å…¥é›™æ°§æ°´éšæ®µ
+    GlassCover,    //æ”¾ä¸Šç»ç’ƒç‰‡
+    IncenseSticks, //ç·šé¦™æ¸¬è©¦éšæ®µ
+    Test           //æ¸¬é©—éšæ®µ
 }
 
 public class Level3Manager_New : MonoBehaviour
@@ -74,13 +74,13 @@ public class Level3Manager_New : MonoBehaviour
                 break;
             case Level3State_New.Choose:
                 mission_Text.transform.parent.gameObject.SetActive(true);
-                mission_Text.text = "±N¥¿½Tªº¾¹§÷©ñ¦b®à¤W";
+                mission_Text.text = "å°‡æ­£ç¢ºçš„å™¨ææ”¾åœ¨æ¡Œä¸Š";
                 table.SetActive(true);
                 break;
             case Level3State_New.Mushroom:
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
-                mission_Text.text = "¥[¤Jª÷°wÛ£";
+                mission_Text.text = "åŠ å…¥é‡‘é‡è‡";
                 table.SetActive(false);
                 h2O2.SetActive(false);
                 cover.SetActive(false);
@@ -91,13 +91,13 @@ public class Level3Manager_New : MonoBehaviour
                 if (learningState[0])
                 {
                     learningState[0] = false;
-                    SendData("®³¾¹§÷");
+                    SendData("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                 }
                 break;
             case Level3State_New.H2O2:
                 //mushroom_UI.SetActive(true);
                 //Destroy(mushroom_UI, 5);
-                mission_Text.text = "¥[¤JÂù®ñ¤ô";
+                mission_Text.text = "åŠ å…¥é›™æ°§æ°´";
                 mushroom.SetActive(false);
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -105,31 +105,31 @@ public class Level3Manager_New : MonoBehaviour
                 if (learningState[1])
                 {
                     learningState[1] = false;
-                    SendData("¥[¤Jª÷°wÛ£");
+                    SendData("åŠ å…¥é‡‘é‡è‡");
                 }
                 break;
             case Level3State_New.GlassCover:
                 h2O2_UI.SetActive(true);
                 Destroy(h2O2_UI, 5);
-                mission_Text.text = "©ñ¤W¬Á¼ş»\";
+                mission_Text.text = "æ”¾ä¸Šç»ç’ƒè“‹";
                 h2O2.SetActive(false);
                 glassCover.SetActive(true);
                 if (learningState[2])
                 {
                     learningState[2] = false;
-                    SendData("¥[¤JÂù®ñ¤ô");
+                    SendData("åŠ å…¥é›™æ°§æ°´");
                 }
                 break;
             case Level3State_New.IncenseSticks:
                 glassCover_UI.SetActive(true);
                 Destroy(glassCover_UI, 5);
-                mission_Text.text = "¨Ï¥Î½u­»´ú¸Õ";
+                mission_Text.text = "ä½¿ç”¨ç·šé¦™æ¸¬è©¦";
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[3])
                 {
                     learningState[3] = false;
-                    SendData("©ñ¤W¬Á¼ş»\");
+                    SendData("æ”¾ä¸Šç»ç’ƒè“‹");
                 }
                 break;
             case Level3State_New.Test:
@@ -145,7 +145,7 @@ public class Level3Manager_New : MonoBehaviour
                 if (learningState[4])
                 {
                     learningState[4] = false;
-                    SendData("¨Ï¥Î½u­»´ú¸Õ");
+                    SendData("ä½¿ç”¨ç·šé¦™æ¸¬è©¦");
                 }
                 break;
         }
@@ -191,9 +191,9 @@ public class Level3Manager_New : MonoBehaviour
 
     IEnumerator NextQusetion(bool correctAns)
     {
-        LearningProcess.data[0] = "³æ¤¸¤T";
+        LearningProcess.data[0] = "å–®å…ƒä¸‰";
         LearningProcess.data[1] = questionData.questions[currentQusetIndex];
-        LearningProcess.data[2] = correctAns ? "µª¹ï" : "µª¿ù";
+        LearningProcess.data[2] = correctAns ? "ç­”å°" : "ç­”éŒ¯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
 
@@ -216,16 +216,16 @@ public class Level3Manager_New : MonoBehaviour
 
     public void SendData(string things, bool success = true)
     {
-        LearningProcess.data[0] = "³æ¤¸¤T";
+        LearningProcess.data[0] = "å–®å…ƒä¸‰";
         LearningProcess.data[1] = things;
-        LearningProcess.data[2] = success ? "¦¨¥\" : "¥¢±Ñ";
+        LearningProcess.data[2] = success ? "æˆåŠŸ" : "å¤±æ•—";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
     }
 
     public void SendChooseFailData()
     {
-        SendData("®³¾¹§÷", false);
+        SendData("æ‹¿å™¨æ", false);
     }
 
     public void GetMushroom()

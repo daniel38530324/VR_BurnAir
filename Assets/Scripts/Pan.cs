@@ -8,10 +8,14 @@ public class Pan : MonoBehaviour
     public bool isTrigger;
     public ParticleSystem particleSystem;
     public GameObject[] fireEffects;
+    public GameObject anotherCover;
+    public GameObject myCover;
 
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Cover") && !isTrigger){
+            anotherCover.SetActive(false);
+            myCover.SetActive(true);
             StartCoroutine(BeenCover());
         }
     }
