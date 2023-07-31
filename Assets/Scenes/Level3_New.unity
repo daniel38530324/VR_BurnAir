@@ -7977,7 +7977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8015,7 +8015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &396601509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13423,7 +13423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13747,7 +13747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u6C27\u6C23\u662F\u96D9\u6C27\u6C34\u5206\u89E3\u9020\u6210\u7684\uFF0C\u91D1\u91DD\u83C7\u662F\u50AC\u5316\u5291\uFF0C\u80FD\u6539\u8B8A\u53CD\u61C9\u901F\u7387\uFF0C\u4F7F\u6C27\u6C23\u5206\u89E3\u901F\u7387\u52A0\u5FEB\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u73BB\u7483\u84CB\u653E\u5230\u5EE3\u53E3\u74F6\u4E0A\u9762\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u6C27\u6C23\u662F\u96D9\u6C27\u6C34\u5206\u89E3\u9020\u6210\u7684\uFF0C\u526A\u788E\u7684\u91D1\u91DD\u83C7\u662F\u50AC\u5316\u5291\uFF0C\u80FD\u6539\u8B8A\u53CD\u61C9\u901F\u7387\uFF0C\u66F4\u5FEB\u7522\u751F\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u900F\u660E\u677F\u653E\u5230\u5EE3\u53E3\u74F6\u4E0A\u9762\u5427!"
 --- !u!222 &541988771
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13773,7 +13773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &542924486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15583,12 +15583,12 @@ MonoBehaviour:
   questionPanel: {fileID: 803536033}
   questionData:
     questions:
-    - "\u8ACB\u554F\u672C\u5BE6\u9A57\u6703\u4F7F\u7528\u5230\u54EA\u9805\u5668\u6750?"
-    - "\u8ACB\u554F\u91D1\u91DD\u83C7\u5728\u672C\u5BE6\u9A57\u5BA4\u4F5C\u70BA\u751A\u9EBC\u89D2\u8272?"
-    - "\u8ACB\u554F\u50AC\u5316\u5291\u6709\u751A\u9EBC\u4F5C\u7528\u5462?"
-    - "\u8ACB\u554F\u5BE6\u9A57\u6700\u5F8C\u7DDA\u9999\u653E\u5165\u5EE3\u53E3\u74F6\u706B\u537B\u8B8A\u5927\u4E86\uFF0C\u9019\u8868\u793A\u6AA2\u6E2C\u5230\u4E86\u4F55\u7A2E\u6C23\u9AD4\u5B58\u5728?"
+    - "1.\u672C\u5BE6\u9A57\u4E0D\u6703\u4F7F\u7528\u5230\u4E0B\u5217\u54EA\u4E00\u9805\u7269\u54C1?"
+    - "2.\u8ACB\u554F\u91D1\u91DD\u83C7\u5728\u672C\u5BE6\u9A57\u5BA4\u4F5C\u70BA\u751A\u9EBC\u89D2\u8272?"
+    - "3.\u8ACB\u554F\u50AC\u5316\u5291\u6709\u751A\u9EBC\u4F5C\u7528\u5462?"
+    - "4.\u8ACB\u554F\u5BE6\u9A57\u6700\u5F8C\u7DDA\u9999\u653E\u5165\u5EE3\u53E3\u74F6\u706B\u537B\u8B8A\u5927\u4E86\uFF0C\u9019\u8868\u793A\u6AA2\u6E2C\u5230\u4E86\u4F55\u7A2E\u6C23\u9AD4\u5B58\u5728?"
     answer1:
-    - "\u4E8C\u6C27\u5316\u9333"
+    - "\u85E5\u7C89"
     - "\u9632\u8150\u5291"
     - "\u4F7F\u6C27\u6C23\u5206\u89E3\u901F\u7387\u52A0\u5FEB"
     - "\u6C27\u6C23"
@@ -15801,7 +15801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16097,7 +16097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21435,7 +21435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21523,7 +21523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -26774,7 +26774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28522,7 +28522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28598,7 +28598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28666,7 +28666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -33970,7 +33970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34084,7 +34084,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34160,7 +34160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7153644d83aefa2449f44e4feb607771, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f8360d4d4fd4774ca99c067f22eaee6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34742,7 +34742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -40348,7 +40348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40607,7 +40607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1731897971}
   m_Layer: 5
-  m_Name: MnO2
+  m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40932,7 +40932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a0469346ef95b394d8025643284cb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c2fe9b3f70e90e4dba39ba74918535c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -43339,7 +43339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -43385,7 +43385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2136346079
 RectTransform:
   m_ObjectHideFlags: 0

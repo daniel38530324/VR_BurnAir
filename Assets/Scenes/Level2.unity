@@ -2244,6 +2244,7 @@ GameObject:
   - component: {fileID: 215170845}
   - component: {fileID: 215170847}
   - component: {fileID: 215170846}
+  - component: {fileID: 215170848}
   m_Layer: 0
   m_Name: cabinet_L_1_compartment2
   m_TagString: Untagged
@@ -2314,6 +2315,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215170844}
   m_Mesh: {fileID: 1211673284504613014, guid: abe0146fdd477644295842e546b46413, type: 3}
+--- !u!65 &215170848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215170844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1205499, y: 0.04396923, z: 0.4910214}
+  m_Center: {x: 0.000000059604645, y: 0.000000009313226, z: -0.000000037252903}
 --- !u!1 &215239743
 GameObject:
   m_ObjectHideFlags: 0
@@ -13530,7 +13544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &396601509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19823,7 +19837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &542924486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21576,10 +21590,10 @@ MonoBehaviour:
   questionPanel: {fileID: 803536033}
   questionData:
     questions:
-    - "\u96FB\u5668\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B"
-    - "\u5316\u5B78\u985E\u578B\u7684\u706B\u707D\u8981\u751A\u9EBC\u6EC5\u706B\u5668\u4F86\u6EC5\u706B"
-    - "\u9152\u7CBE\u71C8\u4E0A\u84CB\u4E0A\u84CB\u5B50\u4F86\u6EC5\u706B\u662F\u4F7F\u7528\u4E86\u751A\u9EBC\u539F\u7406\u4F86\u6EC5\u706B?"
-    - "\u767C\u751F\u706B\u707D\u6642\uFF0C\u5C07\u6613\u71C3\u7269\u79FB\u9664\u7684\u76EE\u7684\u70BA\u4F55?"
+    - "1.\u96FB\u5668\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B\u55CE\uFF1F"
+    - "2.\u5316\u5B78\u985E\u578B\u706B\u707D\u8981\u6E96\u5099\u54EA\u4E00\u7A2E\u6EC5\u706B\u5668\u4F86\u6EC5\u706B\uFF1F"
+    - "3.\u9152\u7CBE\u71C8\u4E0A\u84CB\u4E0A\u84CB\u5B50\u4F86\u6EC5\u706B\u662F\u4F7F\u7528\u4E86\u751A\u9EBC\u539F\u7406\u4F86\u6EC5\u706B?"
+    - "4.\u767C\u751F\u706B\u707D\u6642\uFF0C\u79FB\u9664\u53EF\u71C3\u7269\u7684\u76EE\u7684\u662F\u4EC0\u9EBC\uFF1F"
     answer1:
     - "\u662F"
     - "\u91D1\u5C6C\u985E\u6EC5\u706B\u5668"
@@ -21594,7 +21608,7 @@ MonoBehaviour:
     - "\u4F7F\u7528\u6C34\u4F86\u6EC5\u96FB\u5668\u985E\u578B\u7684\u706B\u707D\u662F\u975E\u5E38\u5371\u96AA\u7684\uFF0C\u9019\u662F\u56E0\u70BA\u6C34\u662F\u4E00\u7A2E\u826F\u597D\u7684\u5C0E\u9AD4"
     - "\u5316\u5B78\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528\u91D1\u5C6C\u985E\u6EC5\u706B\u5668\u6EC5\u706B"
     - "\u9152\u7CBE\u71C8\u4E0A\u7684\u706B\u6E90\u53EF\u4EE5\u900F\u904E\u84CB\u4E0A\u84CB\u5B50\u53BB\u505A\u9694\u7D55\u7A7A\u6C23\u7684\u6EC5\u706B"
-    - "\u5728\u706B\u707D\u767C\u751F\u6642\u5982\u679C\u80FD\u5920\u53CA\u6642\u5C07\u6613\u71C3\u7269\u5F9E\u706B\u707D\u73FE\u5834\u79FB\u9664\uFF0C\u53EF\u4EE5\u963B\u6B62\u706B\u52E2\u7684\u8513\u5EF6\u3002"
+    - "\u5728\u706B\u707D\u767C\u751F\u6642\uFF0C\u5982\u679C\u80FD\u5920\u53CA\u6642\u5C07\u53EF\u71C3\u7269\u5F9E\u706B\u707D\u73FE\u5834\u79FB\u9664\uFF0C\u53EF\u4EE5\u963B\u6B62\u706B\u52E2\u7684\u8513\u5EF6\u8207\u64F4\u5927\uFF01"
     correctAnswerIsRight: 01000001
   tests:
   - {fileID: 1105354144}
@@ -28220,7 +28234,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u5728\u706B\u707D\u767C\u751F\u6642\u5982\u679C\u80FD\u5920\u53CA\u6642\u5C07\u6613\u71C3\u7269\u5F9E\u706B\u707D\u73FE\u5834\u79FB\u9664\uFF0C\u53EF\u4EE5\u963B\u6B62\u706B\u52E2\u7684\u8513\u5EF6\uFF0C\u6E1B\u5C11\u706B\u707D\u5C0D\u5468\u570D\u7269\u9AD4\u548C\u4EBA\u54E1\u7684\u50B7\u5BB3\u3002\n\n\u63A5\u4E0B\u4F86\u8ACB\u4F7F\u7528\u6B63\u78BA\u7684\u5DE5\u5177\u9032\u884C\u6EC5\u706B!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u5728\u706B\u707D\u767C\u751F\u6642\u5982\u679C\u80FD\u5920\u53CA\u6642\u5C07\u53EF\u71C3\u7269\u5F9E\u706B\u707D\u73FE\u5834\u79FB\u9664\uFF0C\u53EF\u4EE5\u963B\u6B62\u706B\u52E2\u7684\u8513\u5EF6\uFF0C\u6E1B\u5C11\u706B\u707D\u5C0D\u5468\u570D\u7269\u9AD4\u548C\u4EBA\u54E1\u7684\u50B7\u5BB3\u3002\n\n\u63A5\u4E0B\u4F86\u8ACB\u4F7F\u7528\u6B63\u78BA\u7684\u5DE5\u5177\u9032\u884C\u6EC5\u706B!"
 --- !u!222 &960839498
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -76455,7 +76469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2136346079
 RectTransform:
   m_ObjectHideFlags: 0

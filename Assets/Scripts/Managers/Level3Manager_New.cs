@@ -10,7 +10,7 @@ public enum Level3State_New
     Choose,        //選擇器材階段
     Mushroom,      //放入金針菇階段
     H2O2,          //加入雙氧水階段
-    GlassCover,    //放上玻璃片
+    GlassCover,    //放上透明板
     IncenseSticks, //線香測試階段
     Test           //測驗階段
 }
@@ -91,7 +91,7 @@ public class Level3Manager_New : MonoBehaviour
                 if (learningState[0])
                 {
                     learningState[0] = false;
-                    SendData("������");
+                    SendData("拿器材");
                 }
                 break;
             case Level3State_New.H2O2:
@@ -111,7 +111,7 @@ public class Level3Manager_New : MonoBehaviour
             case Level3State_New.GlassCover:
                 h2O2_UI.SetActive(true);
                 Destroy(h2O2_UI, 5);
-                mission_Text.text = "放上玻璃蓋";
+                mission_Text.text = "放上透明板";
                 h2O2.SetActive(false);
                 glassCover.SetActive(true);
                 if (learningState[2])
@@ -123,7 +123,7 @@ public class Level3Manager_New : MonoBehaviour
             case Level3State_New.IncenseSticks:
                 glassCover_UI.SetActive(true);
                 Destroy(glassCover_UI, 5);
-                mission_Text.text = "使用線香測試";
+                mission_Text.text = "稍微移開透明板並用線香放入廣口瓶中進行測驗";
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[3])

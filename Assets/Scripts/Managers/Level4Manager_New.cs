@@ -12,7 +12,7 @@ public enum Level4State_New
     Soda,          //放入小蘇達粉階段
     Vinegar,       //加入醋階段
     PlasticBag,    //套住塑膠袋階段
-    GlassCover,    //放上玻璃片
+    GlassCover,    //放上透明板
     LimeWater,     //加入澄清石灰水階段
     Shake,         //搖晃塑膠袋階段  
     IncenseSticks, //線香測試階段
@@ -132,7 +132,7 @@ public class Level4Manager_New : MonoBehaviour
             case Level4State_New.GlassCover:
                 plasticBag_UI.SetActive(true);
                 Destroy(plasticBag_UI, 5);
-                mission_Text.text = "放上玻璃蓋";
+                mission_Text.text = "放上透明板";
                 plasticBag.SetActive(false);
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);

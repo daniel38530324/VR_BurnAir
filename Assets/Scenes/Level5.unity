@@ -276,8 +276,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.609972, y: 24.197739, z: 13.607429}
-  m_Center: {x: -2.289922, y: -1.0233719, z: 6.970274}
+  m_Size: {x: 0.37118778, y: 0.46027032, z: 1.3083972}
+  m_Center: {x: -0.056019668, y: -0.0058523626, z: 0.4751982}
 --- !u!199 &10454526
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5577,8 +5577,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.609972, y: 24.197739, z: 13.607429}
-  m_Center: {x: -2.289922, y: -1.0233719, z: 6.970274}
+  m_Size: {x: 0.37118778, y: 0.46027032, z: 1.3083972}
+  m_Center: {x: -0.056019668, y: -0.0058523626, z: 0.4751982}
 --- !u!199 &78934265
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -13180,6 +13180,7 @@ Transform:
   m_LocalScale: {x: 26.09171, y: 10.30054, z: 26.091715}
   m_Children:
   - {fileID: 4428618520570410634}
+  - {fileID: 699877436}
   - {fileID: 2251580916548919269}
   m_Father: {fileID: 1622650588}
   m_RootOrder: 3
@@ -13200,7 +13201,7 @@ MonoBehaviour:
   steelWool: {fileID: 4428618520570410633}
   warn_UI: {fileID: 0}
   isBag2: 1
-  zipper: {fileID: 1474058367872927071}
+  zipper: {fileID: 699877435}
   animator: {fileID: 4428618520570410636}
 --- !u!54 &486167928
 Rigidbody:
@@ -13229,8 +13230,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.03, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.07588244, y: 0.21160312, z: 0.2}
+  m_Center: {x: 0.0345822, y: 0.09080156, z: 0}
 --- !u!1 &489304815
 GameObject:
   m_ObjectHideFlags: 0
@@ -13983,7 +13984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14908,6 +14909,170 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &695182579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 695182580}
+  - component: {fileID: 695182582}
+  - component: {fileID: 695182581}
+  m_Layer: 0
+  m_Name: oper Zipper bag (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &695182580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695182579}
+  m_LocalRotation: {x: -0, y: -0, z: -0.72307384, w: 0.6907708}
+  m_LocalPosition: {x: 0.016, y: 0.087, z: -0.0019099711}
+  m_LocalScale: {x: 5.747877, y: 6.0009966, z: 5.7478757}
+  m_Children: []
+  m_Father: {fileID: 1795382634}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.618}
+--- !u!23 &695182581
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695182579}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1b1c6e66f7cd369438187ee93eeae27d, type: 2}
+  - {fileID: 2100000, guid: de670306fb07d8b4dbe45e0384a37ab7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &695182582
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695182579}
+  m_Mesh: {fileID: -5591290641051094240, guid: c33610951d5eae14a9cd14db6bc2b853, type: 3}
+--- !u!1 &699877435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699877436}
+  - component: {fileID: 699877438}
+  - component: {fileID: 699877437}
+  m_Layer: 0
+  m_Name: oper Zipper bag (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &699877436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699877435}
+  m_LocalRotation: {x: -0, y: -0, z: -0.72307384, w: 0.6907708}
+  m_LocalPosition: {x: 0.015999973, y: 0.08700001, z: -0.0019099711}
+  m_LocalScale: {x: 5.747877, y: 6.0009966, z: 5.7478757}
+  m_Children: []
+  m_Father: {fileID: 486167926}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.618}
+--- !u!23 &699877437
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699877435}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1b1c6e66f7cd369438187ee93eeae27d, type: 2}
+  - {fileID: 2100000, guid: de670306fb07d8b4dbe45e0384a37ab7, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &699877438
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699877435}
+  m_Mesh: {fileID: -5591290641051094240, guid: c33610951d5eae14a9cd14db6bc2b853, type: 3}
 --- !u!1 &710370663
 GameObject:
   m_ObjectHideFlags: 0
@@ -15223,10 +15388,10 @@ MonoBehaviour:
   questionPanel: {fileID: 803536033}
   questionData:
     questions:
-    - "\u54EA\u500B\u7269\u54C1\u4E0D\u662F\u672C\u5BE6\u9A57\u6703\u4F7F\u7528\u5230\u7684\u5668\u6750?"
-    - "\u70BA\u751A\u9EBC\u9435\u6703\u751F\u93FD\u5462"
-    - "\u918B\u6703\u8207\u6C27\u5316\u9435\u767C\u751F\u53CD\u61C9\u6703\u7522\u751F\u751A\u9EBC\u7D50\u679C?"
-    - "\u9435\u751F\u93FD\u662F\u9435\u548C\u6C34\u5206\u548C\u751A\u9EBC\u6771\u897F\u4F5C\u7528\u7522\u751F\u7684\u7D50\u679C?"
+    - "1.\u54EA\u500B\u7269\u54C1\u4E0D\u662F\u672C\u5BE6\u9A57\u6703\u4F7F\u7528\u5230\u7684\u5668\u6750?"
+    - "2.\u70BA\u751A\u9EBC\u9435\u6703\u751F\u93FD\u5462"
+    - "3.\u918B\u6703\u8207\u6C27\u5316\u9435\u767C\u751F\u53CD\u61C9\u6703\u7522\u751F\u751A\u9EBC\u7D50\u679C?"
+    - "4.\u9435\u751F\u93FD\u662F\u9435\u548C\u6C34\u5206\u548C\u751A\u9EBC\u6771\u897F\u4F5C\u7528\u7522\u751F\u7684\u7D50\u679C?"
     answer1:
     - "\u57F9\u990A\u76BF"
     - "\u56E0\u70BA\u9435\u5206\u5B50\u88AB\u6C27\u5316\u4E86"
@@ -17458,7 +17623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18250,7 +18415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19533,7 +19698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20677,7 +20842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1433750892}
   m_Layer: 5
-  m_Name: Flour
+  m_Name: Vinegar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20966,7 +21131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469477107}
   m_Layer: 5
-  m_Name: CaCO3
+  m_Name: PetriDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28026,7 +28191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level5Manager: {fileID: 724916899}
   steelWool: {fileID: 1353417377}
-  warn_UI: {fileID: 283365259}
+  warn_UI: {fileID: 0}
 --- !u!54 &1786736771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28088,6 +28253,7 @@ Transform:
   m_Children:
   - {fileID: 1355577958}
   - {fileID: 1505113973}
+  - {fileID: 695182580}
   - {fileID: 4780566452088633850}
   m_Father: {fileID: 1622650588}
   m_RootOrder: 2
@@ -28106,10 +28272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level5Manager: {fileID: 724916899}
   steelWool: {fileID: 1355577957}
-  warn_UI: {fileID: 283365259}
+  warn_UI: {fileID: 0}
   isBag2: 0
-  zipper: {fileID: 5268133426490516288}
-  animator: {fileID: 1505113969}
+  zipper: {fileID: 695182579}
+  animator: {fileID: 1355577959}
 --- !u!54 &1795382636
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28137,8 +28303,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.03, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.07588244, y: 0.21160312, z: 0.2}
+  m_Center: {x: 0.0345822, y: 0.09080156, z: 0}
 --- !u!1 &1800525731
 GameObject:
   m_ObjectHideFlags: 0
@@ -28434,7 +28600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807137111}
   m_Layer: 5
-  m_Name: HCL
+  m_Name: Flour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33597,7 +33763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34220,7 +34386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1960171812}
   m_Layer: 5
-  m_Name: Bucket
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34476,7 +34642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.10368562, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34963,7 +35129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107294581}
   m_Layer: 5
-  m_Name: Fan
+  m_Name: Clip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38021,7 +38187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1477829637302238273
 Transform:
   m_ObjectHideFlags: 0
@@ -44656,7 +44822,7 @@ Transform:
   m_LocalScale: {x: 7.190597, y: 7.190596, z: 7.190596}
   m_Children: []
   m_Father: {fileID: 486167926}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2254623528337107394
 PrefabInstance:
@@ -48844,7 +49010,7 @@ Transform:
   m_LocalScale: {x: 7.190597, y: 7.190596, z: 7.190596}
   m_Children: []
   m_Father: {fileID: 1795382634}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4783117286814597962
 Transform:
@@ -49599,7 +49765,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5273395631567013411
 Transform:
   m_ObjectHideFlags: 0

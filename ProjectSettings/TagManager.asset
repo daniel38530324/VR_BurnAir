@@ -26,6 +26,11 @@ TagManager:
   - PlasticBag
   - Soda
   - LimeWater
+  - Lemonade
+  - WD40
+  - PaintGun
+  - Rag
+  - PlasticSleeve
   layers:
   - Default
   - TransparentFX
