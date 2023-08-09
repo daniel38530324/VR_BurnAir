@@ -31,6 +31,7 @@ TagManager:
   - PaintGun
   - Rag
   - PlasticSleeve
+  - Bubble2
   layers:
   - Default
   - TransparentFX
