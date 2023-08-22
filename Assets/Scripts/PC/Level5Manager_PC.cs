@@ -90,6 +90,7 @@ public class Level5Manager_PC : MonoBehaviour
                 break;
             case Level5State_PC.Place:
                 mission_Text.text = "將鋼棉放在培養皿中";
+                mouseLook.RemoveThingOnHand();
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
                 clip.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -116,13 +117,12 @@ public class Level5Manager_PC : MonoBehaviour
             case Level5State_PC.Water:
                 steelWool_control.transform.GetChild(0).gameObject.SetActive(false);
                 steelWool_control.transform.GetChild(1).gameObject.SetActive(true);
+                mouseLook.RemoveThingOnHand();
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
                 water.transform.position = spawnPoint.position;
                 water.transform.rotation = Quaternion.identity;
                 water.SetActive(true);
-                water.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 if (place_UI)
                 {
                     place_UI.SetActive(true);
@@ -136,6 +136,7 @@ public class Level5Manager_PC : MonoBehaviour
                 break;
             case Level5State_PC.Bag1:
                 steelWool_test.transform.GetChild(0).gameObject.SetActive(false);
+                mouseLook.RemoveThingOnHand();
                 water.SetActive(false);
                 dropper.SetActive(false);
                 bag1.SetActive(true);
@@ -160,6 +161,7 @@ public class Level5Manager_PC : MonoBehaviour
                 }
                 break;
             case Level5State_PC.Vinegar:
+                mouseLook.RemoveThingOnHand();
                 petriDish2.SetActive(false);
                 steelWool_test.transform.GetChild(0).gameObject.SetActive(true);
                 bag1.SetActive(false);
@@ -167,8 +169,6 @@ public class Level5Manager_PC : MonoBehaviour
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.identity;
                 vinegar.SetActive(true);
-                vinegar.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper2.GetComponent<XRGrabInteractable>().enabled = true;
                 mission_Text.text = "將醋加入鋼棉";
                 if (bag1_UI)
                 {
@@ -182,6 +182,7 @@ public class Level5Manager_PC : MonoBehaviour
                 }
                 break;
             case Level5State_PC.Bag2:
+                mouseLook.RemoveThingOnHand();
                 steelWool_test.transform.GetChild(0).gameObject.SetActive(false);
                 vinegar.SetActive(false);
                 dropper2.SetActive(false);
@@ -212,6 +213,7 @@ public class Level5Manager_PC : MonoBehaviour
                     bag2_UI.SetActive(true);
                     Destroy(bag2_UI, 7);
                 }
+                mouseLook.RemoveThingOnHand();
                 petriDish2.SetActive(false);
                 clip.SetActive(false);
                 steelWool_control.SetActive(false);

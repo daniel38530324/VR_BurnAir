@@ -91,6 +91,7 @@ public class Level4Manager_PC : MonoBehaviour
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
                 mission_Text.text = "加入小蘇達粉";
+                mouseLook.RemoveThingOnHand();
                 table.SetActive(false);
                 vinegar.SetActive(false);
                 cover.SetActive(false);
@@ -98,7 +99,6 @@ public class Level4Manager_PC : MonoBehaviour
                 soda.transform.position = spawnPoint.position;
                 soda.transform.rotation = Quaternion.Euler(0, 0, 0);
                 soda.SetActive(true);
-                soda.GetComponent<WaterBucket_New>().enabled = true;
                 cover2.SetActive(true);
                 if (learningState[0])
                 {
@@ -110,12 +110,11 @@ public class Level4Manager_PC : MonoBehaviour
                 //soda_UI.SetActive(true);
                 //Destroy(soda_UI, 5);
                 mission_Text.text = "加入醋";
+                mouseLook.RemoveThingOnHand();
                 soda.SetActive(false);
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.Euler(0, 0, 0);
                 vinegar.SetActive(true);
-                vinegar.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -126,6 +125,7 @@ public class Level4Manager_PC : MonoBehaviour
                 vinegar_UI.SetActive(true);
                 Destroy(vinegar_UI, 5);
                 mission_Text.text = "套住塑膠袋";
+                mouseLook.RemoveThingOnHand();
                 vinegar.SetActive(false);
                 dropper.SetActive(false);
                 plasticBag.SetActive(true);
@@ -139,6 +139,7 @@ public class Level4Manager_PC : MonoBehaviour
                 plasticBag_UI.SetActive(true);
                 Destroy(plasticBag_UI, 5);
                 mission_Text.text = "放上透明板";
+                mouseLook.RemoveThingOnHand();
                 plasticBag.SetActive(false);
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);
@@ -153,11 +154,10 @@ public class Level4Manager_PC : MonoBehaviour
                 glassCover_UI.SetActive(true);
                 Destroy(glassCover_UI, 5);
                 mission_Text.text = "將澄清石灰水加到塑膠袋";
+                mouseLook.RemoveThingOnHand();
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
-                limeWater.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper2.GetComponent<XRGrabInteractable>().enabled = true;
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -166,6 +166,7 @@ public class Level4Manager_PC : MonoBehaviour
                 break;
             case Level4State_PC.Shake:
                 mission_Text.text = "搖晃塑膠袋";
+                mouseLook.RemoveThingOnHand();
                 limeWater.SetActive(false);
                 dropper2.SetActive(false);
                 if (learningState[5])
@@ -178,6 +179,7 @@ public class Level4Manager_PC : MonoBehaviour
                 shake_UI.SetActive(true);
                 Destroy(shake_UI, 5);
                 mission_Text.text = "使用線香測試";
+                mouseLook.RemoveThingOnHand();
                 plasticBag_CO2.SetActive(false);
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);

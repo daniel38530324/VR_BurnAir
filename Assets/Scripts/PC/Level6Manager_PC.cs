@@ -90,6 +90,7 @@ public class Level6Manager_PC : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level6State_PC.Lemonade:
+                mouseLook.RemoveThingOnHand();
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 5);
                 mission_Text.text = "噴灑檸檬水至機器人";
@@ -113,6 +114,7 @@ public class Level6Manager_PC : MonoBehaviour
                 //lemonade_UI.SetActive(true);
                 //Destroy(lemonade_UI, 5);
                 mission_Text.text = "抹布擦拭機器人";
+                mouseLook.RemoveThingOnHand();
                 lemonade.SetActive(false);
                 rag.transform.position = spawnPoint.position;
                 rag.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -127,6 +129,7 @@ public class Level6Manager_PC : MonoBehaviour
                 rag_UI.SetActive(true);
                 Destroy(rag_UI, 5);
                 mission_Text.text = "WD40噴灑至機器人關節 0/5";
+                mouseLook.RemoveThingOnHand();
                 rag.SetActive(false);
                 robot_collider.SetActive(false);
                 wd40.transform.position = spawnPoint.position;
@@ -143,6 +146,7 @@ public class Level6Manager_PC : MonoBehaviour
                 wd40_UI.SetActive(true);
                 Destroy(wd40_UI, 5);
                 mission_Text.text = "噴漆槍噴灑至機器人 0/2";
+                mouseLook.RemoveThingOnHand();
                 wd40.SetActive(false);
                 joint_Collider.SetActive(false);
                 paintGun.transform.position = spawnPoint.position;
@@ -159,6 +163,7 @@ public class Level6Manager_PC : MonoBehaviour
                 paintGun_UI.SetActive(true);
                 Destroy(paintGun_UI, 5);
                 mission_Text.text = "塑膠套套住機器人的腳 0/2";
+                mouseLook.RemoveThingOnHand();
                 paintGun.SetActive(false);
                 headBody_Collider.SetActive(false);
                 plasticSleeve.transform.position = spawnPoint.position;
@@ -174,6 +179,7 @@ public class Level6Manager_PC : MonoBehaviour
             case Level6State_PC.Test:
                 plasticSleeve_UI.SetActive(true);
                 Destroy(plasticSleeve_UI, 5);
+                mouseLook.RemoveThingOnHand();
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 plasticSleeve.SetActive(false);
                 robot.SetActive(false);

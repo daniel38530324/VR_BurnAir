@@ -192,18 +192,132 @@ public class MouseLook : MonoBehaviour
                         beCatchName = "IncenseSticks_interact";
                     }
                     break;
+                //level4
+                case "LimeWater_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "LimeWater_interact";
+                    }
+                    break;
+                case "Vinegar_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Vinegar_interact";
+                    }
+                    break;
+                case "Soda_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(0f, 0.06f, 0f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Soda_interact";
+                    }
+                    break;
+                case "PlasticBag_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "PlasticBag_interact";
+                    }
+                    break;
+                case "PlasticBag_CO2_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "PlasticBag_CO2_interact";
+                    }
+                    break;
+                //level5
+                case "Clip_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Clip_interact";
+                    }
+                    break;
+                case "Petri_Dish_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Petri_Dish_interact";
+                    }
+                    break;
+                case "water_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "water_interact";
+                    }
+                    break;
+                //level6
+                case "WD40_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "WD40_interact";
+                    }
+                    break;
+                case "PaintGun_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "PaintGun_interact";
+                    }
+                    break;
+                case "Rag_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Rag_interact";
+                    }
+                    break;
+                case "Lemonade_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Lemonade_interact";
+                    }
+                    break;
+                case "PlasticSleeve_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "PlasticSleeve_interact";
+                    }
+                    break;
                 //other
                 default:
                     if(beCatchName != ""){
                         PutThingDown();
                     }
                     break;
-                /*case "Trigger_interact":
-                    if(beCatchName != ""){
-                        PutThingDown();
-                        beCatchName = "";
-                    }
-                    break;*/
             }
         }
 
@@ -242,6 +356,18 @@ public class MouseLook : MonoBehaviour
                     setPos.transform.GetComponentInChildren<Animator>().enabled = true;
                     setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", true);
                     break;
+                case "Soda_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = true;
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", true);
+                    break;
+                case "Vinegar_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = true;
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", true);
+                    break;
+                case "LimeWater_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = true;
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", true);
+                    break;
             }
         }
         if(Input.GetMouseButtonUp(1)){
@@ -269,6 +395,15 @@ public class MouseLook : MonoBehaviour
                     setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", false);
                     break;
                 case "IncenseSticks_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", false);
+                    break;
+                case "Soda_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", false);
+                    break;
+                case "Vinegar_interact":
+                    setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", false);
+                    break;
+                case "LimeWater_interact":
                     setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", false);
                     break;
             }
@@ -355,6 +490,33 @@ public class MouseLook : MonoBehaviour
                 setPos.GetChild(0).position = currentRayPoint;
                 setPos.GetChild(0).SetParent(null);
                 beCatchName = "";
+                break;
+            case "Soda_interact":
+                if(!setPos.transform.GetComponentInChildren<Animator_Trigger>().trigger){
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = false;
+                    setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;
+                    setPos.GetChild(0).position = currentRayPoint + new Vector3(0,0.2f,0);
+                    setPos.GetChild(0).SetParent(null);
+                    beCatchName = "";
+                }
+                break;
+            case "Vinegar_interact":
+                if(!setPos.transform.GetComponentInChildren<Animator_Trigger>().trigger){
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = false;
+                    setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;
+                    setPos.GetChild(0).position = currentRayPoint + new Vector3(0,0.2f,0);
+                    setPos.GetChild(0).SetParent(null);
+                    beCatchName = "";
+                }
+                break;
+            case "LimeWater_interact":
+                if(!setPos.transform.GetComponentInChildren<Animator_Trigger>().trigger){
+                    setPos.transform.GetComponentInChildren<Animator>().enabled = false;
+                    setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;
+                    setPos.GetChild(0).position = currentRayPoint + new Vector3(0,0.2f,0);
+                    setPos.GetChild(0).SetParent(null);
+                    beCatchName = "";
+                }
                 break;
             default:
                 setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;
