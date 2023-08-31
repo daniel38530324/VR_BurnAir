@@ -63,6 +63,11 @@ public class Level6Manager : MonoBehaviour
         UpdateLevel6State(Level6State.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         levelTimer += Time.deltaTime;
@@ -83,9 +88,11 @@ public class Level6Manager : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level6State.Lemonade:
+                AudioManager.Instance.PlaySound("Level6_1");
                 choose_UI.SetActive(true);
-                Destroy(choose_UI, 5);
+                Destroy(choose_UI, 11);
                 mission_Text.text = "噴灑檸檬水至機器人";
+                part2.GetComponentInChildren<Text>().text = "噴灑檸檬水至機器人";
                 table.SetActive(false);
                 rag.SetActive(false);
                 wd40.SetActive(false);
@@ -94,6 +101,7 @@ public class Level6Manager : MonoBehaviour
                 lemonade.transform.position = spawnPoint.position;
                 lemonade.transform.rotation = Quaternion.Euler(0, 0, 0);
                 lemonade.SetActive(true);
+                //robot_Old.SetActive(true);
                 robot.SetActive(true);
                 robot_collider.SetActive(true);        
                 if (learningState[0])
@@ -106,6 +114,7 @@ public class Level6Manager : MonoBehaviour
                 //lemonade_UI.SetActive(true);
                 //Destroy(lemonade_UI, 5);
                 mission_Text.text = "抹布擦拭機器人";
+                part2.GetComponentInChildren<Text>().text = "抹布擦拭機器人";
                 lemonade.SetActive(false);
                 rag.transform.position = spawnPoint.position;
                 rag.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -117,9 +126,11 @@ public class Level6Manager : MonoBehaviour
                 }
                 break;
             case Level6State.WD40:
+                AudioManager.Instance.PlaySound("Level6_2");
                 rag_UI.SetActive(true);
-                Destroy(rag_UI, 5);
+                Destroy(rag_UI, 11);
                 mission_Text.text = "WD40噴灑至機器人關節 0/5";
+                part2.GetComponentInChildren<Text>().text = "WD40噴灑至機器人關節";
                 rag.SetActive(false);
                 robot_collider.SetActive(false);
                 wd40.transform.position = spawnPoint.position;
@@ -133,9 +144,11 @@ public class Level6Manager : MonoBehaviour
                 }
                 break;
             case Level6State.PaintGun:
+                AudioManager.Instance.PlaySound("Level6_3");
                 wd40_UI.SetActive(true);
-                Destroy(wd40_UI, 5);
+                Destroy(wd40_UI, 11);
                 mission_Text.text = "噴漆槍噴灑至機器人 0/2";
+                part2.GetComponentInChildren<Text>().text = "噴漆槍噴灑至機器人";
                 wd40.SetActive(false);
                 joint_Collider.SetActive(false);
                 paintGun.transform.position = spawnPoint.position;
@@ -149,9 +162,11 @@ public class Level6Manager : MonoBehaviour
                 }               
                 break;
             case Level6State.PlasticSleeve:
+                AudioManager.Instance.PlaySound("Level6_4");
                 paintGun_UI.SetActive(true);
-                Destroy(paintGun_UI, 5);
+                Destroy(paintGun_UI, 11);
                 mission_Text.text = "塑膠套套住機器人的腳 0/2";
+                part2.GetComponentInChildren<Text>().text = "塑膠套套住機器人的腳";
                 paintGun.SetActive(false);
                 headBody_Collider.SetActive(false);
                 plasticSleeve.transform.position = spawnPoint.position;
@@ -165,8 +180,9 @@ public class Level6Manager : MonoBehaviour
                 }             
                 break;
             case Level6State.Test:
+                AudioManager.Instance.PlaySound("Level6_5");
                 plasticSleeve_UI.SetActive(true);
-                Destroy(plasticSleeve_UI, 5);
+                Destroy(plasticSleeve_UI, 11);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 plasticSleeve.SetActive(false);
                 robot.SetActive(false);
@@ -227,6 +243,15 @@ public class Level6Manager : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if(correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

@@ -61,6 +61,11 @@ public class Level5Manager : MonoBehaviour
         UpdateLevel5State(Level5State.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         levelTimer += Time.deltaTime;
@@ -82,6 +87,7 @@ public class Level5Manager : MonoBehaviour
                 break;
             case Level5State.Place:
                 mission_Text.text = "將鋼棉放在培養皿中";
+                part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
                 clip.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -96,8 +102,9 @@ public class Level5Manager : MonoBehaviour
                 table.GetComponent<Flashing>().StopGlinting();
                 if (choose_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level5_1");
                     choose_UI.SetActive(true);
-                    Destroy(choose_UI, 7);
+                    Destroy(choose_UI, 11);
                 }
                 if (learningState[0])
                 {
@@ -110,6 +117,7 @@ public class Level5Manager : MonoBehaviour
                 steelWool_control.transform.GetChild(1).gameObject.SetActive(true);
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
+                part2.GetComponentInChildren<Text>().text = "將水加入鋼棉";
                 water.transform.position = spawnPoint.position;
                 water.transform.rotation = Quaternion.identity;
                 water.SetActive(true);
@@ -117,8 +125,9 @@ public class Level5Manager : MonoBehaviour
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
                 if (place_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level5_2");
                     place_UI.SetActive(true);
-                    Destroy(place_UI, 7);
+                    Destroy(place_UI, 11);
                 }
                 if (learningState[1])
                 {
@@ -138,6 +147,7 @@ public class Level5Manager : MonoBehaviour
                 steelWool.SetActive(true);
                 steelWool.transform.position = spawnPoint2.position;
                 mission_Text.text = "將鋼棉放進袋子中";
+                part2.GetComponentInChildren<Text>().text = "將鋼棉放進袋子中";
                 /*
                 if (water_UI)
                 {
@@ -162,10 +172,12 @@ public class Level5Manager : MonoBehaviour
                 vinegar.GetComponent<XRGrabInteractable>().enabled = false;
                 dropper2.GetComponent<XRGrabInteractable>().enabled = true;
                 mission_Text.text = "將醋加入鋼棉";
+                part2.GetComponentInChildren<Text>().text = "將醋加入鋼棉";
                 if (bag1_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level5_4");
                     bag1_UI.SetActive(true);
-                    Destroy(bag1_UI, 7);
+                    Destroy(bag1_UI, 11);
                 }
                 if (learningState[3])
                 {
@@ -185,6 +197,7 @@ public class Level5Manager : MonoBehaviour
                 steelWool.SetActive(true);
                 steelWool.transform.position = spawnPoint2.position;
                 mission_Text.text = "將鋼棉放進袋子中";
+                part2.GetComponentInChildren<Text>().text = "將鋼棉放進袋子中";
                 /*
                 if (vinegar_UI)
                 {
@@ -201,8 +214,9 @@ public class Level5Manager : MonoBehaviour
             case Level5State.Test:
                 if (bag2_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level5_6");
                     bag2_UI.SetActive(true);
-                    Destroy(bag2_UI, 7);
+                    Destroy(bag2_UI, 11);
                 }
                 petriDish2.SetActive(false);
                 clip.SetActive(false);
@@ -287,6 +301,15 @@ public class Level5Manager : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if(correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

@@ -59,6 +59,11 @@ public class Level1Manager : MonoBehaviour
         UpdateLevel1State(Level1State.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         levelTimer += Time.deltaTime;
@@ -86,27 +91,29 @@ public class Level1Manager : MonoBehaviour
                 hint.SetActive(true);
                 break;
             case Level1State.Fan:
-                fan.SetActive(true);
-                fan.transform.position = spawnPoint.position;
-                fan.transform.rotation = Quaternion.Euler(0, 90, 0);
                 cover.SetActive(false);
                 bucket.SetActive(false);
                 flour.SetActive(false);
                 mission_Text.text = "用扇子慢慢搧火焰";
+                part2Panel.GetComponentInChildren<Text>().text = "用扇子慢慢搧火焰";
                 candle_control.SetActive(true);
                 candle_test.SetActive(true);
                 table.SetActive(false);
                 table.GetComponent<Flashing>().StopGlinting();
+                fan.SetActive(true);
+                fan.transform.position = spawnPoint.position;
+                fan.transform.rotation = Quaternion.Euler(0, 90, 0);
                 /*
                 for (int i = 0; i < 6; i++)
                 {
                     table.transform.GetChild(i).GetComponent<Flashing>().StopGlinting();
                 }
                 */
-                if(choose_UI)
+                if (choose_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level1_1");
                     choose_UI.SetActive(true);
-                    Destroy(choose_UI, 7);
+                    Destroy(choose_UI, 11);
                 }
                 if(learningState[0])
                 {
@@ -121,10 +128,12 @@ public class Level1Manager : MonoBehaviour
                 cover.transform.position = spawnPoint.position;
                 cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 mission_Text.text = "將火焰蓋住";
-                if(fan_UI)
+                part2Panel.GetComponentInChildren<Text>().text = "將火焰蓋住";
+                if (fan_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level1_2");
                     fan_UI.SetActive(true);
-                    Destroy(fan_UI, 7);
+                    Destroy(fan_UI, 11);
                 }
                 if(learningState[1])
                 {
@@ -140,10 +149,12 @@ public class Level1Manager : MonoBehaviour
                 bucket.SetActive(true);
                 bucket.GetComponent<WaterBucket_New>().enabled = true;
                 mission_Text.text = "將火焰澆熄";
-                if(cover_UI)
+                part2Panel.GetComponentInChildren<Text>().text = "將火焰澆熄";
+                if (cover_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level1_3");
                     cover_UI.SetActive(true);
-                    Destroy(cover_UI, 7);
+                    Destroy(cover_UI, 11);
                 }
                 if(learningState[2])
                 {
@@ -159,10 +170,12 @@ public class Level1Manager : MonoBehaviour
                 flour.SetActive(true);
                 flour.GetComponent<WaterBucket_New>().enabled = true;
                 mission_Text.text = "將麵粉加入火中";
-                if(bucket_UI)
+                part2Panel.GetComponentInChildren<Text>().text = "將麵粉加入火中";
+                if (bucket_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level1_4");
                     bucket_UI.SetActive(true);
-                    Destroy(bucket_UI, 7);
+                    Destroy(bucket_UI, 11);
                 }
                 if(learningState[3])
                 {
@@ -178,8 +191,9 @@ public class Level1Manager : MonoBehaviour
                 part2Panel.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                AudioManager.Instance.PlaySound("Level1_5");
                 flour_UI.SetActive(true);
-                Destroy(flour_UI, 7);
+                Destroy(flour_UI, 15);
                 if(learningState[4])
                 {
                     learningState[4] = false;
@@ -256,6 +270,15 @@ public class Level1Manager : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if (correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

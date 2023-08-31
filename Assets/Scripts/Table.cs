@@ -54,6 +54,7 @@ public class Table : MonoBehaviour
     {
         SendChooseFailData.Invoke();
         wrong_UI.SetActive(true);
+        AudioManager.Instance.PlaySound("ChoseFail");
         yield return new WaitForSeconds(5);
         wrong_UI.SetActive(false);
     }

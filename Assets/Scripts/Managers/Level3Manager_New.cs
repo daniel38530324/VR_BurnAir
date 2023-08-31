@@ -32,7 +32,7 @@ public class Level3Manager_New : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, mushroom, h2O2, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest;
+    [SerializeField] GameObject table, mushroom, h2O2, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, mushroom_Prefab;
     [SerializeField] GameObject[] mushrooms;
 
     public Level3State_New level3State;
@@ -57,6 +57,11 @@ public class Level3Manager_New : MonoBehaviour
         UpdateLevel3State(Level3State_New.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         levelTimer += Time.deltaTime;
@@ -77,15 +82,18 @@ public class Level3Manager_New : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level3State_New.Mushroom:
+                AudioManager.Instance.PlaySound("Level3_1");
                 choose_UI.SetActive(true);
-                Destroy(choose_UI, 5);
+                Destroy(choose_UI, 11);
                 mission_Text.text = "加入金針菇";
+                part2.GetComponentInChildren<Text>().text = "將金針菇倒入廣口瓶中";
                 table.SetActive(false);
                 h2O2.SetActive(false);
                 cover.SetActive(false);
                 mushroom.transform.position = spawnPoint.position;
                 mushroom.transform.rotation = Quaternion.Euler(0, 0, 0);
                 mushroom.SetActive(true);
+                mushroom.GetComponent<WaterBucket_New>().enabled = true;
                 cover2.SetActive(true);
                 if (learningState[0])
                 {
@@ -97,6 +105,7 @@ public class Level3Manager_New : MonoBehaviour
                 //mushroom_UI.SetActive(true);
                 //Destroy(mushroom_UI, 5);
                 mission_Text.text = "加入雙氧水";
+                part2.GetComponentInChildren<Text>().text = "將雙氧水倒入廣口瓶中";
                 mushroom.SetActive(false);
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -108,9 +117,11 @@ public class Level3Manager_New : MonoBehaviour
                 }
                 break;
             case Level3State_New.GlassCover:
+                AudioManager.Instance.PlaySound("Level3_2");
                 h2O2_UI.SetActive(true);
-                Destroy(h2O2_UI, 5);
+                Destroy(h2O2_UI, 11);
                 mission_Text.text = "放上透明板";
+                part2.GetComponentInChildren<Text>().text = "將透明板蓋住廣口瓶";
                 h2O2.SetActive(false);
                 glassCover.SetActive(true);
                 if (learningState[2])
@@ -120,9 +131,11 @@ public class Level3Manager_New : MonoBehaviour
                 }
                 break;
             case Level3State_New.IncenseSticks:
+                AudioManager.Instance.PlaySound("Level3_3");
                 glassCover_UI.SetActive(true);
-                Destroy(glassCover_UI, 5);
-                mission_Text.text = "稍微移開透明板並用線香放入廣口瓶中進行測驗";
+                Destroy(glassCover_UI, 11);
+                mission_Text.text = "移開透明板並用線香進行測試";
+                part2.GetComponentInChildren<Text>().text = "稍微移開透明板並用線香放入廣口瓶中進行測試";
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[3])
@@ -132,8 +145,9 @@ public class Level3Manager_New : MonoBehaviour
                 }
                 break;
             case Level3State_New.Test:
+                AudioManager.Instance.PlaySound("Level3_4");
                 incenseSticks_UI.SetActive(true);
-                Destroy(incenseSticks_UI, 5);
+                Destroy(incenseSticks_UI, 11);
                 glassCover2.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 cover2.SetActive(false);
@@ -146,6 +160,17 @@ public class Level3Manager_New : MonoBehaviour
                     learningState[4] = false;
                     SendData("使用線香測試");
                 }
+                break;
+        }
+    }
+
+    public void ReturnLevelState(Level3State_New newState)
+    {
+        switch (newState)
+        {
+            case Level3State_New.Mushroom:
+                mushroom.SetActive(false);
+                Instantiate(mushroom_Prefab, spawnPoint.position, Quaternion.identity);
                 break;
         }
     }
@@ -195,6 +220,15 @@ public class Level3Manager_New : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if (correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

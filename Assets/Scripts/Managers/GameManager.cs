@@ -19,6 +19,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().name == "MainPage")
+        {
+            AudioManager.Instance.PlayMusic("MainPage");
+        }
+    }
+
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

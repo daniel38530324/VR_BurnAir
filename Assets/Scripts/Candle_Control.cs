@@ -66,6 +66,7 @@ public class Candle_Control : MonoBehaviour
         if(!waterBucket_New.isReturn){
             isTrigger = true;
             warn_UI.SetActive(true);
+            AudioManager.Instance.PlaySound("Control");
             yield return new WaitForSeconds(3);
             level1Manager.ReturnLevelState(returnState);
             warn_UI.SetActive(false);

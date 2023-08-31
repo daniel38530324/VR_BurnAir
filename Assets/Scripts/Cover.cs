@@ -14,7 +14,7 @@ public class Cover : MonoBehaviour
     [SerializeField] GameObject soda, vinegar, plasticBag;
     [SerializeField] UnityEvent UpdateLevelState;
     
-    bool isTrigger, isTrigger2, isTrigger3, isTrigger4;
+    public bool isTrigger, isTrigger2, isTrigger3, isTrigger4;
 
     private void OnTriggerEnter(Collider other)
     {

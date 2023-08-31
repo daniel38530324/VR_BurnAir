@@ -1,0 +1,282 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a462c7bf7a063340bccd2a00254c1a7, type: 3}
+  m_Name: Sound Data
+  m_EditorClassIdentifier: 
+  Music:
+  - clip: {fileID: 8300000, guid: d1c86fdcf8aa3db4bb155d42f8b57227, type: 3}
+    name: MainPage
+    volume: 1
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 02c3653bb7b87494c95f9f720f7f1e52, type: 3}
+    name: Scene
+    volume: 0.8
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
+    source: {fileID: 0}
+  Sound:
+  - clip: {fileID: 8300000, guid: 97c69934b9e26954991d7716333ad172, type: 3}
+    name: ChoseFail
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b4536f9ac6db2394581e81bcdbc6afa6, type: 3}
+    name: Control
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 13d7ded6770dcdc4f993b9540b6c88c1, type: 3}
+    name: Water
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 35963791ec352934ba45e7ed4d6f84b7, type: 3}
+    name: Level1_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: e67951e7686267e49ad3e59408899570, type: 3}
+    name: Level1_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d763e9643256f4648a7cfcc70af8c32b, type: 3}
+    name: Level1_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 45c112855d6568b44acbed56d0855108, type: 3}
+    name: Level1_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6df5cd87bd9ab8446985c97fe81df53c, type: 3}
+    name: Level1_5
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b6925f27288f81747b3ac0f843badd26, type: 3}
+    name: Level2_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 690ace0764e24fa4da9ffd9025afc87f, type: 3}
+    name: Level2_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f96e2cbe3fd3d2d4a83243729ab55c8a, type: 3}
+    name: Level2_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: eb3f75ac112998349960b4e731927720, type: 3}
+    name: Level2_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a7a0856167b8005419fb3010629f3a6f, type: 3}
+    name: Level2_5
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: b7aafc7d9977d414499014d93b250552, type: 3}
+    name: Level3_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 8959476fe2edefc46961577c9b51e8a8, type: 3}
+    name: Level3_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: f76e9325cfe771244b5a0fded0ddd9fe, type: 3}
+    name: Level3_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6598c20e03f551b4ca634c47b26a563e, type: 3}
+    name: Level3_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 321581a088ee14545b544845a4ea0c2a, type: 3}
+    name: Level4_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4ffe9d1cd1f452c43a96d57f330daa3b, type: 3}
+    name: Level4_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 692df307a0b2ef441aa249aacec19da2, type: 3}
+    name: Level4_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: c4ffddef55f96774389b455a786bae09, type: 3}
+    name: Level4_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7f8c037d429628f45813b334f79b0359, type: 3}
+    name: Level4_5
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6f295af82dff52542a4c02b49b33d09e, type: 3}
+    name: Level4_6
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1ca7ebb06ad41104a884fc40436be179, type: 3}
+    name: Level5_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 66676b511259a8c4ba57074a692acbe9, type: 3}
+    name: Level5_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 46cd7c6fe448383498b086d6933fd77e, type: 3}
+    name: Level5_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1097ff4e0db042f41b9a0c1b0171c3b0, type: 3}
+    name: Level5_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 70f0350bfe426ba4bb6edb82aa7a1c68, type: 3}
+    name: Level5_5
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1fbf19970caba234e861eebb7c84c0b7, type: 3}
+    name: Level5_6
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d020e3774b3239746bb3d9924b3df055, type: 3}
+    name: Level6_1
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 4cb9444a166e418438f75865f64140b7, type: 3}
+    name: Level6_2
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6cc236a374352af4393ea2afbc7f2295, type: 3}
+    name: Level6_3
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: ce6c5b56accbfc640b10d1ddb03a989d, type: 3}
+    name: Level6_4
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 1607fd26dd1ccff45992e7a5227e4c48, type: 3}
+    name: Level6_5
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 81e3a76a5ce9eb84486c26054b89bd4a, type: 3}
+    name: Correct
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: bd6284b72773be044999349086de1376, type: 3}
+    name: Fail
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}

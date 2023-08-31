@@ -67,6 +67,7 @@ public class Candle : MonoBehaviour
     {
         if(other.CompareTag("Cover") && !isTrigger2){
             StartCoroutine(Extinguish());
+            StartCoroutine(NextState(Level1State.Bucket));
         }
 
         if(other.CompareTag("Water"))
@@ -98,12 +99,14 @@ public class Candle : MonoBehaviour
         main.startSize = 0f;
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Cover")){
             StartCoroutine(Bucket());
         }
     }
+    */
 
     IEnumerator Bucket()
     {

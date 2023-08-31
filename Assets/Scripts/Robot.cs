@@ -9,6 +9,8 @@ public class Robot : MonoBehaviour
     [SerializeField] Level6Manager level6Manager;
     [SerializeField] Material[] materials;
     [SerializeField] bool isHead;
+    [SerializeField] MeshRenderer robot;
+    [SerializeField] GameObject robot_Old;
     bool timerTrigger = true;
     float timer;
 
@@ -16,10 +18,33 @@ public class Robot : MonoBehaviour
     {
         if(level6State == Level6State.Lemonade)
         {
+            int index = -1;
             foreach (Material item in materials)
             {
-                item.color = new Color(0.4339623f, 0.1289605f, 0.1289605f, 1);
+                index++;
+                if (index == 4)
+                {
+                    item.color = new Color(0.5f, 0.5f, 0.5f, 1);
+                }
+                else if (index == 7)
+                {
+                    item.color = new Color(0.857f, 0.7910824f, 0f, 1);
+                }
+                else if (index == 10)
+                {
+                    item.color = new Color(0f, 0.0961f, 0.5f, 1);
+                }
+                else if (index == 12)
+                {
+                    item.color = new Color(0.6792453f, 0.05446777f, 0.05446777f, 1);
+                }
+                else
+                {
+                    item.color = new Color(1, 1, 1, 1);
+                }
             }
+
+            robot_Old.SetActive(true);
         }
         if (level6State == Level6State.WD40)
         {
@@ -114,31 +139,8 @@ public class Robot : MonoBehaviour
     IEnumerator Rag()
     {
         GetComponent<BoxCollider>().enabled = false;
-        int index = -1;
-        foreach(Material item in materials)
-        {
-            index++;
-            if(index == 4)
-            {
-                item.color = new Color(0.5f, 0.5f, 0.5f, 1);
-            }
-            else if(index == 7)
-            {
-                item.color = new Color(0.857f, 0.7910824f, 0f, 1);
-            }
-            else if(index == 10)
-            {
-                item.color = new Color(0f, 0.0961f, 0.5f, 1);
-            }
-            else if(index == 12)
-            {
-                item.color = new Color(0.6792453f, 0.05446777f, 0.05446777f, 1);
-            }
-            else
-            {
-                item.color = new Color(1, 1, 1, 1);
-            }
-        }
+        robot.enabled = true;
+        robot_Old.SetActive(false);
         yield return new WaitForSeconds(5);
         level6Manager.UpdateLevel6State(Level6State.WD40);
     }

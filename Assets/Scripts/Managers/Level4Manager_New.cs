@@ -61,6 +61,11 @@ public class Level4Manager_New : MonoBehaviour
         UpdateLevel4State(Level4State_New.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         levelTimer += Time.deltaTime;
@@ -81,9 +86,11 @@ public class Level4Manager_New : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level4State_New.Soda:
+                AudioManager.Instance.PlaySound("Level4_1");
                 choose_UI.SetActive(true);
-                Destroy(choose_UI, 5);
-                mission_Text.text = "加入小蘇達粉";
+                Destroy(choose_UI, 11);
+                mission_Text.text = "加入小蘇打粉";
+                part2.GetComponentInChildren<Text>().text = "加入小蘇打粉";
                 table.SetActive(false);
                 vinegar.SetActive(false);
                 cover.SetActive(false);
@@ -103,6 +110,7 @@ public class Level4Manager_New : MonoBehaviour
                 //soda_UI.SetActive(true);
                 //Destroy(soda_UI, 5);
                 mission_Text.text = "加入醋";
+                part2.GetComponentInChildren<Text>().text = "加入醋";
                 soda.SetActive(false);
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -116,9 +124,11 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.PlasticBag:
+                AudioManager.Instance.PlaySound("Level4_2");
                 vinegar_UI.SetActive(true);
-                Destroy(vinegar_UI, 5);
+                Destroy(vinegar_UI, 11);
                 mission_Text.text = "套住塑膠袋";
+                part2.GetComponentInChildren<Text>().text = "套住塑膠袋";
                 vinegar.SetActive(false);
                 dropper.SetActive(false);
                 plasticBag.SetActive(true);
@@ -129,9 +139,11 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.GlassCover:
+                AudioManager.Instance.PlaySound("Level4_3");
                 plasticBag_UI.SetActive(true);
-                Destroy(plasticBag_UI, 5);
+                Destroy(plasticBag_UI, 11);
                 mission_Text.text = "放上透明板";
+                part2.GetComponentInChildren<Text>().text = "放上透明板";
                 plasticBag.SetActive(false);
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);
@@ -143,9 +155,11 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.LimeWater:
+                AudioManager.Instance.PlaySound("Level4_4");
                 glassCover_UI.SetActive(true);
-                Destroy(glassCover_UI, 5);
+                Destroy(glassCover_UI, 11);
                 mission_Text.text = "將澄清石灰水加到塑膠袋";
+                part2.GetComponentInChildren<Text>().text = "將澄清石灰水加到塑膠袋";
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
@@ -159,6 +173,7 @@ public class Level4Manager_New : MonoBehaviour
                 break;
             case Level4State_New.Shake:
                 mission_Text.text = "搖晃塑膠袋";
+                part2.GetComponentInChildren<Text>().text = "搖晃塑膠袋";
                 limeWater.SetActive(false);
                 dropper2.SetActive(false);
                 if (learningState[5])
@@ -168,9 +183,11 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.IncenseSticks:
+                AudioManager.Instance.PlaySound("Level4_5");
                 shake_UI.SetActive(true);
-                Destroy(shake_UI, 5);
+                Destroy(shake_UI, 11);
                 mission_Text.text = "使用線香測試";
+                part2.GetComponentInChildren<Text>().text = "使用線香測試";
                 plasticBag_CO2.SetActive(false);
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
@@ -181,8 +198,9 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.Test:
+                AudioManager.Instance.PlaySound("Level4_6");
                 incenseSticks_UI.SetActive(true);
-                Destroy(incenseSticks_UI, 5);
+                Destroy(incenseSticks_UI, 11);
                 glassCover2.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 cover2.SetActive(false);
@@ -244,6 +262,15 @@ public class Level4Manager_New : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if (correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;
