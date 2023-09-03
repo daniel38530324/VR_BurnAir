@@ -65,6 +65,11 @@ public class Level6Manager_PC : MonoBehaviour
         UpdateLevel6State(Level6State_PC.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
@@ -90,10 +95,12 @@ public class Level6Manager_PC : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level6State_PC.Lemonade:
+                AudioManager.Instance.PlaySound("Level6_1");
                 mouseLook.RemoveThingOnHand();
                 choose_UI.SetActive(true);
-                Destroy(choose_UI, 5);
+                Destroy(choose_UI, 11);
                 mission_Text.text = "噴灑檸檬水至機器人";
+                part2.GetComponentInChildren<Text>().text = "噴灑檸檬水至機器人";
                 table.SetActive(false);
                 rag.SetActive(false);
                 wd40.SetActive(false);
@@ -114,6 +121,7 @@ public class Level6Manager_PC : MonoBehaviour
                 //lemonade_UI.SetActive(true);
                 //Destroy(lemonade_UI, 5);
                 mission_Text.text = "抹布擦拭機器人";
+                part2.GetComponentInChildren<Text>().text = "抹布擦拭機器人";
                 mouseLook.RemoveThingOnHand();
                 lemonade.SetActive(false);
                 rag.transform.position = spawnPoint.position;
@@ -126,9 +134,11 @@ public class Level6Manager_PC : MonoBehaviour
                 }
                 break;
             case Level6State_PC.WD40:
+                AudioManager.Instance.PlaySound("Level6_2");
                 rag_UI.SetActive(true);
-                Destroy(rag_UI, 5);
+                Destroy(rag_UI, 11);
                 mission_Text.text = "WD40噴灑至機器人關節 0/5";
+                part2.GetComponentInChildren<Text>().text = "WD40噴灑至機器人關節";
                 mouseLook.RemoveThingOnHand();
                 rag.SetActive(false);
                 robot_collider.SetActive(false);
@@ -144,8 +154,9 @@ public class Level6Manager_PC : MonoBehaviour
                 break;
             case Level6State_PC.PaintGun:
                 wd40_UI.SetActive(true);
-                Destroy(wd40_UI, 5);
+                Destroy(wd40_UI, 11);
                 mission_Text.text = "噴漆槍噴灑至機器人 0/2";
+                part2.GetComponentInChildren<Text>().text = "噴漆槍噴灑至機器人";
                 mouseLook.RemoveThingOnHand();
                 wd40.SetActive(false);
                 joint_Collider.SetActive(false);
@@ -160,9 +171,11 @@ public class Level6Manager_PC : MonoBehaviour
                 }               
                 break;
             case Level6State_PC.PlasticSleeve:
+                AudioManager.Instance.PlaySound("Level6_4");
                 paintGun_UI.SetActive(true);
-                Destroy(paintGun_UI, 5);
+                Destroy(paintGun_UI, 11);
                 mission_Text.text = "塑膠套套住機器人的腳 0/2";
+                part2.GetComponentInChildren<Text>().text = "塑膠套套住機器人的腳";
                 mouseLook.RemoveThingOnHand();
                 paintGun.SetActive(false);
                 headBody_Collider.SetActive(false);
@@ -177,8 +190,9 @@ public class Level6Manager_PC : MonoBehaviour
                 }             
                 break;
             case Level6State_PC.Test:
+                AudioManager.Instance.PlaySound("Level6_5");
                 plasticSleeve_UI.SetActive(true);
-                Destroy(plasticSleeve_UI, 5);
+                Destroy(plasticSleeve_UI, 11);
                 mouseLook.RemoveThingOnHand();
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 plasticSleeve.SetActive(false);
@@ -240,6 +254,15 @@ public class Level6Manager_PC : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+
+        if(correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

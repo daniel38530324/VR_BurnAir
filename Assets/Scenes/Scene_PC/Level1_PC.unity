@@ -1281,18 +1281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c1d4aae2c6273479a5940e56a9c1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level1Manager: {fileID: 724916902}
-  warn_UI: {fileID: 1801912112}
-  Fan: {fileID: 919132148772126952}
-  cover: {fileID: 1266523971}
-  waterBucket: {fileID: 0}
-  water: {fileID: 849765909}
-  waterEffect: {fileID: 1854556227}
-  flourBag: {fileID: 0}
-  flour: {fileID: 489304815}
-  flourEffect: {fileID: 1615815214}
+  warn_UI: {fileID: 2027493553}
   isTrigger: 0
-  waterBucket_New: {fileID: 0}
 --- !u!33 &243271507
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13421,6 +13411,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602766831}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &663684989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663684990}
+  m_Layer: 0
+  m_Name: SoundPrefabs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663684990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663684989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1805299813}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686608664
 GameObject:
   m_ObjectHideFlags: 0
@@ -21225,8 +21245,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.541332, y: 1, z: 0.9999988}
+  m_Center: {x: 0.27066708, y: 0, z: 0.00000011760103}
 --- !u!23 &1266747155
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22334,7 +22354,8 @@ MonoBehaviour:
   candle_Control: {fileID: 0}
   candle: {fileID: 0}
   fire: {fileID: 0}
-  isMno2: 0
+  isMushroom: 0
+  cover: {fileID: 0}
   suctionBottle: {fileID: 0}
   isCaCO3: 0
 --- !u!54 &1571598104
@@ -32583,6 +32604,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4023
   currentRayTransform: {fileID: 0}
+  currentRayTransform_BeTrigger: {fileID: 0}
   continueBtn: {fileID: 531343204}
   leftBtn: {fileID: 746884212}
   rightBtn: {fileID: 290844637}
@@ -32590,6 +32612,8 @@ MonoBehaviour:
   beCatchName: 
   setPos: {fileID: 1689577993}
   currentRayPoint: {x: 0, y: 0, z: 0}
+  plasticBag_CO2_PC: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!81 &1800525734
 AudioListener:
   m_ObjectHideFlags: 0
@@ -32691,7 +32715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1801912113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32750,6 +32774,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801912112}
   m_CullTransparentMesh: 1
+--- !u!1 &1805299811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805299813}
+  - component: {fileID: 1805299812}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1805299812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805299811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd13ef256480c24fb6d4d27332e1f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPrefab: {fileID: 603644457772101612, guid: ef56151abe2f0e84787325b63247b7cc, type: 3}
+  soundData: {fileID: 11400000, guid: d8ffef48bc7032049b4c3aa3807d0d57, type: 2}
+--- !u!4 &1805299813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805299811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 663684990}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811922926
 GameObject:
   m_ObjectHideFlags: 0

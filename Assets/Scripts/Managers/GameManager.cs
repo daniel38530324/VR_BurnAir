@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if(SceneManager.GetActiveScene().name == "MainPage")
+        if(SceneManager.GetActiveScene().name == "MainPage" || SceneManager.GetActiveScene().name == "MainPage_PC")
         {
             AudioManager.Instance.PlayMusic("MainPage");
         }

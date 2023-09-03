@@ -59,6 +59,11 @@ public class Level3Manager_PC : MonoBehaviour
         UpdateLevel3State(Level3State_PC.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
@@ -84,9 +89,11 @@ public class Level3Manager_PC : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level3State_PC.Mushroom:
+             AudioManager.Instance.PlaySound("Level3_1");
                 choose_UI.SetActive(true);
-                Destroy(choose_UI, 5);
+                Destroy(choose_UI, 11);
                 mission_Text.text = "加入金針菇";
+                part2.GetComponentInChildren<Text>().text = "將金針菇倒入廣口瓶中";
                 mouseLook.RemoveThingOnHand();
                 table.SetActive(false);
                 h2O2.SetActive(false);
@@ -105,6 +112,7 @@ public class Level3Manager_PC : MonoBehaviour
                 //mushroom_UI.SetActive(true);
                 //Destroy(mushroom_UI, 5);
                 mission_Text.text = "加入雙氧水";
+                 part2.GetComponentInChildren<Text>().text = "將雙氧水倒入廣口瓶中";
                 mouseLook.RemoveThingOnHand();
                 mushroom.SetActive(false);
                 h2O2.transform.position = spawnPoint.position;
@@ -117,9 +125,11 @@ public class Level3Manager_PC : MonoBehaviour
                 }
                 break;
             case Level3State_PC.GlassCover:
+                AudioManager.Instance.PlaySound("Level3_2");
                 h2O2_UI.SetActive(true);
-                Destroy(h2O2_UI, 5);
+                Destroy(h2O2_UI, 11);
                 mission_Text.text = "放上透明板";
+                part2.GetComponentInChildren<Text>().text = "將透明板蓋住廣口瓶";
                 mouseLook.RemoveThingOnHand();
                 h2O2.SetActive(false);
                 glassCover.SetActive(true);
@@ -130,10 +140,12 @@ public class Level3Manager_PC : MonoBehaviour
                 }
                 break;
             case Level3State_PC.IncenseSticks:
+                AudioManager.Instance.PlaySound("Level3_3");
                 glassCover_UI.SetActive(true);
-                Destroy(glassCover_UI, 5);
+                Destroy(glassCover_UI, 11);
+                mission_Text.text = "移開透明板並用線香進行測試";
+                part2.GetComponentInChildren<Text>().text = "稍微移開透明板並用線香放入廣口瓶中進行測試";
                 mouseLook.RemoveThingOnHand();
-                mission_Text.text = "用線香放入廣口瓶中進行測驗";
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[3])
@@ -143,9 +155,10 @@ public class Level3Manager_PC : MonoBehaviour
                 }
                 break;
             case Level3State_PC.Test:
+                AudioManager.Instance.PlaySound("Level3_4");
                 incenseSticks_UI.SetActive(true);
                 mouseLook.RemoveThingOnHand();
-                Destroy(incenseSticks_UI, 5);
+                Destroy(incenseSticks_UI, 11);
                 glassCover2.SetActive(false);
                 mission_Text.transform.parent.gameObject.SetActive(false);
                 cover2.SetActive(false);
@@ -207,6 +220,16 @@ public class Level3Manager_PC : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+        
+        if (correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
+
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

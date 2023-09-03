@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
 public enum Level5State_PC
@@ -64,6 +63,11 @@ public class Level5Manager_PC : MonoBehaviour
         UpdateLevel5State(Level5State_PC.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab)){
@@ -89,7 +93,9 @@ public class Level5Manager_PC : MonoBehaviour
                 hint.SetActive(true);
                 break;
             case Level5State_PC.Place:
+                AudioManager.Instance.PlaySound("Level5_1");
                 mission_Text.text = "將鋼棉放在培養皿中";
+                part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
                 mouseLook.RemoveThingOnHand();
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
@@ -106,7 +112,7 @@ public class Level5Manager_PC : MonoBehaviour
                 if (choose_UI)
                 {
                     choose_UI.SetActive(true);
-                    Destroy(choose_UI, 7);
+                    Destroy(choose_UI, 11);
                 }
                 if (learningState[0])
                 {
@@ -115,18 +121,20 @@ public class Level5Manager_PC : MonoBehaviour
                 }
                 break;
             case Level5State_PC.Water:
+                AudioManager.Instance.PlaySound("Level5_2");
                 steelWool_control.transform.GetChild(0).gameObject.SetActive(false);
                 steelWool_control.transform.GetChild(1).gameObject.SetActive(true);
                 mouseLook.RemoveThingOnHand();
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
+                part2.GetComponentInChildren<Text>().text = "將水加入鋼棉";
                 water.transform.position = spawnPoint.position;
                 water.transform.rotation = Quaternion.identity;
                 water.SetActive(true);
                 if (place_UI)
                 {
                     place_UI.SetActive(true);
-                    Destroy(place_UI, 7);
+                    Destroy(place_UI, 11);
                 }
                 if (learningState[1])
                 {
@@ -147,6 +155,7 @@ public class Level5Manager_PC : MonoBehaviour
                 steelWool.SetActive(true);
                 steelWool.transform.position = spawnPoint2.position;
                 mission_Text.text = "將鋼棉放進袋子中";
+                part2.GetComponentInChildren<Text>().text = "將鋼棉放進袋子中";
                 /*
                 if (water_UI)
                 {
@@ -211,8 +220,9 @@ public class Level5Manager_PC : MonoBehaviour
                 if (bag2_UI)
                 {
                     bag2_UI.SetActive(true);
-                    Destroy(bag2_UI, 7);
+                    Destroy(bag2_UI, 11);
                 }
+                AudioManager.Instance.PlaySound("Level5_6");
                 mouseLook.RemoveThingOnHand();
                 petriDish2.SetActive(false);
                 clip.SetActive(false);
@@ -297,6 +307,16 @@ public class Level5Manager_PC : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+        
+        if(correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
+
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

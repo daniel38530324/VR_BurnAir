@@ -20,8 +20,6 @@ public class PetriDishControl_PC : MonoBehaviour
         {
             StartCoroutine(ReturnState(Level5State_PC.Vinegar));
         }
-
-
     }
 
     IEnumerator ReturnState(Level5State_PC returnState)
@@ -29,15 +27,7 @@ public class PetriDishControl_PC : MonoBehaviour
         isTrigger = true;
         warn_UI.SetActive(true);
         yield return new WaitForSeconds(3);
-        level5Manager.ReturnLevelState(returnState);
         warn_UI.SetActive(false);
-        isTrigger = false;
-    }
-
-    IEnumerator UpdateLevelState(Level5State_PC state)
-    {
-        yield return new WaitForSeconds(2);
-        level5Manager.UpdateLevel5State(state);
         isTrigger = false;
     }
 }

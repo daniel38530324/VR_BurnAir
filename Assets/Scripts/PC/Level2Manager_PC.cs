@@ -68,6 +68,11 @@ public class Level2Manager_PC : MonoBehaviour
         UpdateLevel2State(Level2State_PC.Explain);
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("Scene");
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.V)){
@@ -176,6 +181,7 @@ public class Level2Manager_PC : MonoBehaviour
     public void UpdateCombustiblesCount()
     {
         mission_Text.text = "移除易燃物:" + combustiblesCount + "/4";
+        part2Panel.GetComponentInChildren<Text>().text = "移除易燃物";
         if(combustiblesCount >= 4)
         {
             UpdateLevel2State(Level2State_PC.Fire);
@@ -185,6 +191,7 @@ public class Level2Manager_PC : MonoBehaviour
     public void UpdateFireCount()
     {
         mission_Text.text = "滅掉火源:" + fireCount + "/4";
+        part2Panel.GetComponentInChildren<Text>().text = "滅掉火源";
         if(fireCount >= 4)
         {
             UpdateLevel2State(Level2State_PC.Success);
@@ -204,7 +211,7 @@ public class Level2Manager_PC : MonoBehaviour
         }
         knowledgePoint.SetActive(true);
         timerState = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(13);
         knowledgePoint.SetActive(false);
         if(level2State != Level2State_PC.Success && level2State != Level2State_PC.CombustiblesFail && level2State != Level2State_PC.FireFail)
         {
@@ -259,6 +266,15 @@ public class Level2Manager_PC : MonoBehaviour
         LearningProcess.data[2] = correctAns ? "答對" : "答錯";
         LearningProcess.data[3] = levelTimer.ToString("0");
         learningProcess.DEV_AppendToReport();
+        
+        if (correctAns)
+        {
+            AudioManager.Instance.PlaySound("Correct");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("Fail");
+        }
 
         tests[0].text = questionData.explain[currentQusetIndex];
         currentQusetIndex++;

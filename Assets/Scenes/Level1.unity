@@ -2099,7 +2099,8 @@ MonoBehaviour:
   candle_Control: {fileID: 243271509}
   candle: {fileID: 1622650589}
   fire: {fileID: 0}
-  isMno2: 0
+  isMushroom: 0
+  cover: {fileID: 0}
   suctionBottle: {fileID: 0}
   isCaCO3: 0
 --- !u!114 &301563270
@@ -8149,7 +8150,8 @@ MonoBehaviour:
   candle_Control: {fileID: 0}
   candle: {fileID: 0}
   fire: {fileID: 0}
-  isMno2: 0
+  isMushroom: 0
+  cover: {fileID: 0}
   suctionBottle: {fileID: 0}
   isCaCO3: 0
 --- !u!65 &441220314
@@ -24734,7 +24736,8 @@ MonoBehaviour:
   candle_Control: {fileID: 0}
   candle: {fileID: 0}
   fire: {fileID: 0}
-  isMno2: 0
+  isMushroom: 0
+  cover: {fileID: 0}
   suctionBottle: {fileID: 0}
   isCaCO3: 0
 --- !u!114 &1571598103
@@ -29889,7 +29892,8 @@ MonoBehaviour:
   candle_Control: {fileID: 243271509}
   candle: {fileID: 0}
   fire: {fileID: 0}
-  isMno2: 0
+  isMushroom: 0
+  cover: {fileID: 0}
   suctionBottle: {fileID: 0}
   isCaCO3: 0
 --- !u!114 &1644796834
