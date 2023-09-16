@@ -32,6 +32,7 @@ TagManager:
   - Rag
   - PlasticSleeve
   - Bubble2
+  - TutorialExit
   layers:
   - Default
   - TransparentFX

@@ -93,6 +93,7 @@ public class Level4Manager_PC : MonoBehaviour
                 table.SetActive(true);
                 break;
             case Level4State_PC.Soda:
+                AudioManager.Instance.PlaySound("Level4_1");
                 choose_UI.SetActive(true);
                 Destroy(choose_UI, 11);
                 mission_Text.text = "加入小蘇打粉";
@@ -125,7 +126,7 @@ public class Level4Manager_PC : MonoBehaviour
                 if (learningState[1])
                 {
                     learningState[1] = false;
-                    SendData("加入小蘇達粉");
+                    SendData("加入小蘇打粉");
                 }
                 break;
             case Level4State_PC.PlasticBag:
