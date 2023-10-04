@@ -80,6 +80,8 @@ public class Level5Manager_PC : MonoBehaviour
 
     public void UpdateLevel5State(Level5State_PC newState)
     {
+        if(level5State == newState) return;
+        
         level5State = newState;
 
         switch (newState)

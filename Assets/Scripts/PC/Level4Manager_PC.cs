@@ -80,6 +80,8 @@ public class Level4Manager_PC : MonoBehaviour
 
     public void UpdateLevel4State(Level4State_PC newState)
     {
+        if(level4State == newState) return;
+        
         level4State = newState;
 
         switch (newState)

@@ -79,6 +79,8 @@ public class Level1Manager_PC : MonoBehaviour
 
     public void UpdateLevel1State(Level1State_PC newState)
     {
+        if(level1State_PC == newState) return;
+        
         level1State_PC = newState;
 
         switch (newState)
