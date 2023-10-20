@@ -33,6 +33,7 @@ TagManager:
   - PlasticSleeve
   - Bubble2
   - TutorialExit
+  - Floor
   layers:
   - Default
   - TransparentFX

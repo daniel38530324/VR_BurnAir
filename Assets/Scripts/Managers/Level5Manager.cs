@@ -39,7 +39,10 @@ public class Level5Manager : MonoBehaviour
     [SerializeField] GameObject table;
     [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, petriDish2, steelWool, steelWool_test, steelWool_control, bag1, bag2;
     [SerializeField] Transform spawnPoint, spawnPoint2;
-    
+    [SerializeField] Text testText, controlText;
+
+    [SerializeField] Transform[] equipmentPoints;
+
     [Header("Test")]
     [SerializeField] GameObject part2;
     [SerializeField] GameObject questionPanel;
@@ -88,6 +91,8 @@ public class Level5Manager : MonoBehaviour
             case Level5State.Place:
                 mission_Text.text = "將鋼棉放在培養皿中";
                 part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
+                testText.text = "實驗組(空氣)";
+                controlText.text = "對照組(空氣)";
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
                 clip.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -118,6 +123,8 @@ public class Level5Manager : MonoBehaviour
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
                 part2.GetComponentInChildren<Text>().text = "將水加入鋼棉";
+                testText.text = "實驗組(加入水)";
+                controlText.text = "對照組(空氣)";
                 water.transform.position = spawnPoint.position;
                 water.transform.rotation = Quaternion.identity;
                 water.SetActive(true);
@@ -173,6 +180,8 @@ public class Level5Manager : MonoBehaviour
                 dropper2.GetComponent<XRGrabInteractable>().enabled = true;
                 mission_Text.text = "將醋加入鋼棉";
                 part2.GetComponentInChildren<Text>().text = "將醋加入鋼棉";
+                testText.text = "實驗組(加入醋)";
+                controlText.text = "對照組(加入水)";
                 if (bag1_UI)
                 {
                     AudioManager.Instance.PlaySound("Level5_4");
@@ -315,7 +324,7 @@ public class Level5Manager : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             SceneManager.LoadScene("MainPage");
@@ -340,5 +349,46 @@ public class Level5Manager : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+    
+    public void RetuenPosition(Transform equipment)
+    {
+        switch (level5State)
+        {
+            case Level5State.Explain:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            case Level5State.Choose:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            default:
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+
+                equipment.position = spawnPoint.position;
+                clip.transform.rotation = Quaternion.Euler(0, 90, 0);
+                water.transform.rotation = Quaternion.identity;
+                vinegar.transform.rotation = Quaternion.identity;
+
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+                break;
+        }
     }
 }

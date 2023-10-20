@@ -40,6 +40,8 @@ public class Level6Manager : MonoBehaviour
     public Level6State level6State;
     float levelTimer = 0;
 
+    [SerializeField] Transform[] equipmentPoints;
+
     [Header("Test")]
     [SerializeField] GameObject part2;
     [SerializeField] GameObject questionPanel;
@@ -129,8 +131,8 @@ public class Level6Manager : MonoBehaviour
                 AudioManager.Instance.PlaySound("Level6_2");
                 rag_UI.SetActive(true);
                 Destroy(rag_UI, 11);
-                mission_Text.text = "WD40噴灑至機器人關節 0/5";
-                part2.GetComponentInChildren<Text>().text = "WD40噴灑至機器人關節";
+                mission_Text.text = "潤滑液噴灑至機器人關節 0/5";
+                part2.GetComponentInChildren<Text>().text = "潤滑液噴灑至機器人關節";
                 rag.SetActive(false);
                 robot_collider.SetActive(false);
                 wd40.transform.position = spawnPoint.position;
@@ -158,7 +160,7 @@ public class Level6Manager : MonoBehaviour
                 if (learningState[3])
                 {
                     learningState[3] = false;
-                    SendData("WD40噴灑至機器人關節");
+                    SendData("潤滑液噴灑至機器人關節");
                 }               
                 break;
             case Level6State.PlasticSleeve:
@@ -257,7 +259,7 @@ public class Level6Manager : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             SceneManager.LoadScene("MainPage");
@@ -316,4 +318,47 @@ public class Level6Manager : MonoBehaviour
         }
     }
 
+    
+    public void RetuenPosition(Transform equipment)
+    {
+        switch (level6State)
+        {
+            case Level6State.Explain:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            case Level6State.Choose:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            default:
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+
+                equipment.position = spawnPoint.position;
+                lemonade.transform.rotation = Quaternion.Euler(0, 0, 0);
+                rag.transform.rotation = Quaternion.Euler(0, 0, 0);
+                wd40.transform.rotation = Quaternion.Euler(0, 0, 0);
+                paintGun.transform.rotation = Quaternion.Euler(0, 0, 0);
+                plasticSleeve.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+                break;
+        }
+    }
 }

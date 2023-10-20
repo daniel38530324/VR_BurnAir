@@ -1468,7 +1468,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u73BB\u7483\u84CB\u653E\u5728\u74F6\u53E3\u4E0A\u3002\u80FD\u907F\u514D\u6C27\u6C23\u9732\u51FA\n\n\u63A5\u4E0B\u4F86\u7528\u7DDA\u9999\u53BB\u6E2C\u8A66\u6709\u6C92\u6709\u6C27\u6C23\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u73BB\u7483\u84CB\u653E\u5728\u74F6\u53E3\u4E0A\u3002<color=yellow><b>\u80FD\u907F\u514D\u6C27\u6C23\u9732\u51FA</b></color>\n\n\u63A5\u4E0B\u4F86\u7528\u7DDA\u9999\u53BB\u6E2C\u8A66\u6709\u6C92\u6709\u6C27\u6C23\u5427!"
 --- !u!222 &144873843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1492,6 +1492,7 @@ GameObject:
   - component: {fileID: 150604857}
   - component: {fileID: 150604856}
   - component: {fileID: 150604855}
+  - component: {fileID: 150604862}
   m_Layer: 7
   m_Name: GlassCover
   m_TagString: GlassCover
@@ -1744,6 +1745,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150604862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150604854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 150604861}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &170865322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,6 +1990,36 @@ Transform:
   - {fileID: 595404208}
   m_Father: {fileID: 1438313703}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &230649663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230649664}
+  m_Layer: 0
+  m_Name: H2O2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230649664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230649663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.96, y: 1.6833, z: 3.97}
+  m_LocalScale: {x: 0.56908613, y: 0.56908613, z: 0.56908613}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &283281239
 BoxCollider:
@@ -13214,7 +13272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5EE3\u53E3\u74F6\u653E\u5165\u6C34\u4E2D\u662F\u70BA\u4E86\u6392\u51FA\u7A7A\u6C23\uFF0C\u8A18\u5F97\u8981\u7B49\u5230\u74F6\u4E2D\u6C92\u6709\u6C23\u6CE1\u518D\u84CB\u4E0A\u73BB\u7483\u7247\u5594\n\n\u63A5\u4E0B\u4F86\u5C07\u96D9\u6C27\u6C34\u52A0\u5165\u858A\u982D\u6F0F\u6597\u5427!\n"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5EE3\u53E3\u74F6\u653E\u5165\u6C34\u4E2D\u662F\u70BA\u4E86<color=yellow><b>\u6392\u51FA\u7A7A\u6C23</b></color>\uFF0C\u8A18\u5F97\u8981\u7B49\u5230\u74F6\u4E2D\u6C92\u6709\u6C23\u6CE1\u518D\u84CB\u4E0A\u73BB\u7483\u7247\u5594\n\n\u63A5\u4E0B\u4F86\u5C07\u96D9\u6C27\u6C34\u52A0\u5165\u858A\u982D\u6F0F\u6597\u5427!\n"
 --- !u!222 &489922093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13605,7 +13663,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u6C27\u6C23\u662F\u96D9\u6C27\u6C34\u5206\u89E3\u9020\u6210\u7684\uFF0C\u526A\u788E\u7684\u91D1\u91DD\u83C7\u662F\u50AC\u5316\u5291\uFF0C\u80FD\u6539\u8B8A\u53CD\u61C9\u901F\u7387\uFF0C\u66F4\u5FEB\u7522\u751F\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u900F\u660E\u677F\u653E\u5230\u5EE3\u53E3\u74F6\u4E0A\u9762\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C<color=yellow><b>\u6C27\u6C23\u662F\u96D9\u6C27\u6C34\u5206\u89E3\u9020\u6210\u7684\uFF0C\u526A\u788E\u7684\u91D1\u91DD\u83C7\u662F\u50AC\u5316\u5291</b></color>\uFF0C\u80FD\u6539\u8B8A\u53CD\u61C9\u901F\u7387\uFF0C\u66F4\u5FEB\u7522\u751F\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u900F\u660E\u677F\u653E\u5230\u5EE3\u53E3\u74F6\u4E0A\u9762\u5427!"
 --- !u!222 &541988771
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14216,6 +14274,7 @@ GameObject:
   - component: {fileID: 611321704}
   - component: {fileID: 611321703}
   - component: {fileID: 611321702}
+  - component: {fileID: 611321707}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Untagged
@@ -14450,6 +14509,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611321707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611321701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 611321706}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &613433157
 GameObject:
   m_ObjectHideFlags: 0
@@ -15174,7 +15260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u9019\u9805\u5BE6\u9A57\u5C07\u6703\u4F7F\u7528\u96D9\u6C27\u6C34\u3001\u91D1\u91DD\u83C7\u3001\u5EE3\u53E3\u74F6\u53BB\u5BE6\u4F5C\u88FD\u4F5C\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u91D1\u91DD\u83C7\u52A0\u5165\u5EE3\u53E3\u74F6\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u9019\u9805\u5BE6\u9A57\u5C07\u6703\u4F7F\u7528<color=yellow><b>\u96D9\u6C27\u6C34\u3001\u91D1\u91DD\u83C7\u3001\u5EE3\u53E3\u74F6</b></color>\u53BB\u5BE6\u4F5C\u88FD\u4F5C\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u91D1\u91DD\u83C7\u52A0\u5165\u5EE3\u53E3\u74F6\u5427!"
 --- !u!222 &721466598
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15368,30 +15454,37 @@ MonoBehaviour:
   - {fileID: 919132147911885945}
   - {fileID: 919132148451583498}
   level3State: 0
+  equipmentPoints:
+  - {fileID: 230649664}
+  - {fileID: 1667922156}
+  - {fileID: 1639921299}
+  - {fileID: 1826372631}
+  - {fileID: 1982710632}
+  - {fileID: 1256879113}
   part2: {fileID: 58831934}
   questionPanel: {fileID: 803536033}
   questionData:
     questions:
     - "1.\u672C\u5BE6\u9A57\u4E0D\u6703\u4F7F\u7528\u5230\u4E0B\u5217\u54EA\u4E00\u9805\u7269\u54C1?"
     - "2.\u8ACB\u554F\u91D1\u91DD\u83C7\u5728\u672C\u5BE6\u9A57\u5BA4\u4F5C\u70BA\u751A\u9EBC\u89D2\u8272?"
-    - "3.\u8ACB\u554F\u50AC\u5316\u5291\u6709\u751A\u9EBC\u4F5C\u7528\u5462?"
+    - "3.\u6C27\u6C23\u9664\u4E86\u5E6B\u52A9\u7269\u8CEA\u71C3\u71D2\u4E4B\u5916\uFF0C\u9084\u6709\u4EC0\u9EBC\u6548\u679C\u5462?"
     - "4.\u8ACB\u554F\u5BE6\u9A57\u6700\u5F8C\u7DDA\u9999\u653E\u5165\u5EE3\u53E3\u74F6\u706B\u537B\u8B8A\u5927\u4E86\uFF0C\u9019\u8868\u793A\u6AA2\u6E2C\u5230\u4E86\u4F55\u7A2E\u6C23\u9AD4\u5B58\u5728?"
     answer1:
     - "\u85E5\u7C89"
     - "\u9632\u8150\u5291"
-    - "\u4F7F\u6C27\u6C23\u5206\u89E3\u901F\u7387\u52A0\u5FEB"
+    - "\u88FD\u4F5C\u6210\u6C7D\u6C34"
     - "\u6C27\u6C23"
     answer2:
     - "\u96D9\u6C27\u6C34"
     - "\u50AC\u5316\u5291"
-    - "\u964D\u4F4E\u6C27\u6C23\u5206\u89E3\u901F\u7387"
+    - "\u63D0\u4F9B\u751F\u7269\u547C\u5438"
     - "\u4E8C\u6C27\u5316\u78B3"
     explain:
     - "\u672C\u5BE6\u9A57\u6703\u4F7F\u7528\u5230\u96D9\u6C27\u6C34\u4F86\u9032\u64CD\u4F5C"
     - "\u91D1\u91DD\u83C7\u5728\u672C\u6B21\u5BE6\u9A57\u662F\u626E\u6F14\u50AC\u5316\u5291\u7684\u89D2\u8272"
-    - "\u50AC\u5316\u5291\u80FD\u6539\u8B8A\u53CD\u61C9\u901F\u7387\uFF0C\u4F7F\u6C27\u6C23\u5206\u89E3\u901F\u7387\u52A0\u5FEB"
+    - "\u6C27\u6C23\u53EF\u4EE5\u63D0\u4F9B\u751F\u7269\u547C\u5438"
     - "\u56E0\u70BA\u7DDA\u9999\u63A5\u89F8\u5230\u5EE3\u53E3\u74F6\u4E2D\u5927\u91CF\u7684\u6C27\u6C23\uFF0C\u9019\u4F7F\u5F97\u7DDA\u9999\u71C3\u71D2\u66F4\u52A0\u65FA\u76DB"
-    correctAnswerIsRight: 00010000
+    correctAnswerIsRight: 00010100
   tests:
   - {fileID: 1105354144}
   - {fileID: 10304129}
@@ -21066,6 +21159,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903053330}
   m_CullTransparentMesh: 1
+--- !u!1 &908728429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 908728431}
+  - component: {fileID: 908728430}
+  m_Layer: 0
+  m_Name: floor (1)
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &908728430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908728429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.441717, y: 1.5000752, z: 15.881651}
+  m_Center: {x: -0.27252483, y: -0.7100391, z: -0.2439642}
+--- !u!4 &908728431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908728429}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 5.3, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921159079
 GameObject:
   m_ObjectHideFlags: 0
@@ -26668,6 +26805,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029735662}
   m_CullTransparentMesh: 1
+--- !u!1 &1050303808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050303809}
+  m_Layer: 0
+  m_Name: RetuenPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050303809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050303808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 230649664}
+  - {fileID: 1667922156}
+  - {fileID: 1639921299}
+  - {fileID: 1826372631}
+  - {fileID: 1982710632}
+  - {fileID: 1256879113}
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105354141
 GameObject:
   m_ObjectHideFlags: 0
@@ -27958,7 +28131,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u71C3\u71D2\u9700\u8981\u6C27\u6C23\uFF0C\u900F\u904E\u7DDA\u9999\u53EF\u4EE5\u6E2C\u8A66\u74F6\u4E2D\u662F\u5426\u6709\u6C27\u6C23\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u6703\u9032\u884C\u55AE\u5143\u554F\u7B54!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u71C3\u71D2\u9700\u8981\u6C27\u6C23\uFF0C\u900F\u904E\u7DDA\u9999\u53EF\u4EE5<color=yellow><b>\u6E2C\u8A66\u74F6\u4E2D\u662F\u5426\u6709\u6C27\u6C23</b></color>\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u6703\u9032\u884C\u55AE\u5143\u554F\u7B54!"
 --- !u!222 &1248068458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27967,6 +28140,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248068455}
   m_CullTransparentMesh: 1
+--- !u!1 &1256879112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256879113}
+  m_Layer: 0
+  m_Name: hand fan02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256879113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256879112}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 3.501, y: 0.608, z: 4.004}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!21 &1260158835
 Material:
   serializedVersion: 6
@@ -35020,6 +35223,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607959323}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1639921298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1639921299}
+  m_Layer: 0
+  m_Name: Flour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1639921299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639921298}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.98, y: 1.103, z: 4.0349126}
+  m_LocalScale: {x: 0.2, y: 0.01418, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &1660748615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35094,6 +35327,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
   m_PrefabInstance: {fileID: 1660748615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667922155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667922156}
+  m_Layer: 0
+  m_Name: Mushroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667922156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667922155}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.5572, y: 1.6318, z: 4.0103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1674850753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40693,6 +40956,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.097910404, y: 0.26245403, z: 0.09087086}
   m_Center: {x: 0.003067255, y: 0.11052203, z: -0.003932476}
+--- !u!1 &1826372630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826372631}
+  m_Layer: 0
+  m_Name: WaterBucket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1826372631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826372630}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.528, y: 1.136, z: 4.014}
+  m_LocalScale: {x: 0.2, y: 0.01418, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1855865758
 GameObject:
   m_ObjectHideFlags: 0
@@ -41128,6 +41421,7 @@ GameObject:
   - component: {fileID: 1919126901}
   - component: {fileID: 1919126900}
   - component: {fileID: 1919126899}
+  - component: {fileID: 1919126904}
   m_Layer: 7
   m_Name: Flour
   m_TagString: Flour
@@ -41346,6 +41640,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1919126904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919126898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1919126903}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1962653642
 GameObject:
   m_ObjectHideFlags: 0
@@ -41647,6 +41968,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.051586743, y: 0.16880867, z: 0.100167915}
   m_Center: {x: -0.00035583504, y: 0.290234, z: 2.9143103e-19}
+--- !u!1 &1982710631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982710632}
+  m_Layer: 0
+  m_Name: Cover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982710632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982710631}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.978, y: 0.7394, z: 3.945}
+  m_LocalScale: {x: 1.6536, y: 1.1024, z: 1.6536}
+  m_Children: []
+  m_Father: {fileID: 1050303809}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987787245
 GameObject:
   m_ObjectHideFlags: 0
@@ -41915,6 +42266,7 @@ GameObject:
   - component: {fileID: 2028431512}
   - component: {fileID: 2028431511}
   - component: {fileID: 2028431510}
+  - component: {fileID: 2028431515}
   m_Layer: 7
   m_Name: WaterBucket
   m_TagString: WaterBucket
@@ -42133,6 +42485,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &2028431515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028431509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2028431514}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &2046171680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42349,6 +42728,7 @@ GameObject:
   - component: {fileID: 2074979368}
   - component: {fileID: 2074979367}
   - component: {fileID: 2074979374}
+  - component: {fileID: 2074979375}
   m_Layer: 7
   m_Name: IncenseSticks
   m_TagString: Untagged
@@ -42627,6 +43007,33 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2074979375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074979366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2074979373}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -44767,6 +45174,7 @@ GameObject:
   - component: {fileID: 1269838993}
   - component: {fileID: 1269838992}
   - component: {fileID: 1269838991}
+  - component: {fileID: 919132148277774813}
   m_Layer: 7
   m_Name: Cover
   m_TagString: Untagged
@@ -44774,6 +45182,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148277774813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148277774812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 543450652463682406}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &919132148451583498
 GameObject:
   m_ObjectHideFlags: 0
@@ -44829,6 +45264,7 @@ GameObject:
   - component: {fileID: 691633595}
   - component: {fileID: 691633598}
   - component: {fileID: 691633599}
+  - component: {fileID: 919132148772126953}
   m_Layer: 7
   m_Name: hand fan02
   m_TagString: Untagged
@@ -44836,6 +45272,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148772126953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148772126952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 543450653041891922}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &919132149150666562
 GameObject:
   m_ObjectHideFlags: 0
@@ -44869,6 +45332,7 @@ GameObject:
   - component: {fileID: 1729325608}
   - component: {fileID: 1729325605}
   - component: {fileID: 1729325606}
+  - component: {fileID: 919132149193976461}
   m_Layer: 7
   m_Name: H2O2
   m_TagString: Untagged
@@ -44876,6 +45340,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132149193976461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149193976460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916902}
+        m_TargetAssemblyTypeName: Level3Manager_New, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 543450653669290038}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &919132149438724613
 GameObject:
   m_ObjectHideFlags: 0

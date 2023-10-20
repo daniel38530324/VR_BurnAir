@@ -32,12 +32,14 @@ public class Level1Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject table;
-    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test;
+    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle candle;
 
     public Level1State level1State;
-    
+
+    [SerializeField] Transform[] equipmentPoints;
+
     [Header("Test")]
     public QuestionData questionData;
     public GameObject part2Panel;
@@ -96,8 +98,8 @@ public class Level1Manager : MonoBehaviour
                 flour.SetActive(false);
                 mission_Text.text = "用扇子慢慢搧火焰";
                 part2Panel.GetComponentInChildren<Text>().text = "用扇子慢慢搧火焰";
-                candle_control.SetActive(true);
-                candle_test.SetActive(true);
+                troch_control.SetActive(true);
+                troch_test.SetActive(true);
                 table.SetActive(false);
                 table.GetComponent<Flashing>().StopGlinting();
                 fan.SetActive(true);
@@ -125,6 +127,10 @@ public class Level1Manager : MonoBehaviour
                 candle.ReturnFire();
                 fan.SetActive(false);
                 cover.SetActive(true);
+                troch_control.SetActive(false);
+                troch_test.SetActive(false);
+                candle_control.SetActive(true);
+                candle_test.SetActive(true);
                 cover.transform.position = spawnPoint.position;
                 cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 mission_Text.text = "將火焰蓋住";
@@ -284,7 +290,7 @@ public class Level1Manager : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
             SceneManager.LoadScene("MainPage");
         }else{
@@ -306,5 +312,47 @@ public class Level1Manager : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+
+    public void RetuenPosition(Transform equipment)
+    {
+        switch(level1State)
+        {
+            case Level1State.Explain:
+                foreach(Transform item in equipmentPoints)
+                {       
+                    if(equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            case Level1State.Choose:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            default:
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+
+                equipment.position = spawnPoint.position;
+                fan.transform.rotation = Quaternion.Euler(0, 90, 0);
+                cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                bucket.transform.rotation = Quaternion.identity;
+                flour.transform.rotation = Quaternion.identity;
+
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+                break;
+        }
     }
 }

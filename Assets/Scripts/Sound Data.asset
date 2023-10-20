@@ -70,7 +70,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 45c112855d6568b44acbed56d0855108, type: 3}
+  - clip: {fileID: 8300000, guid: 9e2f05be325e42247a0fdd661d30db72, type: 3}
     name: Level1_4
     volume: 1
     pitch: 1
@@ -196,7 +196,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 66676b511259a8c4ba57074a692acbe9, type: 3}
+  - clip: {fileID: 8300000, guid: 205253d2282c4c04d81ec4fa4bf1e9aa, type: 3}
     name: Level5_2
     volume: 1
     pitch: 1
@@ -245,7 +245,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 6cc236a374352af4393ea2afbc7f2295, type: 3}
+  - clip: {fileID: 8300000, guid: dba496dea3446e34994e988fcdc8dc21, type: 3}
     name: Level6_3
     volume: 1
     pitch: 1

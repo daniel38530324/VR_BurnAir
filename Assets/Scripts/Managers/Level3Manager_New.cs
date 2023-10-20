@@ -38,6 +38,8 @@ public class Level3Manager_New : MonoBehaviour
     public Level3State_New level3State;
     float levelTimer = 0;
 
+    [SerializeField] Transform[] equipmentPoints;
+
     [Header("Test")]
     [SerializeField] GameObject part2;
     [SerializeField] GameObject questionPanel;
@@ -234,7 +236,7 @@ public class Level3Manager_New : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             SceneManager.LoadScene("MainPage");
@@ -278,6 +280,47 @@ public class Level3Manager_New : MonoBehaviour
             //mushrooms[i].transform.parent = null;
             mushrooms[i].GetComponent<Rigidbody>().isKinematic = false;
             mushrooms[i].gameObject.layer = 9;
+        }
+    }
+
+    
+    public void RetuenPosition(Transform equipment)
+    {
+        switch (level3State)
+        {
+            case Level3State_New.Explain:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            case Level3State_New.Choose:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            default:
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+
+                equipment.position = spawnPoint.position;
+                mushroom.transform.rotation = Quaternion.Euler(0, 0, 0);
+                h2O2.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+                break;
         }
     }
 }

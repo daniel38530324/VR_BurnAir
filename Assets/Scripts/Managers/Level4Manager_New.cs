@@ -36,11 +36,13 @@ public class Level4Manager_New : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, limeWater, dropper, dropper2;
+    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, plasticBag_limeWater, limeWater, dropper, dropper2;
     [SerializeField] GameObject[] mushrooms;
 
     public Level4State_New level4State;
     float levelTimer = 0;
+
+    [SerializeField] Transform[] equipmentPoints;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -120,7 +122,7 @@ public class Level4Manager_New : MonoBehaviour
                 if (learningState[1])
                 {
                     learningState[1] = false;
-                    SendData("加入小蘇達粉");
+                    SendData("加入小蘇打粉");
                 }
                 break;
             case Level4State_New.PlasticBag:
@@ -174,6 +176,7 @@ public class Level4Manager_New : MonoBehaviour
             case Level4State_New.Shake:
                 mission_Text.text = "搖晃塑膠袋";
                 part2.GetComponentInChildren<Text>().text = "搖晃塑膠袋";
+                plasticBag_CO2.SetActive(false);
                 limeWater.SetActive(false);
                 dropper2.SetActive(false);
                 if (learningState[5])
@@ -188,7 +191,7 @@ public class Level4Manager_New : MonoBehaviour
                 Destroy(shake_UI, 11);
                 mission_Text.text = "使用線香測試";
                 part2.GetComponentInChildren<Text>().text = "使用線香測試";
-                plasticBag_CO2.SetActive(false);
+                plasticBag_limeWater.SetActive(false);
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
                 if (learningState[6])
@@ -276,7 +279,7 @@ public class Level4Manager_New : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             SceneManager.LoadScene("MainPage");
@@ -320,6 +323,47 @@ public class Level4Manager_New : MonoBehaviour
             //mushrooms[i].transform.parent = null;
             mushrooms[i].GetComponent<Rigidbody>().isKinematic = false;
             mushrooms[i].gameObject.layer = 9;
+        }
+    }
+    
+    public void RetuenPosition(Transform equipment)
+    {
+        switch (level4State)
+        {
+            case Level4State_New.Explain:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            case Level4State_New.Choose:
+                foreach (Transform item in equipmentPoints)
+                {
+                    if (equipment.name == item.name)
+                    {
+                        equipment.GetComponent<Rigidbody>().isKinematic = true;
+                        equipment.position = item.position;
+                        equipment.rotation = item.rotation;
+                        equipment.GetComponent<Rigidbody>().isKinematic = false;
+                    }
+                }
+                break;
+            default:
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+
+                equipment.position = spawnPoint.position;
+                soda.transform.rotation = Quaternion.Euler(0, 0, 0);
+                vinegar.transform.rotation = Quaternion.Euler(0, 0, 0);
+                limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+                break;
         }
     }
 }

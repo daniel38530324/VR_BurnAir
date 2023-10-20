@@ -811,6 +811,42 @@ MonoBehaviour:
   isHead: 0
   robot: {fileID: 57715467}
   robot_Old: {fileID: 1510988221}
+--- !u!1 &58184860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58184861}
+  m_Layer: 0
+  m_Name: RetuenPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &58184861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58184860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1448578194}
+  - {fileID: 107420615}
+  - {fileID: 1059488270}
+  - {fileID: 1978369373}
+  - {fileID: 1774294091}
+  - {fileID: 1548594104}
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &58831934
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,84 +884,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &63551602
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1989086381}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.3447406
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.3447406
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.3447406
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_Name
-      value: WD40OPEN
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
---- !u!4 &63551603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7bf0f7aac9d0b7a4e9f159a48115bea6, type: 3}
-  m_PrefabInstance: {fileID: 63551602}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76575279
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,6 +5835,36 @@ Transform:
   m_Father: {fileID: 1989086381}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 180, y: -90, z: 0}
+--- !u!1 &107420614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107420615}
+  m_Layer: 0
+  m_Name: Mushroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107420615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107420614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.5572, y: 1.6318, z: 4.0103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109617075
 GameObject:
   m_ObjectHideFlags: 0
@@ -6761,6 +6749,10 @@ PrefabInstance:
       value: Flammulina velutipes1 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6875,7 +6867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0CWD40\u662F\u4E00\u7A2E\u6F64\u6ED1\u6DB2\uFF0C\u53EF\u4EE5\u6709\u6548\u5730\u9632\u6B62\u9435\u751F\u93FD\u3002\n\n\u63A5\u4E0B\u4F86\u7528\u5674\u6F06\u69CD\u5674\u7051\u81F3\u6A5F\u5668\u4EBA\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u5857\u4E0A\u6F64\u6ED1\u6DB2\u53EF\u4EE5\u6709\u6548\u5730<color=yellow><b>\u9632\u6B62\u9435\u751F\u93FD</b></color>\u3002\n\n\u63A5\u4E0B\u4F86\u7528\u5674\u6F06\u69CD\u5674\u7051\u81F3\u6A5F\u5668\u4EBA\u5427!"
 --- !u!222 &144873843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7221,6 +7213,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_Name
       value: Flammulina velutipes1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
@@ -9309,7 +9305,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5EE3\u53E3\u74F6\u653E\u5165\u6C34\u4E2D\u662F\u70BA\u4E86\u6392\u51FA\u7A7A\u6C23\uFF0C\u8A18\u5F97\u8981\u7B49\u5230\u74F6\u4E2D\u6C92\u6709\u6C23\u6CE1\u518D\u84CB\u4E0A\u73BB\u7483\u7247\u5594\n\n\u63A5\u4E0B\u4F86\u5C07\u96D9\u6C27\u6C34\u52A0\u5165\u858A\u982D\u6F0F\u6597\u5427!\n"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5EE3\u53E3\u74F6\u653E\u5165\u6C34\u4E2D\u662F\u70BA\u4E86<color=yellow><b>\u6392\u51FA\u7A7A\u6C23</b></color>\uFF0C\u8A18\u5F97\u8981\u7B49\u5230\u74F6\u4E2D\u6C92\u6709\u6C23\u6CE1\u518D\u84CB\u4E0A\u73BB\u7483\u7247\u5594\n\n\u63A5\u4E0B\u4F86\u5C07\u96D9\u6C27\u6C34\u52A0\u5165\u858A\u982D\u6F0F\u6597\u5427!\n"
 --- !u!222 &489922093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9713,7 +9709,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u6AB8\u6AAC\u6C34\u53EF\u4EE5\u548C\u9435\u93FD\u7522\u751F\u5316\u5B78\u53CD\u61C9\uFF0C\u9032\u800C\u53BB\u9664\u9435\u751F\u93FD\uFF0C\u8A18\u5F97\u8981\u7528\u62B9\u5E03\u64E6\u62ED\u4F86\u4FDD\u6301\u4E7E\u71E5\u5594\u3002\n\n\u63A5\u4E0B\u4F86\u5C07WD40\u5674\u7051\u81F3\u6A5F\u5668\u4EBA\u95DC\u7BC0\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u6AB8\u6AAC\u6C34\u53EF\u4EE5\u548C\u9435\u93FD\u7522\u751F\u5316\u5B78\u53CD\u61C9\uFF0C\u9032\u800C<color=yellow><b>\u53BB\u9664\u9435\u751F\u93FD</b></color>\uFF0C\u8A18\u5F97\u8981\u7528\u62B9\u5E03\u64E6\u62ED\u4F86\u4FDD\u6301\u4E7E\u71E5\u5594\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u6F64\u6ED1\u6DB2\u5674\u7051\u81F3\u6A5F\u5668\u4EBA\u95DC\u7BC0\u5427!"
 --- !u!222 &541988771
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10213,6 +10209,7 @@ GameObject:
   - component: {fileID: 611321704}
   - component: {fileID: 611321703}
   - component: {fileID: 611321702}
+  - component: {fileID: 611321707}
   m_Layer: 7
   m_Name: Mushroom
   m_TagString: Untagged
@@ -10447,6 +10444,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611321707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611321701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 611321706}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &613433157
 GameObject:
   m_ObjectHideFlags: 0
@@ -15746,6 +15770,10 @@ PrefabInstance:
       value: Flammulina velutipes1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -15966,7 +15994,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u9019\u9805\u5BE6\u9A57\u5C07\u6703\u4F7F\u7528\u6AB8\u6AAC\u6C34\u3001WD40\u3001\u5674\u6F06\u69CD\u3001\u5851\u81A0\u5957\u53BB\u5BE6\u4F5C\u53BB\u9664\u9435\u751F\u93FD\u548C\u9810\u9632\u9435\u751F\u93FD\u3002\n\n\u63A5\u4E0B\u4F86\u4F7F\u7528\u6AB8\u6AAC\u6C34\u53BB\u9664\u9435\u751F\u93FD\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u9019\u9805\u5BE6\u9A57\u5C07\u6703\u4F7F\u7528<color=yellow><b>\u6AB8\u6AAC\u6C34\u3001WD40\u3001\u5674\u6F06\u69CD\u3001\u5851\u81A0\u5957</b></color>\u53BB\u5BE6\u4F5C\u53BB\u9664\u9435\u751F\u93FD\u548C\u9810\u9632\u9435\u751F\u93FD\u3002\n\n\u63A5\u4E0B\u4F86\u4F7F\u7528\u6AB8\u6AAC\u6C34\u53BB\u9664\u9435\u751F\u93FD\u5427!"
 --- !u!222 &721466598
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16122,6 +16150,13 @@ MonoBehaviour:
   headBody_Collider: {fileID: 1632518723}
   footCollider: {fileID: 1745774315}
   level6State: 0
+  equipmentPoints:
+  - {fileID: 1448578194}
+  - {fileID: 107420615}
+  - {fileID: 1059488270}
+  - {fileID: 1978369373}
+  - {fileID: 1774294091}
+  - {fileID: 1548594104}
   part2: {fileID: 58831934}
   questionPanel: {fileID: 803536033}
   questionData:
@@ -16700,6 +16735,7 @@ GameObject:
   - component: {fileID: 849828937}
   - component: {fileID: 849828936}
   - component: {fileID: 849828935}
+  - component: {fileID: 849828939}
   m_Layer: 7
   m_Name: Plastic Sleeve
   m_TagString: PlasticSleeve
@@ -16886,6 +16922,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849828939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849828934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 849828938}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &850045658
 GameObject:
   m_ObjectHideFlags: 0
@@ -18365,6 +18428,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034002367}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1059488269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059488270}
+  m_Layer: 0
+  m_Name: WD40
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1059488270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059488269}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.976, y: 1.219, z: 3.969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1105354141
 GameObject:
   m_ObjectHideFlags: 0
@@ -19339,7 +19432,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u4F7F\u7528\u5851\u81A0\u5957\u53EF\u4EE5\u6E1B\u5C11\u8207\u7A7A\u6C23\u63A5\u89F8\uFF0C\u9054\u5230\u9810\u9632\u9435\u751F\u93FD\u7684\u6548\u679C\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u6703\u9032\u884C\u55AE\u5143\u554F\u7B54!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u4F7F\u7528\u5851\u81A0\u5957\u53EF\u4EE5<color=yellow><b>\u6E1B\u5C11\u8207\u7A7A\u6C23\u63A5\u89F8</b></color>\uFF0C\u9054\u5230\u9810\u9632\u9435\u751F\u93FD\u7684\u6548\u679C\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u6703\u9032\u884C\u55AE\u5143\u554F\u7B54!"
 --- !u!222 &1174446933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19772,6 +19865,7 @@ GameObject:
   - component: {fileID: 1213621786}
   - component: {fileID: 1213621785}
   - component: {fileID: 1213621784}
+  - component: {fileID: 1213621788}
   m_Layer: 7
   m_Name: Paint Gun
   m_TagString: Untagged
@@ -19984,6 +20078,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213621788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213621783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1213621787}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1229803097
 GameObject:
   m_ObjectHideFlags: 0
@@ -20312,7 +20433,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u6CB9\u6F06\u53EF\u4EE5\u963B\u9694\u9435\u548C\u7A7A\u6C23\u3001\u6C34\u7684\u63A5\u89F8\uFF0C\u9054\u5230\u9810\u9632\u9435\u751F\u93FD\u7684\u6548\u679C\u3002\n\n\u63A5\u4E0B\u4F86\u4F7F\u7528\u5851\u81A0\u5957\u5957\u4F4F\u6A5F\u5668\u4EBA\u7684\u8173\u4E0A\u5427!"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u6CB9\u6F06\u53EF\u4EE5<color=yellow><b>\u963B\u9694\u9435\u548C\u7A7A\u6C23\u3001\u6C34\u7684\u63A5\u89F8</b></color>\uFF0C\u9054\u5230\u9810\u9632\u9435\u751F\u93FD\u7684\u6548\u679C\u3002\n\n\u63A5\u4E0B\u4F86\u4F7F\u7528\u5851\u81A0\u5957\u5957\u4F4F\u6A5F\u5668\u4EBA\u7684\u8173\u4E0A\u5427!"
 --- !u!222 &1248068458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21662,6 +21783,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448388019}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1448578193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448578194}
+  m_Layer: 0
+  m_Name: Paint Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448578194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448578193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.966, y: 1.747, z: 4.007}
+  m_LocalScale: {x: 1.2583, y: 1.2583, z: 1.2583}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1510988219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21844,6 +21995,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a8fd67c9b162bf6458374726deeb0bc4, type: 3}
   m_PrefabInstance: {fileID: 1535996236}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1548594103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548594104}
+  m_Layer: 0
+  m_Name: rag01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548594104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548594103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.538, y: 0.622, z: 4}
+  m_LocalScale: {x: 3.66715, y: 3.66715, z: 3.66715}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559129154
 GameObject:
   m_ObjectHideFlags: 0
@@ -22164,6 +22345,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_Name
       value: Flammulina velutipes1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
@@ -22496,6 +22681,50 @@ Transform:
   m_Father: {fileID: 1535996238}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1639791354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1639791356}
+  - component: {fileID: 1639791355}
+  m_Layer: 0
+  m_Name: floor (1)
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1639791355
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639791354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.441717, y: 1.5000752, z: 15.881651}
+  m_Center: {x: -0.27252483, y: -0.7100391, z: -0.2439642}
+--- !u!4 &1639791356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639791354}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 5.3, y: 0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658388163
 GameObject:
   m_ObjectHideFlags: 0
@@ -22713,6 +22942,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_Name
       value: Flammulina velutipes1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
@@ -27849,6 +28082,36 @@ Transform:
   m_Father: {fileID: 1535996238}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1774294090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774294091}
+  m_Layer: 0
+  m_Name: Plastic Sleeve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774294091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774294090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.969, y: 0.614, z: 4.046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781843454
 GameObject:
   m_ObjectHideFlags: 0
@@ -28570,6 +28833,10 @@ PrefabInstance:
       value: Flammulina velutipes1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -28668,6 +28935,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_Name
       value: Flammulina velutipes1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
@@ -29143,6 +29414,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978081076}
   m_CullTransparentMesh: 1
+--- !u!1 &1978369372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978369373}
+  m_Layer: 0
+  m_Name: Lemonade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978369373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978369372}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.557, y: 1.205, z: 4.007}
+  m_LocalScale: {x: 0.54878, y: 0.54878, z: 0.54878}
+  m_Children: []
+  m_Father: {fileID: 58184861}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1985753704
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1989086381}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3447406
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3447406
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.3447406
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_Name
+      value: Lubricantopen
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+--- !u!4 &1985753705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d29cd48a3310b946b8fa7b1c8c520a4, type: 3}
+  m_PrefabInstance: {fileID: 1985753704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1987787245
 GameObject:
   m_ObjectHideFlags: 0
@@ -29299,6 +29678,7 @@ GameObject:
   - component: {fileID: 1989086380}
   - component: {fileID: 1989086379}
   - component: {fileID: 1989086378}
+  - component: {fileID: 1989086382}
   m_Layer: 7
   m_Name: WD40
   m_TagString: Untagged
@@ -29505,12 +29885,39 @@ Transform:
   m_LocalPosition: {x: 2.976, y: 1.219, z: 3.969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 63551603}
+  - {fileID: 1985753705}
   - {fileID: 688232454}
   - {fileID: 99272501}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1989086382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989086377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1989086381}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2000502740
 GameObject:
   m_ObjectHideFlags: 0
@@ -29722,6 +30129,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_Name
       value: Flammulina velutipes1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
@@ -30182,6 +30593,10 @@ PrefabInstance:
       value: Flammulina velutipes1 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 862bdd834db3d50458eb3db2d73bf0a7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -30551,6 +30966,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.060812246, y: 0.009437482, z: 0.06164611}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2133311755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0fe480d679bef264ba6418bc6155aaf8, type: 3}
+  m_PrefabInstance: {fileID: 2133311750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2133311756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133311751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2133311755}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2136346078
 GameObject:
   m_ObjectHideFlags: 0
@@ -39860,6 +40307,7 @@ GameObject:
   - component: {fileID: 2370941055927552526}
   - component: {fileID: 2370941055927552525}
   - component: {fileID: 2370941055927552524}
+  - component: {fileID: 2370941055927552527}
   m_Layer: 7
   m_Name: Lemonade
   m_TagString: Untagged
@@ -40055,6 +40503,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2370941055927552527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370941055927552523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502ce71491cf7a14d8fadbe54bf2aa3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 724916899}
+        m_TargetAssemblyTypeName: Level6Manager, Assembly-CSharp
+        m_MethodName: RetuenPosition
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8577597342666014370}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2384003630424666714
 GameObject:
   m_ObjectHideFlags: 0

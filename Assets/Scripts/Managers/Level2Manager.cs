@@ -39,7 +39,9 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject successPanel;
     [SerializeField] GameObject defeatPanel;
     [SerializeField] GameObject questionPanel;
-    
+
+    [SerializeField] Transform[] equipmentPoints;
+
     [Header("Test")]
     public QuestionData questionData;
     public Text[] tests;
@@ -108,7 +110,7 @@ public class Level2Manager : MonoBehaviour
             case Level2State.Explain:
                 break;
             case Level2State.Combustibles:
-                timer = 90;
+                timer = 120;
                 combustiblesCount = 0;
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 UpdateCombustiblesCount();
@@ -118,7 +120,7 @@ public class Level2Manager : MonoBehaviour
                 break;
             case Level2State.Fire:
                 GetKnowledgePoints(Combustible_UI, false);
-                timer = 120;
+                timer = 150;
                 fireCount = 0;
                 UpdateFireCount();
                 extinguishingTools.SetActive(true);
@@ -270,7 +272,7 @@ public class Level2Manager : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
             SceneManager.LoadScene("MainPage");
         }else{
@@ -292,5 +294,19 @@ public class Level2Manager : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+
+    public void RetuenPosition(Transform equipment)
+    {
+        foreach (Transform item in equipmentPoints)
+        {
+            if (equipment.name == item.name)
+            {
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+                equipment.position = item.position;
+                equipment.rotation = item.rotation;
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        }
     }
 }
