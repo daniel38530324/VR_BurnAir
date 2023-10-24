@@ -41,6 +41,7 @@ public class Level5Manager_PC : MonoBehaviour
     [SerializeField] GameObject table;
     [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, petriDish2, steelWool, steelWool_test, steelWool_control, bag1, bag2;
     [SerializeField] Transform spawnPoint, spawnPoint2;
+    [SerializeField] Text testText, controlText;
     
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -98,6 +99,8 @@ public class Level5Manager_PC : MonoBehaviour
                 AudioManager.Instance.PlaySound("Level5_1");
                 mission_Text.text = "將鋼棉放在培養皿中";
                 part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
+                testText.text = "實驗組(空氣)";
+                controlText.text = "對照組(空氣)";
                 mouseLook.RemoveThingOnHand();
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
@@ -130,6 +133,8 @@ public class Level5Manager_PC : MonoBehaviour
                 clip.SetActive(false);
                 mission_Text.text = "將水加入鋼棉";
                 part2.GetComponentInChildren<Text>().text = "將水加入鋼棉";
+                testText.text = "實驗組(加入水)";
+                controlText.text = "對照組(空氣)";
                 water.transform.position = spawnPoint.position;
                 water.transform.rotation = Quaternion.identity;
                 water.SetActive(true);
@@ -181,6 +186,9 @@ public class Level5Manager_PC : MonoBehaviour
                 vinegar.transform.rotation = Quaternion.identity;
                 vinegar.SetActive(true);
                 mission_Text.text = "將醋加入鋼棉";
+                part2.GetComponentInChildren<Text>().text = "將醋加入鋼棉";
+                testText.text = "實驗組(加入醋)";
+                controlText.text = "對照組(加入水)";
                 if (bag1_UI)
                 {
                     bag1_UI.SetActive(true);
@@ -324,7 +332,7 @@ public class Level5Manager_PC : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             Cursor.lockState = CursorLockMode.Confined;

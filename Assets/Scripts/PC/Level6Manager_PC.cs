@@ -139,8 +139,8 @@ public class Level6Manager_PC : MonoBehaviour
                 AudioManager.Instance.PlaySound("Level6_2");
                 rag_UI.SetActive(true);
                 Destroy(rag_UI, 11);
-                mission_Text.text = "WD40噴灑至機器人關節 0/5";
-                part2.GetComponentInChildren<Text>().text = "WD40噴灑至機器人關節";
+                mission_Text.text = "潤滑液噴灑至機器人關節 0/5";
+                part2.GetComponentInChildren<Text>().text = "潤滑液噴灑至機器人關節";
                 mouseLook.RemoveThingOnHand();
                 rag.SetActive(false);
                 robot_collider.SetActive(false);
@@ -169,7 +169,7 @@ public class Level6Manager_PC : MonoBehaviour
                 if (learningState[3])
                 {
                     learningState[3] = false;
-                    SendData("WD40噴灑至機器人關節");
+                    SendData("潤滑液噴灑至機器人關節");
                 }               
                 break;
             case Level6State_PC.PlasticSleeve:
@@ -270,7 +270,7 @@ public class Level6Manager_PC : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
             Cursor.lockState = CursorLockMode.Confined;
@@ -308,7 +308,7 @@ public class Level6Manager_PC : MonoBehaviour
                 number = 5;
                 OnWD40Num.Invoke();
             }
-            mission_Text.text = "WD40噴灑至機器人關節" + number + "/5";
+            mission_Text.text = "潤滑液噴灑至機器人關節" + number + "/5";
         }
         else if (currentState == Level6State_PC.PaintGun)
         {

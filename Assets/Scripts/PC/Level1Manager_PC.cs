@@ -283,7 +283,7 @@ public class Level1Manager_PC : MonoBehaviour
         currentQusetIndex++;
         ansPanel[0].SetActive(correctAns);
         ansPanel[1].SetActive(!correctAns);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
             Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("MainPage_PC");

@@ -29,7 +29,7 @@ public class MouseLook : MonoBehaviour
     public Vector3 currentRayPoint;
 
     [Header("Level4")]
-    public PlasticBag_CO2_PC plasticBag_CO2_PC;
+    public PlasticBag_Shake_PC plasticBag_Shake_PC;
     [Header("Level5")]
     public Transform clip;
     
@@ -245,8 +245,8 @@ public class MouseLook : MonoBehaviour
                 case "PlasticBag_CO2_interact":
                     if(beCatchName == ""){
                         currentRayTransform.SetParent(setPos);
-                        currentRayTransform.localPosition = Vector3.zero;
-                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.localPosition = new Vector3(0.013f, 0.027f, 0.068f);
+                        currentRayTransform.localRotation = Quaternion.Euler(0, 90f, 0);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "PlasticBag_CO2_interact";
                     }
@@ -400,7 +400,7 @@ public class MouseLook : MonoBehaviour
                     setPos.transform.GetComponentInChildren<Animator>().enabled = true;
                     setPos.transform.GetComponentInChildren<Animator>().SetBool("Trigger", true);
                     if(SceneManager.GetActiveScene().name == "Level4_PC"){
-                        plasticBag_CO2_PC.Shake();
+                        plasticBag_Shake_PC.Shake();
                     }
                     break;
                 case "water_interact":
