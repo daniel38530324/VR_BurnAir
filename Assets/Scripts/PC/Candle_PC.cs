@@ -12,14 +12,11 @@ public class Candle_PC : MonoBehaviour
     bool isTrigger;
     public bool isTrigger2;
 
-    int state = 0;
-
     private void Update()
     {
-        if(haveWind && !isTrigger && state == 0){
+        if(haveWind && !isTrigger){
             StartCoroutine(Burn());
             StartCoroutine(NextState(Level1State_PC.Cover));
-            state = 1;
         }
     }
 
@@ -64,22 +61,19 @@ public class Candle_PC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Cover") && !isTrigger2 && state == 1){
-            state = 2;
+        if(other.CompareTag("Cover") && !isTrigger2){
             StartCoroutine(Extinguish());
             StartCoroutine(NextState(Level1State_PC.Bucket));
         }
 
-        if(other.CompareTag("Water") && state == 2)
+        if(other.CompareTag("Water"))
         {
-            state = 3;
             StartCoroutine(Extinguish());
             StartCoroutine(NextState(Level1State_PC.Flour));
         }
 
-        if (other.CompareTag("Flour") && state == 3)
+        if (other.CompareTag("Flour"))
         {
-            state = 4;
             StartCoroutine(Burn2());
             StartCoroutine(NextState(Level1State_PC.Test));
         }

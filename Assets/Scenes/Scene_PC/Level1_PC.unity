@@ -14035,8 +14035,10 @@ MonoBehaviour:
   cover: {fileID: 1266523971}
   bucket: {fileID: 301563268}
   flour: {fileID: 1644796832}
-  candle_control: {fileID: 743447213}
-  candle_test: {fileID: 1087414169}
+  candle_control: {fileID: 243271504}
+  candle_test: {fileID: 1622650584}
+  troch_control: {fileID: 743447213}
+  troch_test: {fileID: 1087414169}
   spawnPoint: {fileID: 995991343}
   candle: {fileID: 1622650586}
   level1State_PC: 0
@@ -52535,7 +52537,7 @@ MonoBehaviour:
   beCatchName: 
   setPos: {fileID: 1689577993}
   currentRayPoint: {x: 0, y: 0, z: 0}
-  plasticBag_CO2_PC: {fileID: 0}
+  plasticBag_Shake_PC: {fileID: 0}
   clip: {fileID: 0}
 --- !u!81 &1800525734
 AudioListener:

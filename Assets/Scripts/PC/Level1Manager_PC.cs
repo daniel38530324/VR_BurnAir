@@ -35,7 +35,7 @@ public class Level1Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject table;
-    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test;
+    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle_PC candle;
 
@@ -100,8 +100,8 @@ public class Level1Manager_PC : MonoBehaviour
                 flour.SetActive(false);
                 mission_Text.text = "用扇子慢慢搧火焰, 點擊右鍵來使用物品";
                 part2Panel.GetComponentInChildren<Text>().text = "用扇子慢慢搧火焰";
-                candle_control.SetActive(true);
-                candle_test.SetActive(true);
+                troch_control.SetActive(true);
+                troch_test.SetActive(true);
                 table.SetActive(false);
                 table.GetComponent<Flashing>().StopGlinting();
                 fan.SetActive(true);
@@ -124,6 +124,10 @@ public class Level1Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 fan.SetActive(false);
                 cover.SetActive(true);
+                troch_control.SetActive(false);
+                troch_test.SetActive(false);
+                candle_control.SetActive(true);
+                candle_test.SetActive(true);
                 cover.transform.position = spawnPoint.position;
                 cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 mission_Text.text = "將火焰蓋住";
