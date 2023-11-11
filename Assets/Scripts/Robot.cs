@@ -9,7 +9,7 @@ public class Robot : MonoBehaviour
     [SerializeField] Level6Manager level6Manager;
     [SerializeField] Material[] materials;
     [SerializeField] bool isHead;
-    [SerializeField] MeshRenderer robot;
+    [SerializeField] MeshRenderer robot, plastic_food;
     [SerializeField] GameObject robot_Old;
     bool timerTrigger = true;
     float timer;
@@ -111,6 +111,7 @@ public class Robot : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = false;
             GetComponent<MeshRenderer>().enabled = false;
+            plastic_food.enabled = true;
             level6Manager.UpdateNum(Level6State.PlasticSleeve);
         }
     }

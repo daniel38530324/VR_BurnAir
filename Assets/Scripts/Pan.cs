@@ -10,6 +10,7 @@ public class Pan : MonoBehaviour
     public GameObject[] fireEffects;
     public GameObject anotherCover;
     public GameObject myCover;
+    [SerializeField] AudioSource fireSound;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -32,13 +33,18 @@ public class Pan : MonoBehaviour
         }
         var main = particleSystem.main;
         main.startSize = 0.4f;
+        fireSound.volume = 0.8f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.3f;
+        fireSound.volume = 0.6f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.2f;
+        fireSound.volume = 0.4f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.1f;
+        fireSound.volume = 0.2f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0f;
+        fireSound.volume = 0f;
     }
 }

@@ -231,7 +231,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 1
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: d020e3774b3239746bb3d9924b3df055, type: 3}
+  - clip: {fileID: 8300000, guid: cf050f8e704daf640b0ff7f4065895fa, type: 3}
     name: Level6_1
     volume: 1
     pitch: 1
@@ -275,6 +275,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: bd6284b72773be044999349086de1376, type: 3}
     name: Fail
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: a58da842b3bd12745b7f0c434c6abb4b, type: 3}
+    name: Fire
     volume: 0.8
     pitch: 1
     loop: 0

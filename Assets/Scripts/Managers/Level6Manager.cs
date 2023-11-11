@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Level6State
 {
@@ -120,6 +121,7 @@ public class Level6Manager : MonoBehaviour
                 lemonade.SetActive(false);
                 rag.transform.position = spawnPoint.position;
                 rag.transform.rotation = Quaternion.Euler(0, 0, 0);
+                rag.GetComponent<XRGrabInteractable>().movementType = XRBaseInteractable.MovementType.VelocityTracking;
                 rag.SetActive(true);       
                 if (learningState[1])
                 {

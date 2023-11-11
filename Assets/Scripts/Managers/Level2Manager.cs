@@ -110,7 +110,7 @@ public class Level2Manager : MonoBehaviour
             case Level2State.Explain:
                 break;
             case Level2State.Combustibles:
-                timer = 120;
+                timer = 180;
                 combustiblesCount = 0;
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 UpdateCombustiblesCount();
@@ -120,7 +120,7 @@ public class Level2Manager : MonoBehaviour
                 break;
             case Level2State.Fire:
                 GetKnowledgePoints(Combustible_UI, false);
-                timer = 150;
+                timer = 270;
                 fireCount = 0;
                 UpdateFireCount();
                 extinguishingTools.SetActive(true);

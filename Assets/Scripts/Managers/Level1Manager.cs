@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Level1State
 {
@@ -35,6 +36,7 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle candle;
+    [SerializeField] AudioSource fireSound_Troch, fireSound_Candle;
 
     public Level1State level1State;
 
@@ -90,9 +92,10 @@ public class Level1Manager : MonoBehaviour
                     table.transform.GetChild(i).GetComponent<Flashing>().StartGlinting();
                 }
                 */
-                hint.SetActive(true);
+                //hint.SetActive(true);
                 break;
             case Level1State.Fan:
+                fireSound_Troch.volume = 0.8f;
                 cover.SetActive(false);
                 bucket.SetActive(false);
                 flour.SetActive(false);
@@ -124,6 +127,7 @@ public class Level1Manager : MonoBehaviour
                 }
                 break;
             case Level1State.Cover:
+                fireSound_Candle.volume = 0.8f;
                 candle.ReturnFire();
                 fan.SetActive(false);
                 cover.SetActive(true);
@@ -133,6 +137,7 @@ public class Level1Manager : MonoBehaviour
                 candle_test.SetActive(true);
                 cover.transform.position = spawnPoint.position;
                 cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                cover.GetComponent<XRGrabInteractable>().movementType = XRBaseInteractable.MovementType.VelocityTracking;
                 mission_Text.text = "將火焰蓋住";
                 part2Panel.GetComponentInChildren<Text>().text = "將火焰蓋住";
                 if (fan_UI)
@@ -148,6 +153,7 @@ public class Level1Manager : MonoBehaviour
                 }
                 break;
             case Level1State.Bucket:
+                fireSound_Candle.volume = 0.8f;
                 candle.ReturnFire();
                 cover.SetActive(false);
                 bucket.transform.position = spawnPoint.position;
@@ -169,6 +175,7 @@ public class Level1Manager : MonoBehaviour
                 }
                 break;
             case Level1State.Flour:
+                fireSound_Candle.volume = 0.8f;
                 candle.ReturnFire();
                 bucket.SetActive(false);           
                 flour.transform.position = spawnPoint.position;

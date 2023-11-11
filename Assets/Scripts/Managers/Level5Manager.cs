@@ -86,7 +86,7 @@ public class Level5Manager : MonoBehaviour
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 mission_Text.text = "將正確的器材放在桌上";
                 table.SetActive(true);
-                hint.SetActive(true);
+                //hint.SetActive(true);
                 break;
             case Level5State.Place:
                 mission_Text.text = "將鋼棉放在培養皿中";
