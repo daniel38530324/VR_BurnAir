@@ -11,6 +11,7 @@ public class Candle_PC : MonoBehaviour
     public GameObject particleSystem2;
     bool isTrigger;
     public bool isTrigger2;
+    [SerializeField] AudioSource fireSound;
 
     private void Update()
     {
@@ -85,14 +86,19 @@ public class Candle_PC : MonoBehaviour
         var main = particleSystem.main;
         main.startSize = 0.1f;
         particleSystem2.SetActive(false);
+        fireSound.volume = 0.8f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.07f;
+        fireSound.volume = 0.6f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.04f;
+        fireSound.volume = 0.4f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0.01f;
+        fireSound.volume = 0.2f;
         yield return new WaitForSeconds(0.2f);
         main.startSize = 0f;
+        fireSound.volume = 0f;
     }
 
     private void OnTriggerExit(Collider other)

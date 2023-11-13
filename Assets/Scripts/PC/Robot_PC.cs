@@ -9,7 +9,7 @@ public class Robot_PC : MonoBehaviour
     [SerializeField] Level6Manager_PC level6Manager;
     [SerializeField] Material[] materials;
     [SerializeField] bool isHead;
-    [SerializeField] MeshRenderer robot;
+    [SerializeField] MeshRenderer robot, plastic_food;
     [SerializeField] GameObject robot_Old;
     bool timerTrigger = true;
     bool trigger;
@@ -124,6 +124,7 @@ public class Robot_PC : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = false;
             GetComponent<MeshRenderer>().enabled = false;
+            plastic_food.enabled = true;
             level6Manager.UpdateNum(Level6State_PC.PlasticSleeve);
         }
         else if (other.CompareTag("Rag"))

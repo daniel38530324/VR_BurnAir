@@ -93,7 +93,7 @@ public class Level5Manager_PC : MonoBehaviour
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 mission_Text.text = "將正確的器材放在桌上";
                 table.SetActive(true);
-                hint.SetActive(true);
+                //hint.SetActive(true);
                 break;
             case Level5State_PC.Place:
                 AudioManager.Instance.PlaySound("Level5_1");

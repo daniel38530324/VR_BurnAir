@@ -38,6 +38,7 @@ public class Level1Manager_PC : MonoBehaviour
     [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle_PC candle;
+    [SerializeField] AudioSource fireSound_Troch, fireSound_Candle;
 
     public Level1State_PC level1State_PC;
     
@@ -91,10 +92,11 @@ public class Level1Manager_PC : MonoBehaviour
                 mission_Text.transform.parent.gameObject.SetActive(true);
                 mission_Text.text = "將正確的器材放在桌上";
                 table.SetActive(true);
-                hint.SetActive(true);
+                //hint.SetActive(true);
                 break;
             case Level1State_PC.Fan:
                 mouseLook.RemoveThingOnHand();
+                fireSound_Troch.volume = 0.8f;
                 cover.SetActive(false);
                 bucket.SetActive(false);
                 flour.SetActive(false);
@@ -122,6 +124,7 @@ public class Level1Manager_PC : MonoBehaviour
             case Level1State_PC.Cover:
                 candle.ReturnFire();
                 mouseLook.RemoveThingOnHand();
+                fireSound_Candle.volume = 0.8f;
                 fan.SetActive(false);
                 cover.SetActive(true);
                 troch_control.SetActive(false);
@@ -144,6 +147,7 @@ public class Level1Manager_PC : MonoBehaviour
                 }
                 break;
             case Level1State_PC.Bucket:
+                fireSound_Candle.volume = 0.8f;
                 candle.ReturnFire();
                 mouseLook.RemoveThingOnHand();
                 cover.SetActive(false);
@@ -165,6 +169,7 @@ public class Level1Manager_PC : MonoBehaviour
                 }
                 break;
             case Level1State_PC.Flour:
+                fireSound_Candle.volume = 0.8f;
                 candle.ReturnFire();
                 mouseLook.RemoveThingOnHand();
                 bucket.SetActive(false);           
