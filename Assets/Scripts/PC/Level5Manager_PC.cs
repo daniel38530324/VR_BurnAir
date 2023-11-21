@@ -100,7 +100,7 @@ public class Level5Manager_PC : MonoBehaviour
                 mission_Text.text = "將鋼棉放在培養皿中";
                 part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
                 testText.text = "實驗組(空氣)";
-                controlText.text = "對照組(空氣)";
+                controlText.text = "對照組(保鮮膜)";
                 mouseLook.RemoveThingOnHand();
                 clip.SetActive(true);
                 clip.transform.position = spawnPoint.position;
