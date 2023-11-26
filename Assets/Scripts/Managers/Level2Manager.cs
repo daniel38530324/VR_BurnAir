@@ -26,6 +26,7 @@ public class Level2Manager : MonoBehaviour
 
     [Header("Mission")]
     [SerializeField] Text mission_Text;
+    [SerializeField] Text mission_Text2;
     [SerializeField] Text timer_Text;
     public GameObject Combustible_UI, AlcoholLamp_UI, WaterBucket_UI, FireEx_DryPowder_UI, FireEx_Metal_UI;
 
@@ -113,6 +114,7 @@ public class Level2Manager : MonoBehaviour
                 timer = 180;
                 combustiblesCount = 0;
                 mission_Text.transform.parent.gameObject.SetActive(true);
+                mission_Text2.gameObject.SetActive(true);
                 UpdateCombustiblesCount();
                 combustibles.SetActive(true);
                 fires.SetActive(true);
@@ -120,6 +122,7 @@ public class Level2Manager : MonoBehaviour
                 break;
             case Level2State.Fire:
                 GetKnowledgePoints(Combustible_UI, false);
+                mission_Text2.gameObject.SetActive(false);
                 timer = 270;
                 fireCount = 0;
                 UpdateFireCount();

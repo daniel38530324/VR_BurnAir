@@ -323,4 +323,18 @@ public class Level3Manager_New : MonoBehaviour
                 break;
         }
     }
+
+    public void RetuenPosition_Others(Transform equipment)
+    {
+        foreach (Transform item in equipmentPoints)
+        {
+            if (equipment.name == item.name)
+            {
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+                equipment.position = item.position;
+                equipment.rotation = item.rotation;
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        }
+    }
 }

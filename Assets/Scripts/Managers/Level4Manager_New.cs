@@ -36,7 +36,7 @@ public class Level4Manager_New : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, plasticBag_limeWater, limeWater, dropper, dropper2;
+    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, plasticBag_limeWater, limeWater, dropper;
     [SerializeField] GameObject[] mushrooms;
 
     public Level4State_New level4State;
@@ -165,8 +165,6 @@ public class Level4Manager_New : MonoBehaviour
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
-                limeWater.GetComponent<XRGrabInteractable>().enabled = false;
-                dropper2.GetComponent<XRGrabInteractable>().enabled = true;
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -178,7 +176,6 @@ public class Level4Manager_New : MonoBehaviour
                 part2.GetComponentInChildren<Text>().text = "搖晃塑膠袋";
                 plasticBag_CO2.SetActive(false);
                 limeWater.SetActive(false);
-                dropper2.SetActive(false);
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -364,6 +361,20 @@ public class Level4Manager_New : MonoBehaviour
 
                 equipment.GetComponent<Rigidbody>().isKinematic = false;
                 break;
+        }
+    }
+
+    public void RetuenPosition_Others(Transform equipment)
+    {
+        foreach (Transform item in equipmentPoints)
+        {
+            if (equipment.name == item.name)
+            {
+                equipment.GetComponent<Rigidbody>().isKinematic = true;
+                equipment.position = item.position;
+                equipment.rotation = item.rotation;
+                equipment.GetComponent<Rigidbody>().isKinematic = false;
+            }
         }
     }
 }
