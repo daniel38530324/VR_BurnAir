@@ -335,6 +335,52 @@ public class MouseLook : MonoBehaviour
                         beCatchName = "PlasticSleeve_interact";
                     }
                     break;
+                //new other
+                case "BeakerTongs_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(-0.007f, 0f, 0.184f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "BeakerTongs_interact";
+                    }
+                    break;
+                case "Forceps_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(-0.079f, 0, 0.129f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Forceps_interact";
+                    }
+                    break;
+                case "Pestle_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(0, 0.014f, 0.13f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Pestle_interact";
+                    }
+                    break;
+                case "TestTubes_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(0.064f, -0.121f, 0.164f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "TestTubes_interact";
+                    }
+                    break;
+                case "WireGauze_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = new Vector3(-0.106f, -0.083f, 0.164f);
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "WireGauze_interact";
+                    }
+                    break;
                 //other
                 default:
                     if(beCatchName == "Steel_Wool_BeTrigger"){

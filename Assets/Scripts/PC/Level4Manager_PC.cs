@@ -39,7 +39,7 @@ public class Level4Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, limeWater, dropper, dropper2;
+    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, limeWater, dropper;
 
     public Level4State_PC level4State;
     float levelTimer = 0;
@@ -186,7 +186,6 @@ public class Level4Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 plasticBag_CO2.SetActive(false);
                 limeWater.SetActive(false);
-                dropper2.SetActive(false);
                 if (learningState[5])
                 {
                     learningState[5] = false;

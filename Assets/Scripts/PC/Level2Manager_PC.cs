@@ -27,6 +27,7 @@ public class Level2Manager_PC : MonoBehaviour
 
     [Header("Mission")]
     [SerializeField] Text mission_Text;
+    [SerializeField] Text mission_Text2;
     [SerializeField] Text timer_Text;
     
     [Header("Knowledge points")]
@@ -123,6 +124,7 @@ public class Level2Manager_PC : MonoBehaviour
                 timer = 180;
                 combustiblesCount = 0;
                 mission_Text.transform.parent.gameObject.SetActive(true);
+                mission_Text2.gameObject.SetActive(true);
                 UpdateCombustiblesCount();
                 combustibles.SetActive(true);
                 fires.SetActive(true);
@@ -130,6 +132,7 @@ public class Level2Manager_PC : MonoBehaviour
                 break;
             case Level2State_PC.Fire:
                 GetKnowledgePoints(Combustible_UI, false);
+                mission_Text2.gameObject.SetActive(false);
                 timer = 270;
                 fireCount = 0;
                 UpdateFireCount();
