@@ -20633,7 +20633,7 @@ MonoBehaviour:
   - {fileID: 1420769470}
   anotherCover: {fileID: 428615680}
   myCover: {fileID: 6894948323065139050}
-  fireSound: {fileID: 0}
+  fireSound: {fileID: 574629178}
 --- !u!1 &593421220
 GameObject:
   m_ObjectHideFlags: 0
