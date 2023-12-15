@@ -381,6 +381,69 @@ public class MouseLook : MonoBehaviour
                         beCatchName = "WireGauze_interact";
                     }
                     break;
+                case "Microscope_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Microscope_interact";
+                    }
+                    break;
+                case "Microscope2_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Microscope2_interact";
+                    }
+                    break;
+                case "leaf_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "leaf_interact";
+                    }
+                    break;
+                case "Jar_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Jar_interact";
+                    }
+                    break;
+                case "Cork_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "Cork_interact";
+                    }
+                    break;
+                case "FirstAidKit_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "FirstAidKit_interact";
+                    }
+                    break;
+                case "RoundBeaker_interact":
+                    if(beCatchName == ""){
+                        currentRayTransform.SetParent(setPos);
+                        currentRayTransform.localPosition = Vector3.zero;
+                        currentRayTransform.localRotation = Quaternion.identity;
+                        currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
+                        beCatchName = "RoundBeaker_interact";
+                    }
+                    break;
                 //other
                 default:
                     if(beCatchName == "Steel_Wool_BeTrigger"){
