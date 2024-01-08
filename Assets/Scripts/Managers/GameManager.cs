@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public static bool[] levelState = new bool[6];
+
+    [SerializeField] GameObject[] finishs; 
 
     private void Awake()
     {
@@ -35,5 +38,16 @@ public class GameManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void CheckState()
+    {
+        for(int i = 0; i < finishs.Length; i++)
+        {
+            if (levelState[i])
+            {
+                finishs[i].SetActive(true);
+            }
+        }
     }
 }

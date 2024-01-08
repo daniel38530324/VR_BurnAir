@@ -37,11 +37,12 @@ public class Level5Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject table;
-    [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, petriDish2, steelWool, steelWool_test, steelWool_control, bag1, bag2;
+    [SerializeField] GameObject clip, vinegar, water, dropper, dropper2, petriDish, petriDish2, steelWool, steelWool_test, steelWool_control, bag1, bag2, title;
     [SerializeField] Transform spawnPoint, spawnPoint2;
     [SerializeField] Text testText, controlText;
 
     [SerializeField] Transform[] equipmentPoints;
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -60,7 +61,7 @@ public class Level5Manager : MonoBehaviour
         {
             Instantiate(gameManager);
         }
-
+        table.GetComponent<Table>().Finished += CheckFinish;
         UpdateLevel5State(Level5State.Explain);
     }
 
@@ -105,6 +106,7 @@ public class Level5Manager : MonoBehaviour
                 steelWool_test.SetActive(true);
                 table.SetActive(false);
                 table.GetComponent<Flashing>().StopGlinting();
+                CheckFinish(4);
                 if (choose_UI)
                 {
                     AudioManager.Instance.PlaySound("Level5_1");
@@ -130,6 +132,7 @@ public class Level5Manager : MonoBehaviour
                 water.SetActive(true);
                 water.GetComponent<XRGrabInteractable>().enabled = false;
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
+                CheckFinish(5);
                 if (place_UI)
                 {
                     AudioManager.Instance.PlaySound("Level5_2");
@@ -182,6 +185,7 @@ public class Level5Manager : MonoBehaviour
                 part2.GetComponentInChildren<Text>().text = "將醋加入鋼棉";
                 testText.text = "實驗組(加入醋)";
                 controlText.text = "對照組(加入水)";
+                CheckFinish(6);
                 if (bag1_UI)
                 {
                     AudioManager.Instance.PlaySound("Level5_4");
@@ -221,6 +225,7 @@ public class Level5Manager : MonoBehaviour
                 }
                 break;
             case Level5State.Test:
+                title.SetActive(false);
                 if (bag2_UI)
                 {
                     AudioManager.Instance.PlaySound("Level5_6");
@@ -237,6 +242,11 @@ public class Level5Manager : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                CheckFinish(7);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -327,6 +337,7 @@ public class Level5Manager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
+            GameManager.levelState[4] = true;
             SceneManager.LoadScene("MainPage");
         }
         else
@@ -404,5 +415,10 @@ public class Level5Manager : MonoBehaviour
                 equipment.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

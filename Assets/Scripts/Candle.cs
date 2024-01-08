@@ -12,6 +12,7 @@ public class Candle : MonoBehaviour
     bool isTrigger;
     public bool isTrigger2;
     [SerializeField] AudioSource fireSound;
+    [SerializeField] GameObject water, flour;
 
     private void Update()
     {
@@ -75,12 +76,14 @@ public class Candle : MonoBehaviour
         {
             StartCoroutine(Extinguish());
             StartCoroutine(NextState(Level1State.Flour));
+            water.SetActive(true);
         }
 
         if (other.CompareTag("Flour"))
         {
             StartCoroutine(Burn2());
             StartCoroutine(NextState(Level1State.Test));
+            flour.SetActive(true);
         }
     }
 

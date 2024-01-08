@@ -36,12 +36,14 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject bucket, bucketSpawnPoint;
 
     [Header("Panel")]
-    [SerializeField] GameObject part2Panel;
+    [SerializeField] GameObject part2Panel, title;
     [SerializeField] GameObject successPanel;
     [SerializeField] GameObject defeatPanel;
     [SerializeField] GameObject questionPanel;
 
     [SerializeField] Transform[] equipmentPoints;
+
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     public QuestionData questionData;
@@ -146,6 +148,7 @@ public class Level2Manager : MonoBehaviour
                 }
                 break;
             case Level2State.Test:
+                title.SetActive(false);
                 extinguishingTools.SetActive(false);
                 successPanel.SetActive(false);
                 defeatPanel.SetActive(false);
@@ -277,6 +280,7 @@ public class Level2Manager : MonoBehaviour
         ansPanel[1].SetActive(!correctAns);
         yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
+            GameManager.levelState[1] = true;
             SceneManager.LoadScene("MainPage");
         }else{
             Quesion(currentQusetIndex);
@@ -311,5 +315,10 @@ public class Level2Manager : MonoBehaviour
                 equipment.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

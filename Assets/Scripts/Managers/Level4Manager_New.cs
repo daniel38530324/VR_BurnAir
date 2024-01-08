@@ -36,13 +36,14 @@ public class Level4Manager_New : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, plasticBag_limeWater, limeWater, dropper;
+    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, plasticBag_limeWater, limeWater, dropper, title;
     [SerializeField] GameObject[] mushrooms;
 
     public Level4State_New level4State;
     float levelTimer = 0;
 
     [SerializeField] Transform[] equipmentPoints;
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -60,6 +61,7 @@ public class Level4Manager_New : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+        table.GetComponent<Table>().Finished += CheckFinish;
         UpdateLevel4State(Level4State_New.Explain);
     }
 
@@ -119,6 +121,7 @@ public class Level4Manager_New : MonoBehaviour
                 vinegar.SetActive(true);
                 vinegar.GetComponent<XRGrabInteractable>().enabled = false;
                 dropper.GetComponent<XRGrabInteractable>().enabled = true;
+                CheckFinish(4);
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -134,6 +137,8 @@ public class Level4Manager_New : MonoBehaviour
                 vinegar.SetActive(false);
                 dropper.SetActive(false);
                 plasticBag.SetActive(true);
+                CheckFinish(5);
+                CheckFinish(6);
                 if (learningState[2])
                 {
                     learningState[2] = false;
@@ -150,6 +155,7 @@ public class Level4Manager_New : MonoBehaviour
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);
                 glassCover.SetActive(true);
+                CheckFinish(7);
                 if (learningState[3])
                 {
                     learningState[3] = false;
@@ -165,6 +171,7 @@ public class Level4Manager_New : MonoBehaviour
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
+                CheckFinish(8);
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -176,6 +183,7 @@ public class Level4Manager_New : MonoBehaviour
                 part2.GetComponentInChildren<Text>().text = "搖晃塑膠袋";
                 plasticBag_CO2.SetActive(false);
                 limeWater.SetActive(false);
+                CheckFinish(9);
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -191,6 +199,7 @@ public class Level4Manager_New : MonoBehaviour
                 plasticBag_limeWater.SetActive(false);
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
+                CheckFinish(10);
                 if (learningState[6])
                 {
                     learningState[6] = false;
@@ -198,6 +207,7 @@ public class Level4Manager_New : MonoBehaviour
                 }
                 break;
             case Level4State_New.Test:
+                title.SetActive(false);
                 AudioManager.Instance.PlaySound("Level4_6");
                 incenseSticks_UI.SetActive(true);
                 Destroy(incenseSticks_UI, 11);
@@ -208,6 +218,11 @@ public class Level4Manager_New : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                CheckFinish(11);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[7])
                 {
                     learningState[7] = false;
@@ -279,6 +294,7 @@ public class Level4Manager_New : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
+            GameManager.levelState[3] = true;
             SceneManager.LoadScene("MainPage");
         }
         else
@@ -376,5 +392,10 @@ public class Level4Manager_New : MonoBehaviour
                 equipment.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

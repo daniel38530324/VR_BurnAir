@@ -35,13 +35,14 @@ public class Level6Manager : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, lemonade, rag, wd40, paintGun, plasticSleeve, robot, robot_collider, joint_Collider, headBody_Collider, footCollider;
+    [SerializeField] GameObject table, lemonade, rag, wd40, paintGun, plasticSleeve, robot, robot_collider, joint_Collider, headBody_Collider, footCollider, title;
     //[SerializeField] GameObject[] robots;
 
     public Level6State level6State;
     float levelTimer = 0;
 
     [SerializeField] Transform[] equipmentPoints;
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -63,6 +64,7 @@ public class Level6Manager : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+        table.GetComponent<Table>().Finished += CheckFinish;
         UpdateLevel6State(Level6State.Explain);
     }
 
@@ -122,7 +124,8 @@ public class Level6Manager : MonoBehaviour
                 rag.transform.position = spawnPoint.position;
                 rag.transform.rotation = Quaternion.Euler(0, 0, 0);
                 rag.GetComponent<XRGrabInteractable>().movementType = XRBaseInteractable.MovementType.VelocityTracking;
-                rag.SetActive(true);       
+                rag.SetActive(true);
+                CheckFinish(5);
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -141,6 +144,7 @@ public class Level6Manager : MonoBehaviour
                 wd40.transform.rotation = Quaternion.Euler(0, 0, 0);
                 wd40.SetActive(true);
                 joint_Collider.SetActive(true);
+                CheckFinish(6);
                 if (learningState[2])
                 {
                     learningState[2] = false;
@@ -158,7 +162,8 @@ public class Level6Manager : MonoBehaviour
                 paintGun.transform.position = spawnPoint.position;
                 paintGun.transform.rotation = Quaternion.Euler(0, 0, 0);
                 paintGun.SetActive(true);
-                headBody_Collider.SetActive(true);               
+                headBody_Collider.SetActive(true);
+                CheckFinish(7);
                 if (learningState[3])
                 {
                     learningState[3] = false;
@@ -176,7 +181,8 @@ public class Level6Manager : MonoBehaviour
                 plasticSleeve.transform.position = spawnPoint.position;
                 plasticSleeve.transform.rotation = Quaternion.Euler(0, 0, 0);
                 plasticSleeve.SetActive(true);
-                footCollider.SetActive(true);            
+                footCollider.SetActive(true);
+                CheckFinish(8);
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -184,6 +190,7 @@ public class Level6Manager : MonoBehaviour
                 }             
                 break;
             case Level6State.Test:
+                title.SetActive(false);
                 AudioManager.Instance.PlaySound("Level6_5");
                 plasticSleeve_UI.SetActive(true);
                 Destroy(plasticSleeve_UI, 11);
@@ -192,7 +199,12 @@ public class Level6Manager : MonoBehaviour
                 robot.SetActive(false);
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
-                Quesion(0);               
+                Quesion(0);
+                CheckFinish(9);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -264,6 +276,7 @@ public class Level6Manager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if (questionData.questions.Length == currentQusetIndex)
         {
+            GameManager.levelState[5] = true;
             SceneManager.LoadScene("MainPage");
         }
         else
@@ -376,5 +389,10 @@ public class Level6Manager : MonoBehaviour
                 equipment.GetComponent<Rigidbody>().isKinematic = false;
             }
         }
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

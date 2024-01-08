@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,22 @@ using UnityEngine.Events;
 
 public class Table : MonoBehaviour
 {
+    public event Action<int> Finished;
+
     [SerializeField] GameObject wrong_UI;
     [SerializeField] List<GameObject> equipment, wrong;
     [SerializeField] UnityEvent UpdateLevelState, SendChooseFailData;
 
     int getCount = 0, equipmentCount;
+    GameObject[] originEquipment;
+
     // Start is called before the first frame update
     void Start()
     {
         equipmentCount = equipment.Count;
+
+        originEquipment = new GameObject[equipmentCount];
+        equipment.CopyTo(originEquipment);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,11 +34,13 @@ public class Table : MonoBehaviour
             {
                 getCount++;
                 removeIndex = equipment.IndexOf(item);
+                Finished(Array.IndexOf(originEquipment, collision.gameObject));
             }
 
             if(getCount == equipmentCount)
             {
                 UpdateLevelState.Invoke();
+                Finished = null;
                 Destroy(this);
             }
         }
