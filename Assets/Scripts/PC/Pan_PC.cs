@@ -18,6 +18,7 @@ public class Pan_PC : MonoBehaviour
             anotherCover.SetActive(false);
             myCover.SetActive(true);
             StartCoroutine(BeenCover());
+            level2Manager.CheckFinish(1);
         }
     }
 

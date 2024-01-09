@@ -35,10 +35,11 @@ public class Level3Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, mushroom, h2O2, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest;
+    [SerializeField] GameObject table, mushroom, h2O2, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, title;
 
     public Level3State_PC level3State;
     float levelTimer = 0;
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -56,6 +57,9 @@ public class Level3Manager_PC : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+
+        table.GetComponent<Table>().Finished += CheckFinish;
+
         UpdateLevel3State(Level3State_PC.Explain);
     }
 
@@ -120,6 +124,7 @@ public class Level3Manager_PC : MonoBehaviour
                 h2O2.transform.position = spawnPoint.position;
                 h2O2.transform.rotation = Quaternion.Euler(0, 0, 0);
                 h2O2.SetActive(true);
+                CheckFinish(3);
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -135,6 +140,7 @@ public class Level3Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 h2O2.SetActive(false);
                 glassCover.SetActive(true);
+                CheckFinish(4);
                 if (learningState[2])
                 {
                     learningState[2] = false;
@@ -150,6 +156,7 @@ public class Level3Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
+                CheckFinish(5);
                 if (learningState[3])
                 {
                     learningState[3] = false;
@@ -157,6 +164,7 @@ public class Level3Manager_PC : MonoBehaviour
                 }
                 break;
             case Level3State_PC.Test:
+                title.SetActive(false);
                 AudioManager.Instance.PlaySound("Level3_4");
                 incenseSticks_UI.SetActive(true);
                 mouseLook.RemoveThingOnHand();
@@ -168,6 +176,11 @@ public class Level3Manager_PC : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                CheckFinish(6);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -241,6 +254,7 @@ public class Level3Manager_PC : MonoBehaviour
         if (questionData.questions.Length == currentQusetIndex)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.levelState[2] = true;
             SceneManager.LoadScene("MainPage_PC");
         }
         else
@@ -263,5 +277,10 @@ public class Level3Manager_PC : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

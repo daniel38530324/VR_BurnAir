@@ -41,10 +41,12 @@ public class Level2Manager_PC : MonoBehaviour
     [SerializeField] GameObject bucket, bucketSpawnPoint;
 
     [Header("Panel")]
-    [SerializeField] GameObject part2Panel;
+    [SerializeField] GameObject part2Panel, title;
     [SerializeField] GameObject successPanel;
     [SerializeField] GameObject defeatPanel;
     [SerializeField] GameObject questionPanel;
+
+    [SerializeField] GameObject[] finishs;
     
     [Header("Test")]
     public QuestionData questionData;
@@ -156,6 +158,7 @@ public class Level2Manager_PC : MonoBehaviour
                 }
                 break;
             case Level2State_PC.Test:
+                title.SetActive(false);
                 extinguishingTools.SetActive(false);
                 successPanel.SetActive(false);
                 defeatPanel.SetActive(false);
@@ -288,6 +291,7 @@ public class Level2Manager_PC : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.levelState[1] = true;
             SceneManager.LoadScene("MainPage_PC");
         }else{
             Quesion(currentQusetIndex);
@@ -308,5 +312,10 @@ public class Level2Manager_PC : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+    
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

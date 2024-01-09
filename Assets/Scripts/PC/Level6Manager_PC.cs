@@ -37,10 +37,12 @@ public class Level6Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, lemonade, rag, wd40, paintGun, plasticSleeve, robot, robot_collider, joint_Collider, headBody_Collider, footCollider;
+    [SerializeField] GameObject table, lemonade, rag, wd40, paintGun, plasticSleeve, robot, robot_collider, joint_Collider, headBody_Collider, footCollider, title;
 
     public Level6State_PC level6State;
     float levelTimer = 0;
+    
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -62,6 +64,9 @@ public class Level6Manager_PC : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+
+        table.GetComponent<Table>().Finished += CheckFinish;
+
         UpdateLevel6State(Level6State_PC.Explain);
     }
 
@@ -128,7 +133,8 @@ public class Level6Manager_PC : MonoBehaviour
                 lemonade.SetActive(false);
                 rag.transform.position = spawnPoint.position;
                 rag.transform.rotation = Quaternion.Euler(0, 0, 0);
-                rag.SetActive(true);       
+                rag.SetActive(true);      
+                CheckFinish(5); 
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -148,6 +154,7 @@ public class Level6Manager_PC : MonoBehaviour
                 wd40.transform.rotation = Quaternion.Euler(0, 0, 0);
                 wd40.SetActive(true);
                 joint_Collider.SetActive(true);
+                CheckFinish(6);
                 if (learningState[2])
                 {
                     learningState[2] = false;
@@ -165,7 +172,8 @@ public class Level6Manager_PC : MonoBehaviour
                 paintGun.transform.position = spawnPoint.position;
                 paintGun.transform.rotation = Quaternion.Euler(0, 0, 0);
                 paintGun.SetActive(true);
-                headBody_Collider.SetActive(true);               
+                headBody_Collider.SetActive(true);
+                CheckFinish(7);
                 if (learningState[3])
                 {
                     learningState[3] = false;
@@ -184,7 +192,8 @@ public class Level6Manager_PC : MonoBehaviour
                 plasticSleeve.transform.position = spawnPoint.position;
                 plasticSleeve.transform.rotation = Quaternion.Euler(0, 0, 0);
                 plasticSleeve.SetActive(true);
-                footCollider.SetActive(true);            
+                footCollider.SetActive(true);   
+                CheckFinish(8);         
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -192,6 +201,7 @@ public class Level6Manager_PC : MonoBehaviour
                 }             
                 break;
             case Level6State_PC.Test:
+                title.SetActive(false);
                 AudioManager.Instance.PlaySound("Level6_5");
                 plasticSleeve_UI.SetActive(true);
                 Destroy(plasticSleeve_UI, 11);
@@ -201,7 +211,12 @@ public class Level6Manager_PC : MonoBehaviour
                 robot.SetActive(false);
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
-                Quesion(0);               
+                Quesion(0);
+                CheckFinish(9);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -274,6 +289,7 @@ public class Level6Manager_PC : MonoBehaviour
         if (questionData.questions.Length == currentQusetIndex)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.levelState[5] = true;
             SceneManager.LoadScene("MainPage_PC");
         }
         else
@@ -329,5 +345,9 @@ public class Level6Manager_PC : MonoBehaviour
             mission_Text.text = "塑膠套套住機器人的腳"  + number + "/2";
         }
     }
-
+    
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
+    }
 }

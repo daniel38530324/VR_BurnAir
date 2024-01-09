@@ -35,12 +35,14 @@ public class Level1Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] GameObject table;
-    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test;
+    [SerializeField] GameObject fan, cover, bucket, flour, candle_control, candle_test, troch_control, troch_test, bowl, title;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Candle_PC candle;
     [SerializeField] AudioSource fireSound_Troch, fireSound_Candle;
 
     public Level1State_PC level1State_PC;
+
+    [SerializeField] GameObject[] finishs;
     
     [Header("Test")]
     public QuestionData questionData;
@@ -59,6 +61,8 @@ public class Level1Manager_PC : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+        
+        table.GetComponent<Table>().Finished += CheckFinish;
 
         UpdateLevel1State(Level1State_PC.Explain);
     }
@@ -134,6 +138,7 @@ public class Level1Manager_PC : MonoBehaviour
                 cover.transform.position = spawnPoint.position;
                 cover.transform.localRotation = Quaternion.Euler(0, 90, 0);
                 mission_Text.text = "將火焰蓋住";
+                CheckFinish(4);
                 if(fan_UI)
                 {
                     AudioManager.Instance.PlaySound("Level1_2");
@@ -154,8 +159,10 @@ public class Level1Manager_PC : MonoBehaviour
                 bucket.transform.position = spawnPoint.position;
                 bucket.transform.rotation = Quaternion.identity;
                 bucket.SetActive(true);
+                bowl.SetActive(true);
                 mission_Text.text = "將火焰澆熄, 點擊右鍵來使用物品";
                 part2Panel.GetComponentInChildren<Text>().text = "將火焰澆熄, 點擊右鍵來使用物品";
+                CheckFinish(5);
                 if(cover_UI)
                 {
                     AudioManager.Instance.PlaySound("Level1_3");
@@ -176,8 +183,10 @@ public class Level1Manager_PC : MonoBehaviour
                 flour.transform.position = spawnPoint.position;
                 flour.transform.rotation = Quaternion.identity;
                 flour.SetActive(true);
+                bowl.transform.GetChild(0).gameObject.SetActive(false);
                 mission_Text.text = "將麵粉加入火中";
                 part2Panel.GetComponentInChildren<Text>().text = "將麵粉加入火中";
+                CheckFinish(6);
                 if(bucket_UI)
                 {
                     AudioManager.Instance.PlaySound("Level1_4");
@@ -192,6 +201,7 @@ public class Level1Manager_PC : MonoBehaviour
                 break;
             case Level1State_PC.Test:
                 mouseLook.RemoveThingOnHand();
+                title.SetActive(false);
                 flour.SetActive(false);
                 candle_control.SetActive(false);
                 candle_test.SetActive(false);
@@ -202,6 +212,11 @@ public class Level1Manager_PC : MonoBehaviour
                 AudioManager.Instance.PlaySound("Level1_5");
                 flour_UI.SetActive(true);
                 Destroy(flour_UI, 15);
+                CheckFinish(7);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if(learningState[4])
                 {
                     learningState[4] = false;
@@ -295,6 +310,7 @@ public class Level1Manager_PC : MonoBehaviour
         yield return new WaitForSeconds(5f);
         if(questionData.questions.Length == currentQusetIndex){
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.levelState[0] = true;
             SceneManager.LoadScene("MainPage_PC");
         }else{
             Quesion(currentQusetIndex);
@@ -315,5 +331,10 @@ public class Level1Manager_PC : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

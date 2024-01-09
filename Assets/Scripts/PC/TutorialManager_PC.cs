@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorialManager : MonoBehaviour
+public class TutorialManager_PC : MonoBehaviour
 {
     [Header("GameManager")]
     [SerializeField] GameObject gameManager;
@@ -23,11 +23,6 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayMusic("Scene");
-    }
-
-    public void ReturnMainPage()
-    {
-        GameManager.instance.ChangeScene("MainPage");
     }
 
     public void GetHint(string name)

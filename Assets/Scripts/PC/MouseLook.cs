@@ -32,6 +32,8 @@ public class MouseLook : MonoBehaviour
     public PlasticBag_Shake_PC plasticBag_Shake_PC;
     [Header("Level5")]
     public Transform clip;
+    [Header("tutorial")]
+    public TutorialManager_PC tutorialManager_PC;
     
     void Start()
     {
@@ -80,6 +82,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.identity;
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "H2O2_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("H2O2");
+                        }
                     }
                     break;
                 case "MnO2_interact":
@@ -98,6 +103,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.Euler(0, 0, 5);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "WaterBucket_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Water Bucket");
+                        }
                     }
                     break;
                 case "Flour_interact":
@@ -107,6 +115,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.Euler(0, -35, 0);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "Flour_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Flour");
+                        }
                     }
                     break;
                 case "Bottle_interact":
@@ -125,6 +136,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.Euler(0,-180,0);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "handfan02_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Fan");
+                        }
                     }
                     break;
                 //level2
@@ -162,6 +176,7 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.identity;
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "Combustible_interact";
+                        currentRayTransform.transform.GetChild(0).gameObject.SetActive(false);
                     }
                     break;
                 case "Door_interact":
@@ -176,6 +191,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.identity;
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "Mushroom_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Mushroom");
+                        }
                     }
                     break;
                 case "Cover_interact":
@@ -306,6 +324,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.Euler(0, -115f, 0);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "PaintGun_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Paint Bucket");
+                        }
                     }
                     break;
                 case "Rag_interact":
@@ -324,6 +345,9 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.localRotation = Quaternion.Euler(0, -90f, 0);
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "Lemonade_interact";
+                        if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
+                            tutorialManager_PC.GetHint("Lemonade");
+                        }
                     }
                     break;
                 case "PlasticSleeve_interact":
@@ -753,6 +777,13 @@ public class MouseLook : MonoBehaviour
                     setPos.GetChild(0).SetParent(null);
                     beCatchName = "";
                 }
+                break;
+            case "Combustible_interact":
+                setPos.GetChild(0).GetChild(0).gameObject.SetActive(true);
+                setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;
+                setPos.GetChild(0).position = currentRayPoint + new Vector3(0,0.2f,0);
+                setPos.GetChild(0).SetParent(null);
+                beCatchName = "";
                 break;
             default:
                 setPos.transform.GetComponentInChildren<Rigidbody>().isKinematic = false;

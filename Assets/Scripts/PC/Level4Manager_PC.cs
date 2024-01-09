@@ -39,10 +39,12 @@ public class Level4Manager_PC : MonoBehaviour
 
     [Header("Object")]
     [SerializeField] Transform spawnPoint;
-    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, limeWater, dropper;
+    [SerializeField] GameObject table, soda, vinegar, cover, cover2, glassCover, glassCover2, incenseSticks, incenseSticksTest, plasticBag, plasticBag2, plasticBag_CO2, limeWater, dropper, title;
 
     public Level4State_PC level4State;
     float levelTimer = 0;
+
+    [SerializeField] GameObject[] finishs;
 
     [Header("Test")]
     [SerializeField] GameObject part2;
@@ -60,6 +62,9 @@ public class Level4Manager_PC : MonoBehaviour
         {
             Instantiate(gameManager);
         }
+
+        table.GetComponent<Table>().Finished += CheckFinish;
+
         UpdateLevel4State(Level4State_PC.Explain);
     }
 
@@ -125,6 +130,7 @@ public class Level4Manager_PC : MonoBehaviour
                 vinegar.transform.position = spawnPoint.position;
                 vinegar.transform.rotation = Quaternion.Euler(0, 0, 0);
                 vinegar.SetActive(true);
+                CheckFinish(4);
                 if (learningState[1])
                 {
                     learningState[1] = false;
@@ -141,6 +147,8 @@ public class Level4Manager_PC : MonoBehaviour
                 vinegar.SetActive(false);
                 dropper.SetActive(false);
                 plasticBag.SetActive(true);
+                CheckFinish(5);
+                CheckFinish(6);
                 if (learningState[2])
                 {
                     learningState[2] = false;
@@ -158,6 +166,7 @@ public class Level4Manager_PC : MonoBehaviour
                 plasticBag2.SetActive(false);
                 plasticBag_CO2.SetActive(true);
                 glassCover.SetActive(true);
+                CheckFinish(7);
                 if (learningState[3])
                 {
                     learningState[3] = false;
@@ -174,6 +183,7 @@ public class Level4Manager_PC : MonoBehaviour
                 limeWater.transform.position = spawnPoint.position;
                 limeWater.transform.rotation = Quaternion.Euler(0, 0, 0);
                 limeWater.SetActive(true);
+                CheckFinish(8);
                 if (learningState[4])
                 {
                     learningState[4] = false;
@@ -186,6 +196,7 @@ public class Level4Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 plasticBag_CO2.SetActive(false);
                 limeWater.SetActive(false);
+                CheckFinish(9);
                 if (learningState[5])
                 {
                     learningState[5] = false;
@@ -201,6 +212,7 @@ public class Level4Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 incenseSticks.SetActive(true);
                 incenseSticksTest.SetActive(true);
+                CheckFinish(10);
                 if (learningState[6])
                 {
                     learningState[6] = false;
@@ -208,6 +220,7 @@ public class Level4Manager_PC : MonoBehaviour
                 }
                 break;
             case Level4State_PC.Test:
+                title.SetActive(false);
                 mouseLook.RemoveThingOnHand();
                 AudioManager.Instance.PlaySound("Level4_6");
                 incenseSticks_UI.SetActive(true);
@@ -219,6 +232,11 @@ public class Level4Manager_PC : MonoBehaviour
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
+                CheckFinish(11);
+                if (table.TryGetComponent<Table>(out Table item))
+                {
+                    item.Finished -= CheckFinish;
+                }
                 if (learningState[7])
                 {
                     learningState[7] = false;
@@ -291,6 +309,7 @@ public class Level4Manager_PC : MonoBehaviour
         if (questionData.questions.Length == currentQusetIndex)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            GameManager.levelState[3] = true;
             SceneManager.LoadScene("MainPage_PC");
         }
         else
@@ -313,5 +332,10 @@ public class Level4Manager_PC : MonoBehaviour
     public void SendChooseFailData()
     {
         SendData("拿器材", false);
+    }
+
+    public void CheckFinish(int index)
+    {
+        finishs[index].SetActive(true);
     }
 }

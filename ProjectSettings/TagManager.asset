@@ -3,37 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Place
-  - Wind
-  - Cover
-  - FireEX
-  - DryPowder
-  - Bubble
-  - Water
-  - Flour
-  - WaterBucket
-  - Outside
-  - MnO2
-  - H2O2
-  - Pipe
-  - CaCO3
-  - HCl
-  - SteelWool
-  - Vinegar
-  - Mushroom
-  - GlassCover
-  - PlasticBag
-  - Soda
-  - LimeWater
-  - Lemonade
-  - WD40
-  - PaintGun
-  - Rag
-  - PlasticSleeve
-  - Bubble2
-  - TutorialExit
-  - Floor
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -41,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Grab
-  - Wall
-  - CaCO3
-  - Desk
-  - Pipe
-  - FireEx_Joint
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
