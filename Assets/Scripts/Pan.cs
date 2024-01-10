@@ -22,6 +22,14 @@ public class Pan : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bubble") || other.gameObject.CompareTag("Metal") || other.gameObject.CompareTag("Water"))
+        {
+            level2Manager.GetWrong();
+        }
+    }
+
     IEnumerator BeenCover()
     {
         level2Manager.fireCount++;

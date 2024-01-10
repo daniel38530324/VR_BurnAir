@@ -287,3 +287,10 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 1
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 7291bcec9d746244cb35794223a84ff1, type: 3}
+    name: FireWrong
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
