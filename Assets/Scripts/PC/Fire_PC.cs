@@ -31,9 +31,8 @@ public class Fire_PC : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!beenused)
-        {
-            if(fireName == "Electric" && other.CompareTag("Bubble2")){
+        if(other.CompareTag("Bubble") && !beenused){
+            if(fireName == "Electric"){
                 beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
@@ -41,7 +40,11 @@ public class Fire_PC : MonoBehaviour
                 durationTime = 5;
                 turnOff = true;
                 level2Manager.CheckFinish(2);
-            }else if(fireName == "Chemical" && other.CompareTag("Bubble")){
+            }else{
+                level2Manager.GetWrong();
+            }
+        }else if(other.CompareTag("Metal") && !beenused){
+            if(fireName == "Chemical"){
                 beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
@@ -49,8 +52,12 @@ public class Fire_PC : MonoBehaviour
                 durationTime = 5;
                 turnOff = true;
                 level2Manager.CheckFinish(2);
-            }else if(other.CompareTag("Water") && !beenused)
-            {
+            }else{
+                level2Manager.GetWrong();
+            }
+        }else if(other.CompareTag("Water") && !beenused)
+        {
+            if(fireName == "Podium"){
                 beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
@@ -58,7 +65,13 @@ public class Fire_PC : MonoBehaviour
                 durationTime = 1;
                 turnOff = true;
                 level2Manager.CheckFinish(0);
+            }else{
+                level2Manager.GetWrong();
             }
+        }else if(other.CompareTag("Cover") && !beenused)
+        {
+            level2Manager.GetWrong();
         }
     }
+    
 }

@@ -39,6 +39,7 @@ public class Level2Manager_PC : MonoBehaviour
     [SerializeField] GameObject fires;
     [SerializeField] GameObject combustibles, extinguishingTools;
     [SerializeField] GameObject bucket, bucketSpawnPoint;
+    [SerializeField] GameObject wrong_UI;
 
     [Header("Panel")]
     [SerializeField] GameObject part2Panel, title;
@@ -142,7 +143,7 @@ public class Level2Manager_PC : MonoBehaviour
                 if(learningState[0])
                 {
                     learningState[0] = false;
-                    SendData("使用左鍵開門並將易燃物移到門外");
+                    SendData("使用左鍵開門並將可燃物移到門外");
                 }
                 
                 break;
@@ -188,8 +189,8 @@ public class Level2Manager_PC : MonoBehaviour
 
     public void UpdateCombustiblesCount()
     {
-        mission_Text.text = "移除易燃物:" + combustiblesCount + "/4";
-        part2Panel.GetComponentInChildren<Text>().text = "移除易燃物";
+        mission_Text.text = "移除可燃物:" + combustiblesCount + "/4";
+        part2Panel.GetComponentInChildren<Text>().text = "移除可燃物";
         if(combustiblesCount >= 4)
         {
             UpdateLevel2State(Level2State_PC.Fire);
@@ -317,5 +318,20 @@ public class Level2Manager_PC : MonoBehaviour
     public void CheckFinish(int index)
     {
         finishs[index].SetActive(true);
+    }
+    
+    public void GetWrong()
+    {
+        StartCoroutine(Wrong());
+    }
+
+    IEnumerator Wrong()
+    {
+        timerState = false;
+        wrong_UI.SetActive(true);
+        AudioManager.Instance.PlaySound("FireWrong");
+        yield return new WaitForSeconds(5);
+        wrong_UI.SetActive(false);
+        timerState = true;
     }
 }

@@ -13128,7 +13128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &352111136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22281,6 +22281,7 @@ MonoBehaviour:
   extinguishingTools: {fileID: 998857063}
   bucket: {fileID: 1916628615}
   bucketSpawnPoint: {fileID: 828929822}
+  wrong_UI: {fileID: 399921766}
   part2Panel: {fileID: 58831934}
   title: {fileID: 1040069223}
   successPanel: {fileID: 759325869}
@@ -28520,7 +28521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &875343655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40728,7 +40729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -11}
+  m_AnchoredPosition: {x: -8, y: -11}
   m_SizeDelta: {x: 758.5, y: 266.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204972141
@@ -40758,13 +40759,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8ACB\u628A\u6C34\u6E96\u78BA\u5012\u5728\u706B\u6E90\u4E0A"
+  m_Text: "\u8ACB\u4F7F\u7528\u6B63\u78BA\u7684\u6EC5\u706B\u65B9\u5F0F\u6EC5\u706B"
 --- !u!222 &1204972142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -65361,7 +65362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &1906163582
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -76617,7 +76618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &2066803175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83370,7 +83371,7 @@ GameObject:
   - component: {fileID: 7406383962882726679}
   m_Layer: 0
   m_Name: DryPowder_Particle_C
-  m_TagString: Bubble
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91494,7 +91495,7 @@ GameObject:
   - component: {fileID: 8472792340859569060}
   m_Layer: 0
   m_Name: DryPowder_Particle_C
-  m_TagString: Bubble2
+  m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

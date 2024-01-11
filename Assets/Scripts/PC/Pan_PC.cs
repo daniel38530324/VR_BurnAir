@@ -48,4 +48,13 @@ public class Pan_PC : MonoBehaviour
         main.startSize = 0f;
         fireSound.volume = 0f;
     }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bubble") || other.gameObject.CompareTag("Metal") || other.gameObject.CompareTag("Water"))
+        {
+            level2Manager.GetWrong();
+        }
+    }
+
 }
