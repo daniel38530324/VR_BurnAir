@@ -36,7 +36,8 @@ public class Fire : MonoBehaviour
     {
         if (other.CompareTag("Bubble") && !beenused)
         {
-            if(fireName == "Electric" && other.name == "DryPowder_Particle_E"){
+            if (fireName == "Electric")
+            {
                 beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
@@ -45,7 +46,15 @@ public class Fire : MonoBehaviour
                 turnOff = true;
                 level2Manager.CheckFinish(2);
             }
-            else if(fireName == "Chemical" && other.name == "DryPowder_Particle_C"){
+            else
+            {
+                level2Manager.GetWrong();
+            }
+        }
+        else if (other.CompareTag("Metal") && !beenused)
+        {
+            if (fireName == "Chemical")
+            {
                 beenused = true;
                 level2Manager.fireCount++;
                 level2Manager.UpdateFireCount();
@@ -54,16 +63,32 @@ public class Fire : MonoBehaviour
                 turnOff = true;
                 level2Manager.CheckFinish(3);
             }
+            else
+            {
+                level2Manager.GetWrong();
+            }
         }
-        else if(other.CompareTag("Water") && !beenused)
+        else if (other.CompareTag("Water") && !beenused)
         {
-            beenused = true;
-            level2Manager.fireCount++;
-            level2Manager.UpdateFireCount();
-            level2Manager.GetKnowledgePoints(level2Manager.WaterBucket_UI, true);
-            durationTime = 1;
-            turnOff = true;
-            level2Manager.CheckFinish(0);
+            if (fireName == "Podium")
+            {
+                beenused = true;
+                level2Manager.fireCount++;
+                level2Manager.UpdateFireCount();
+                level2Manager.GetKnowledgePoints(level2Manager.WaterBucket_UI, true);
+                durationTime = 1;
+                turnOff = true;
+                level2Manager.CheckFinish(0);
+            }
+            else
+            {
+                level2Manager.GetWrong();
+            }
+        }
+        else if (other.CompareTag("Cover") && !beenused)
+        {
+            level2Manager.GetWrong();
         }
     }
+
 }

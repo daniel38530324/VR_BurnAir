@@ -34,6 +34,7 @@ public class Level2Manager : MonoBehaviour
     [SerializeField] GameObject fires;
     [SerializeField] GameObject combustibles, extinguishingTools;
     [SerializeField] GameObject bucket, bucketSpawnPoint;
+    [SerializeField] GameObject wrong_UI;
 
     [Header("Panel")]
     [SerializeField] GameObject part2Panel, title;
@@ -320,5 +321,20 @@ public class Level2Manager : MonoBehaviour
     public void CheckFinish(int index)
     {
         finishs[index].SetActive(true);
+    }
+
+    public void GetWrong()
+    {
+        StartCoroutine(Wrong());
+    }
+
+    IEnumerator Wrong()
+    {
+        timerState = false;
+        wrong_UI.SetActive(true);
+        AudioManager.Instance.PlaySound("FireWrong");
+        yield return new WaitForSeconds(5);
+        wrong_UI.SetActive(false);
+        timerState = true;
     }
 }

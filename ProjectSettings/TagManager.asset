@@ -34,6 +34,7 @@ TagManager:
   - Bubble2
   - TutorialExit
   - Floor
+  - Metal
   layers:
   - Default
   - TransparentFX

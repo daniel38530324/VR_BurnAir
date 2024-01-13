@@ -18432,6 +18432,7 @@ MonoBehaviour:
   extinguishingTools: {fileID: 998857063}
   bucket: {fileID: 1916628615}
   bucketSpawnPoint: {fileID: 828929822}
+  wrong_UI: {fileID: 399921766}
   part2Panel: {fileID: 58831934}
   title: {fileID: 1040069223}
   successPanel: {fileID: 759325869}
@@ -24548,7 +24549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &874441020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25200,7 +25201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &908753283
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32492,6 +32493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DryPowder_Particle_C
       objectReference: {fileID: 0}
+    - target: {fileID: 7406383963972968962, guid: 2053cdf7f6d12bc4d8c705dd3e84b86f, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 7406383964047720387, guid: 2053cdf7f6d12bc4d8c705dd3e84b86f, type: 3}
       propertyPath: m_Layer
       value: 12
@@ -38362,7 +38367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -11}
+  m_AnchoredPosition: {x: 173, y: -11}
   m_SizeDelta: {x: 758.5, y: 266.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204972141
@@ -38398,7 +38403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8ACB\u628A\u6C34\u6E96\u78BA\u5012\u5728\u706B\u6E90\u4E0A"
+  m_Text: "\u8ACB\u9078\u64C7\u6B63\u78BA\u7684\u6EC5\u706B\u65B9\u5F0F\u6EC5\u706B"
 --- !u!222 &1204972142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62931,7 +62936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &1781531981
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -63681,7 +63686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level2Manager: {fileID: 724916899}
-  fireName: 
+  fireName: Podium
   beenused: 0
 --- !u!4 &1866003955
 Transform:
@@ -70863,7 +70868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6613\u71C3\u7269"
+  m_Text: "\u53EF\u71C3\u7269"
 --- !u!222 &2073222988
 CanvasRenderer:
   m_ObjectHideFlags: 0
