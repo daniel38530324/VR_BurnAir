@@ -220,7 +220,7 @@ public class Level2Manager_PC : MonoBehaviour
         }
         knowledgePoint.SetActive(true);
         timerState = false;
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(18);
         knowledgePoint.SetActive(false);
         if(level2State != Level2State_PC.Success && level2State != Level2State_PC.CombustiblesFail && level2State != Level2State_PC.FireFail)
         {
