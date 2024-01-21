@@ -823,7 +823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u5316\u5B78\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528<color=yellow><b>\u91D1\u5C6C\u985E\u6EC5\u706B\u5668\u6EC5\u706B</b></color>\uFF0C\u4F46\u4E0D\u5B9C\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B\u3002"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u9019\u4E9B\u9AD8\u6D3B\u6F51\u6027\u91D1\u5C6C\u7684\u7279\u5FB5\u662F\uFF0C\u9047\u6C34\u6703\u52A0\u5287\u5176\u71C3\u71D2\u7206\u70B8\u3002\n\n\u56E0\u6B64\u5316\u5B78\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528<color=yellow><b>\u91D1\u5C6C\u985E\u6EC5\u706B\u5668\u6EC5\u706B</b></color>\uFF0C\u4F46\u4E0D\u5B9C\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B\u3002"
 --- !u!222 &68562420
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19388,8 +19388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -11}
-  m_SizeDelta: {x: 758.5, y: 266.3}
+  m_AnchoredPosition: {x: 26.1, y: -34.4}
+  m_SizeDelta: {x: 746.5, y: 313.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &833189746
 MonoBehaviour:
@@ -19424,7 +19424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u96FB\u5668\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528<color=yellow><b>\u4E7E\u7C89\u6EC5\u706B\u5668\u6EC5\u706B</b></color>\uFF0C\u4F46\u4E0D\u5B9C\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B\u3002"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u4E7E\u7C89\u70BA\u8986\u84CB\u71C3\u71D2\u7269\u4F7F\u5176\u9694\u7D55\u71C3\u71D2\u4E09\u8981\u7D20\u4E2D\u7684\u6C27\u6C23\uFF0C\u7528\u6C34\u6709\u5C0E\u96FB\u6027\uFF0C\u5BB9\u6613\u9020\u6210\u96FB\u5668\u77ED\u8DEF\u71D2\u6BC0\u3002\n\n\u56E0\u6B64\u96FB\u5668\u985E\u578B\u7684\u706B\u707D\u53EF\u4EE5\u4F7F\u7528<color=yellow><b>\u4E7E\u7C89\u6EC5\u706B\u5668\u6EC5\u706B</b></color>\uFF0C\u4F46\u4E0D\u5B9C\u4F7F\u7528\u6C34\u4F86\u6EC5\u706B\u3002"
 --- !u!222 &833189747
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -45091,7 +45091,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a7a0856167b8005419fb3010629f3a6f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d3e1fa94e352a44290209db678cd692, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -64719,7 +64719,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb3f75ac112998349960b4e731927720, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f6577269815515947a6222ae1caede9a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
