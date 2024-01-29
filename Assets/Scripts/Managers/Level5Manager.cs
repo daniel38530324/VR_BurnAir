@@ -238,7 +238,7 @@ public class Level5Manager : MonoBehaviour
                 steelWool_test.SetActive(false);
                 bag1.SetActive(false);
                 bag2.SetActive(false);
-                mission_Text.transform.parent.gameObject.SetActive(false);
+                mission_Text.text = "前往黑板進行測驗";
                 part2.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);

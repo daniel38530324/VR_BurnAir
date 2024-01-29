@@ -194,7 +194,7 @@ public class Level6Manager : MonoBehaviour
                 AudioManager.Instance.PlaySound("Level6_5");
                 plasticSleeve_UI.SetActive(true);
                 Destroy(plasticSleeve_UI, 11);
-                mission_Text.transform.parent.gameObject.SetActive(false);
+                mission_Text.text = "前往黑板進行測驗";
                 plasticSleeve.SetActive(false);
                 robot.SetActive(false);
                 part2.SetActive(false);
