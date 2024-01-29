@@ -139,7 +139,8 @@ public class Level2Manager : MonoBehaviour
                 break;
             case Level2State.Success:
                 timerState = false;
-                mission_Text.transform.parent.gameObject.SetActive(false);
+                timer_Text.transform.parent.gameObject.SetActive(false);
+                mission_Text.text = "前往黑板進行測驗";
                 part2Panel.SetActive(false);
                 successPanel.SetActive(true);
                 if(learningState[1])

@@ -170,7 +170,7 @@ public class Level3Manager_PC : MonoBehaviour
                 mouseLook.RemoveThingOnHand();
                 Destroy(incenseSticks_UI, 11);
                 glassCover2.SetActive(false);
-                mission_Text.transform.parent.gameObject.SetActive(false);
+                mission_Text.text = "前往黑板進行測驗";
                 cover2.SetActive(false);
                 incenseSticks.SetActive(false);
                 part2.SetActive(false);

@@ -205,7 +205,7 @@ public class Level1Manager_PC : MonoBehaviour
                 flour.SetActive(false);
                 candle_control.SetActive(false);
                 candle_test.SetActive(false);
-                mission_Text.transform.parent.gameObject.SetActive(false);
+                mission_Text.text = "前往黑板進行測驗";
                 part2Panel.SetActive(false);
                 questionPanel.SetActive(true);
                 Quesion(0);
