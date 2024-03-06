@@ -90,8 +90,8 @@ public class Level5Manager : MonoBehaviour
                 //hint.SetActive(true);
                 break;
             case Level5State.Place:
-                mission_Text.text = "將鋼棉放在培養皿中";
-                part2.GetComponentInChildren<Text>().text = "將鋼棉放在培養皿中";
+                mission_Text.text = "用夾子夾取鋼棉放入培養皿";
+                part2.GetComponentInChildren<Text>().text = "用夾子夾取鋼棉放入培養皿";
                 testText.text = "實驗組(空氣)";
                 controlText.text = "對照組(保鮮膜)";
                 clip.SetActive(true);
@@ -142,7 +142,7 @@ public class Level5Manager : MonoBehaviour
                 if (learningState[1])
                 {
                     learningState[1] = false;
-                    SendData("將鋼棉放在培養皿中");
+                    SendData("用夾子夾取鋼棉放入培養皿");
                 }
                 break;
             case Level5State.Bag1:
