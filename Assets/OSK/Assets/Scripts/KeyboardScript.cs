@@ -9,7 +9,7 @@ public class KeyboardScript : MonoBehaviour
     public InputField TextField2;
     public GameObject EngLayoutSml, EngLayoutBig, SymbLayout;
 
-    private int InputState = 0;
+    private int InputState = 1;
 
     public void Click_InputField(string id)
     {

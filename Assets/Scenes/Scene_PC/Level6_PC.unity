@@ -9140,10 +9140,10 @@ MonoBehaviour:
   wrong_UI: {fileID: 1709584037}
   equipment:
   - {fileID: 2370941055927552523}
-  - {fileID: 1989086377}
   - {fileID: 1213621783}
-  - {fileID: 514892231}
+  - {fileID: 1989086377}
   - {fileID: 849828934}
+  - {fileID: 514892231}
   wrong:
   - {fileID: 611321701}
   UpdateLevelState:
@@ -23036,7 +23036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3534, y: -433}
+  m_AnchoredPosition: {x: 3534, y: -465}
   m_SizeDelta: {x: 79.6, y: 79.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446854443

@@ -2994,10 +2994,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrong_UI: {fileID: 1709584037}
   equipment:
-  - {fileID: 1739711915}
   - {fileID: 296503287}
-  - {fileID: 919132148277774812}
   - {fileID: 602073208}
+  - {fileID: 1739711915}
+  - {fileID: 919132148277774812}
   wrong:
   - {fileID: 1919126898}
   - {fileID: 0}
@@ -23900,7 +23900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5C0F\u8607\u6253\u7C89\u548C\u918B\u9178\u5C31\u6703<color=yellow><b>\u7522\u751F\u4E8C\u6C27\u5316\u78B3</b></color>\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u5C07\u5851\u81A0\u888B\u5957\u4F4F\u5EE3\u53E3\u74F6\u5427\u3002\r\n"
+  m_Text: "\u505A\u5F97\u597D\uFF0C\u5C07\u5C0F\u8607\u6253\u7C89\u548C\u918B\u9178\u5C31\u6703<color=yellow><b>\u7522\u751F\u4E8C\u6C27\u5316\u78B3</b></color>\u3002\n\n\u63A5\u4E0B\u4F86\u5C07\u5851\u81A0\u888B\u5957\u4F4F\u5EE3\u53E3\u74F6\u5427\u3002\r\n"
 --- !u!222 &541988771
 CanvasRenderer:
   m_ObjectHideFlags: 0

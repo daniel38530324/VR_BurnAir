@@ -8039,8 +8039,8 @@ MonoBehaviour:
   wrong_UI: {fileID: 1709584037}
   equipment:
   - {fileID: 611321701}
-  - {fileID: 919132149193976460}
   - {fileID: 919132148277774812}
+  - {fileID: 611321701}
   wrong:
   - {fileID: 1919126898}
   - {fileID: 919132148772126952}
