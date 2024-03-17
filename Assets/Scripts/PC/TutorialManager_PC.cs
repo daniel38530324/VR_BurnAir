@@ -33,7 +33,7 @@ public class TutorialManager_PC : MonoBehaviour
                 hint.text = "傾倒水桶倒出";
                 break;
             case "Paint Gun":
-                hint.text = "按下板機鍵噴灑";
+                hint.text = "按下右鍵噴灑";
                 break;
             case "Flour":
                 hint.text = "傾倒麵粉倒出";
@@ -45,10 +45,10 @@ public class TutorialManager_PC : MonoBehaviour
                 hint.text = "傾倒金針菇倒出";
                 break;
             case "Lemonade":
-                hint.text = "按下板機鍵噴灑";
+                hint.text = "按下右鍵噴灑";
                 break;
             case "Dropper":
-                hint.text = "按下板機鍵擠出";
+                hint.text = "按下右鍵噴灑";
                 break;
             case "Fan":
                 hint.text = "搧動扇子吹風";

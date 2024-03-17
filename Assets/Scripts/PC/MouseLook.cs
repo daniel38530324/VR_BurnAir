@@ -325,7 +325,8 @@ public class MouseLook : MonoBehaviour
                         currentRayTransform.GetComponent<Rigidbody>().isKinematic = true;
                         beCatchName = "PaintGun_interact";
                         if(SceneManager.GetActiveScene().name == "Tutorial_PC"){
-                            tutorialManager_PC.GetHint("Paint Bucket");
+                            //tutorialManager_PC.GetHint("Paint Bucket");
+                            tutorialManager_PC.GetHint("Paint Gun");
                         }
                     }
                     break;
