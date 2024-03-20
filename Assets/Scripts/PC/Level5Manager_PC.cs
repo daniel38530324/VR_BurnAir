@@ -198,8 +198,9 @@ public class Level5Manager_PC : MonoBehaviour
                 CheckFinish(6);
                 if (bag1_UI)
                 {
+                    AudioManager.Instance.PlaySound("Level5_4");
                     bag1_UI.SetActive(true);
-                    Destroy(bag1_UI, 7);
+                    Destroy(bag1_UI, 11);
                 }
                 if (learningState[3])
                 {
