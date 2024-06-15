@@ -50,4 +50,14 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void GoToApp()
+    {
+        Application.OpenURL("viversebusiness://");
+    }
+
+    public void GoToVR()
+    {
+        Application.OpenURL("EducationMarket://Project_112-V02");
+    }
 }

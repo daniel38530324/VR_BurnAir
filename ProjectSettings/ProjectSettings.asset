@@ -236,7 +236,7 @@ PlayerSettings:
   clonedFromGUID: 9870af204204ab84596f8a656f2f2ce6
   templatePackageId: com.unity.template.universal@10.8.0
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
@@ -694,7 +694,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    7: USE_VIVE_OPENXR_ANDROID_1_0_5
+    7: USE_VIVE_WAVE_XR_5_3_1;USE_VIVE_OPENXR_ANDROID_1_0_5
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
